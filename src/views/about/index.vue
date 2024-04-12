@@ -1,31 +1,21 @@
 <template>
   <div class="about">
-    <swiper
-      :slides-per-view="3"
-      :space-between="50"
-      @swiper="onSwiper"
-      @slideChange="onSlideChange"
-    >
-      <swiper-slide>Slide 1</swiper-slide>
-      <swiper-slide>Slide 2</swiper-slide>
-      <swiper-slide>Slide 3</swiper-slide>
-      <swiper-slide>Slide 3</swiper-slide>
-      <swiper-slide>Slide 3</swiper-slide>
-      <swiper-slide>Slide 3</swiper-slide>
-    </swiper>
+    <div class="top_banner2">
+      <img src="@/assets/img/about/about_banner.png" alt="">
+      <div class="t_box">
+        <p class="title AntonFont">WHY EHONOS</p>
+      </div>
+    </div> 
+    <div class="a_content">
+      123
+    </div>
   </div>
 </template>
 <script>
-  // Import Swiper Vue.js components
-import { Swiper, SwiperSlide } from 'swiper/vue';
-import 'swiper/css';
 import { nextTick, onMounted, reactive, toRefs } from 'vue';
-
   export default {
     name: "about",
     components: {
-      Swiper,
-      SwiperSlide,
     },
     setup() {
       const state = reactive({

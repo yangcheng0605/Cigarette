@@ -1,12 +1,39 @@
 .footer {
   background: #111;
   background-size: 100%;
-  padding: 5rem 6%;
-  font-family: H-Light;
-  color: #fff
+  // font-family: H-Light;
+  color: #fff;
 }
-
-
+.footer .desktop-only{
+  display: flex;
+  justify-content: space-between;
+}
+.footer-left{
+  width: 26.8%;
+  float: left;
+  position: relative;
+  background: url('../img/footer/mark_bg.png') no-repeat  100%/ 100%;
+  .f_block{
+    width: 11.25rem;
+    position: absolute;
+    top: 50%;
+    right: 6.25rem;
+    transform: translateY(-50%);
+    .f_logo{
+      width: 8.375rem;
+    }
+    .f_mark{
+      height: 4px;
+      margin: 15px 0 30px;
+    }
+    .f_mark2{
+    }
+  }
+}
+.footer-right{
+  padding: 6.25rem 12.5rem 6.25rem 8.375rem;
+  width: calc(100% - 26.8%);
+}
 .fi1_right {
   width: 38%;
   display: flex;
@@ -22,12 +49,12 @@
   font-size: .9375rem;
   display: block;
   margin-top: .5rem;
-  font-family: H-Medium
+  // font-family: H-Medium
 }
 
 .ft_title {
-  font-family: H-Bold;
-  font-size: 1.2rem
+  // font-family: H-Bold;
+  font-size: 14px;
 }
 
 .fir1_right {
@@ -35,7 +62,7 @@
   display: flex;
   align-items: center;
   position: relative;
-  font-family: H-Medium
+  // font-family: H-Medium
 }
 
 .fir1_right input {
@@ -57,7 +84,7 @@
   height: 3rem;
   text-align: center;
   line-height: 3rem;
-  background: #44d62c;
+  background: #FAC233;
   width: 9rem;
   color: #fff;
   font-size: .9375rem;
@@ -71,37 +98,38 @@
 .footer_item2 {
   padding: 1rem 0 1rem;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .fi2_left {
-  width: 50%;
+  width: 55%;
   display: flex;
   justify-content: space-between
 }
 
+.fi2_right {
+  width: 26%
+}
 .fi2_text {
-  margin-top: 2rem;
-  font-size: .9375rem
+  margin-top: 1rem;
+  font-size: 12px
 }
 
 .fi2_text div {
-  margin-bottom: 1rem;
+  margin-bottom: .75rem;
   cursor: pointer
 }
-
+.ft_title a:hover,
 .fi2_text div:hover {
-  color: #44d62c
+  color: #FAC233
 }
 
 .fi2_text span {
-  color: #44d62c;
-  font-family: H-ExtLtIta
+  color: #FAC233;
+  // font-family: H-ExtLtIta
 }
 
-.fi2_right {
-  width: 16%
-}
+
 
 .fir2_text {
   margin-top: 1.5rem;
@@ -109,13 +137,13 @@
 }
 
 .fir2_text div {
-  font-family: H-Bold;
+  // font-family: H-Bold;
   font-size: 1.5rem;
   margin-bottom: 1.5rem
 }
 
 .fir2_text a {
-  color: #44d62c
+  color: #FAC233
 }
 
 .fir2_text p {
@@ -149,21 +177,21 @@
 
 .footerFlag {
   margin-top: 1rem;
-  font-size: .9375rem;
-  color: #999;
-  font-family: H-Regular
+  font-size: 12px;
+  color: rgba(255, 255, 255, .5);
+  // font-family: H-Regular
 }
 
 .fir3_right {
-  width: 60%;
+  width: 80%;
   display: flex;
   justify-content: space-between;
   align-items: center
 }
 
 .fir3_right a {
-  width: 2rem;
-  height: 2rem;
+  width: 1.875rem;
+  height: 1.875rem;
   border-radius: 50%;
   background: #ccc;
   display: flex;
@@ -172,7 +200,7 @@
 }
 
 .fir3_right a:hover {
-  background: #44d62c
+  background: #FAC233
 }
 
 .fir3_right a img {
@@ -199,7 +227,7 @@
   .fir1_left span {
       font-size: .75rem;
       margin-top: 0;
-      font-family: H-Light
+      // font-family: H-Light
   }
 
   .fir1_right {
@@ -255,7 +283,7 @@
   .Fnav {
       padding: .8rem 0;
       border-top: 1px solid #666;
-      font-family: H-Bold;
+      // font-family: H-Bold;
       font-size: 1.2rem;
       color: #fff
   }
@@ -269,7 +297,7 @@
   }
 
   .Fnav_link a {
-      font-family: H-Light;
+      // font-family: H-Light;
       font-size: .9375rem;
       color: #fff;
       line-height: 2rem;
@@ -288,7 +316,7 @@
   }
 
   .fir2_text a {
-      color: #44d62c!important;
+      color: #FAC233!important;
       display: inline!important;
       line-height: 1!important
   }

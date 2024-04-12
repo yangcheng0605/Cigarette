@@ -5,19 +5,10 @@
       <div id="shopify-section-home" class="shopify-section">
         <div class="homepage">
           <router-view />
-          <router-link to="/">Home</router-link> |
-          <router-link to="/about">About</router-link>
-          <div class="box1">
+          
+          <!-- <div class="box1">
             内容1
             <div class="wow animate__rubberBand" data-wow-offset="100">显示1</div>
-          </div>
-          <div class="box2">
-            内容2
-            <div class="wow animate__rubberBand" data-wow-offset="100">显示2</div>
-          </div>
-          <div class="box3">
-            内容3
-            <div class="wow animate__rubberBand" data-wow-offset="100">显示3</div>
           </div>
           <div class="box4">
             内容4
@@ -30,7 +21,7 @@
           <div class="box6">
             内容
             <div class="wow animate__backInRight" data-wow-offset="100">显示6</div>
-          </div>
+          </div> -->
         </div>
       </div>
     </main>

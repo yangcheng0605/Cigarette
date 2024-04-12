@@ -199,6 +199,13 @@ input:-webkit-autofill:active {
   src: url(https://cdn.shopifycdn.net/s/files/1/0584/6709/0582/files/Seven_Segment.ttf?v=1691476336)
 }
 
+@font-face {
+  font-family: Anton-Regular;
+  src: url('../font/Anton-Regular.ttf')
+}
+.AntonFont{
+  font-family: Anton-Regular
+}
 
 
 .desktop-only {
@@ -690,17 +697,92 @@ div,input,textarea {
   width: 100%
 }
 
+// 公共
+.top_banner,.top_banner2{
+  width: 100%;
+  height: 15rem;
+  position: relative;
+  .t_box{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    p{
+      color: #F5B81A;
+      text-align: center;
+    }
+    .title{
+      font-size: 3.75rem;
+      font-weight: 400;
+      text-shadow: 0px 2px 4px rgba(0,0,0,0.5);
+    }
+  }
+}
+.top_banner2{
+  height: 25rem;
+}
+.a_content,.a_content2{
+  padding: 7.5rem 15rem;
+  background: #FEF8E8;
+  .a_content_top{
+    margin-bottom: 3.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .title{
+      font-size: 2.5rem;
+    }
+    .sub_title{
+      padding-bottom: .687rem;
+      border-bottom: 1px solid #F5B81A;
+    }
+  }
+  .gutter-box{
+    position: relative;
+    // padding: 2.5rem;
+  }
+  .a_text{
+    position: absolute;
+    left: 2.5rem;
+    bottom: 2.5rem;
+    .a_title{
+      color: #FFF;
+      font-size: 2.5rem;
+      line-height: 40px;
+    }
+    .a_email{
+      margin-top: 1.25rem;
+      color: #FAC233;
+      font-size: .875rem;
+    }
+  }
+}
+.a_content2{
+  padding: 5rem 15rem 7.5rem;
+}
+// 图片放大
+.hoverImg, .hoverBox{
+  cursor: pointer;
+  transition: all .5s;
+  overflow: hidden;
+}
+.hoverBox:hover{
+  border-radius: 20px;
+  .hoverImg{
+    transform: scale(1.3);
+  }
+}
 @media (max-width: 750px) {
   html {
       font-size:calc(16/390*100vw)
   }
 
   .desktop-only {
-      display: none
+      display: none !important;
   }
 
   .mobile-only {
-      display: block
+      display: block !important;
   }
 
   .wrapper {

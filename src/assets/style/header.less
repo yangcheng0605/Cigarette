@@ -5,7 +5,7 @@
   font-size: .875rem;
   height: 2.5rem;
   line-height: 2.5rem;
-  color: #DBA419
+  color: #F5B81A
 }
 
 .warning span {
@@ -89,12 +89,12 @@
 }
 
 .mp_nav {
-  width: 20%;
+  width: 50%;
   margin: 2rem auto 0;
   display: flex;
   justify-content: space-between;
   .mp_nav_hover {
-    color: #DBA419;
+    color: #F5B81A;
   }
 }
 
@@ -135,7 +135,7 @@
 }
 
 .mp_more:hover {
-  color: #DBA419
+  color: #F5B81A
 }
 
 .mp_img {
@@ -168,7 +168,7 @@
 }
 
 .maex_nav:hover {
-  color: #DBA419
+  color: #F5B81A
 }
 
 .main_mask {
@@ -189,16 +189,16 @@
 }
 
 .main_left {
-  width: 22%;
+  width: 20%;
   cursor: pointer
 }
 
 .main_left img {
-  width: 10rem
+  width: 134px
 }
 
 .main_center {
-  width: 50%
+  width: 55%
 }
 
 .main_center img {
@@ -229,7 +229,7 @@
   justify-content: space-between;
   align-items: center;
   font-family: H-Bold;
-  font-size: .9375rem;
+  font-size: 12px;
   color: #000;
   width: 80%;
   span{
@@ -238,7 +238,7 @@
     padding: 1.25rem 0;
   }
   .nav_active{
-    color: #DBA419;
+    color: #F5B81A;
   }
 }
 
@@ -248,6 +248,12 @@
   position: relative;
   display: flex;
   align-items: center;
+  .ant-select.ant-select-single .ant-select-selector{
+    padding-left: 8px !important;
+    .ant-select-selection-item{
+      font-style: 12px !important;
+    }
+  }
 }
 
 .mr_right {
@@ -261,7 +267,7 @@
   display: block;
   margin: 0 auto;
   cursor: pointer;
-  width: 2rem
+  width: .875rem
 }
 
 .mr_search {
@@ -275,7 +281,7 @@
   margin-left: 0
 }
 .nav span:hover {
-  color: #DBA419
+  color: #F5B81A
 }
 
 .header {
@@ -285,7 +291,12 @@
   z-index: 444;
   width: 100%
 }
+@media (max-width: 950px) {
+  .main_center .nav {
+    width: 100%
+  }
 
+}
 @media (max-width: 750px) {
   .warning {
       height:3.5rem;
@@ -300,9 +311,9 @@
   }
 
   .main {
-      padding: 0 4%;
+      padding: 0 20px;
       position: relative;
-      height: 3rem
+      height: 3.9rem
   }
 
   .main_left {
@@ -318,8 +329,9 @@
   }
 
   .main_center img {
-      width: 100%;
-      animation: none
+      width: 61%;
+      animation: none;
+      margin: 0;
   }
 
   .main_Mright {
@@ -468,7 +480,7 @@
   .warning_move1 {
       animation: none;
       transform: translate(0);
-      width: 90%;
+      width: 85%;
       margin: 0 auto
   }
 
@@ -489,7 +501,7 @@
   }
 
   .Mcontact div a {
-      color: #DBA419;
+      color: #F5B81A;
       display: inline;
       font-size: .75rem;
       line-height: 1

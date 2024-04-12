@@ -17,6 +17,7 @@ import { Spin, Image, message, Popover, Steps, Drawer, Collapse, Dropdown, Timel
 const app = createApp(App)
 
 app.config.globalProperties.$wow = wow
+app.config.globalProperties.$message = message
 
 // 常用的ant-design-vue组件
 app.use(Image)

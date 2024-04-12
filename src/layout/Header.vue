@@ -14,7 +14,7 @@
       <div class="desktop-only">
         <div class="main">
           <div class="main_left">
-            <a href="/"><img src="https://cdn.shopifycdn.net/s/files/1/0584/6709/0582/files/5c1c18adb65c7850c0e95c123d529df6.png"></a>
+            <a href="/"><img src="@/assets/img/logo_black.png"></a>
           </div>
           <div class="main_center">
             <!-- <img src="https://cdn.shopify.com/s/files/1/0584/6709/0582/files/LOGO_ef84e310-cf14-4332-84b8-9289cc9bcf8e.png?v=1708911023"> -->
@@ -25,13 +25,14 @@
           <div class="main_right">
             <div class="mr_right">
               <div class="language">
-                <img src="https://cdn.shopify.com/s/files/1/0584/6709/0582/files/c612623eecd5d6caf43cc565792f8830.png?v=1708911022">
+                <img src="@/assets/img/lang.png">
                 <div>
                   <a-select
                     v-model:value="lang_itemp"
                     ref="select"
-                    style="width: 120px"
+                    style="width: 80px"
                     :bordered="false"
+                    :dropdownMatchSelectWidth="false"
                     :showArrow="false"
                   >
                     <a-select-option value="en">English</a-select-option>
@@ -40,16 +41,16 @@
               </div>
             </div>
           </div>
-          <div class="main_mask" :class="popIndex||popIndex===0?'main_mask_show':''"></div>
-          <div class="main_popup1 main_popup" :class="popIndex == 0?'main_popup_show':''" @mouseleave="leaveTo">
+          <div class="main_mask" :class="popIndex===1?'main_mask_show':''" @mouseover="leaveTo"></div>
+          <div class="main_popup1 main_popup" :class="popIndex == 1?'main_popup_show':''" @mouseleave="leaveTo">
             <div class="mp_nav">
-              <div @mouseover="proHoverTo(index)" v-for="(item, index) in mpList" :key="index" :class="index == proIndex?'mp_nav_hover':''">{{index == proIndex?'&gt;':''}} {{item.name}}</div>
+              <div @mouseover="proHoverTo(index)" v-for="(item, index) in mpType" :key="index" :class="index == proIndex?'mp_nav_hover':''">{{index == proIndex?'&gt;':''}} {{item.name}}</div>
             </div>
             <div class="mp_content">
               <div class="mp_product">
-                <div class="mp_items">
-                  <div class="mp_item" v-for="(item, index) in mpList[proIndex].product" :key=index>
-                    <a :href="item.path">
+                <div class="mp_items" v-if="mpList[proIndex] && mpList[proIndex].length>0">
+                  <div class="mp_item" v-for="(item, index) in mpList[proIndex] || []" :key=index>
+                    <a :href="item.path" >
                       <div class="mp_img">
                         <img :src="item.imgurl">
                       </div>
@@ -57,83 +58,20 @@
                     </a>
                   </div>
                 </div>
-              </div>
-              <div class="mp_product">
-                <div class="mp_items">
-                  <div class="mp_item">
-                    <a href="/pages/magic-maze-pro">
-                      <div class="mp_img">
-                        <img src="//www.oxbar.com/cdn/shop/files/2024-_-_-594x636-MAZE_PRO.png?v=1709796749">
-                      </div>
-                      <span>MAGIC MAZE PRO</span>
-                    </a>
-                  </div>
-                  
-                  <div class="mp_item">
-                    <a href="/pages/mini">
-                      <div class="mp_img">
-                        <img src="//www.oxbar.com/cdn/shop/files/2024-_-_-594x636-MINI_ddd64a2d-b600-4507-8edf-ed99344cf8d1.png?v=1709792444">
-                      </div>
-                      <span>MINI</span>
-                    </a>
-                  </div>
-                  
-                  <div class="mp_item">
-                    <a href="/pages/g8000">
-                      <div class="mp_img">
-                        <img src="//www.oxbar.com/cdn/shop/files/2024-_-_-594x636-G8000_6e956cb2-e862-440d-a8b3-662ec4eb0a09.png?v=1709792444">
-                      </div>
-                      <span>G8000</span>
-                    </a>
-                  </div>
-                  
-                  <div class="mp_item">
-                    <a href="/pages/c800">
-                      <div class="mp_img">
-                        <img src="//www.oxbar.com/cdn/shop/files/2024-_-_-594x636-C800_5d13c649-52d8-446a-b7ad-2a3f21c8a250.png?v=1709792444">
-                      </div>
-                      <span>C800</span>
-                    </a>
-                  </div>
-                  
-                </div>
-              </div>
-              <div class="mp_product">
-                <div class="mp_items">
-                  
-                      
-                  <div class="mp_item">
-                    <a href="/pages/rrd">
-                      <div class="mp_img">
-                        <img src="//www.oxbar.com/cdn/shop/files/2024-_-_-594x636-RRD.png?v=1709796749">
-                      </div>
-                      <span>RRD</span>
-                    </a>
-                  </div>
-                  
-                  <div class="mp_item">
-                    <a href="/pages/rrd">
-                      <div class="mp_img">
-                        <img src="//www.oxbar.com/cdn/shop/files/2024-_-_-594x636-RRD_TPD.png?v=1708915759">
-                      </div>
-                      <span>RRD(TPD)</span>
-                    </a>
-                  </div>
-                  
-                </div>
+                <a-empty :image="Empty.PRESENTED_IMAGE_SIMPLE" v-else />
               </div>
             </div>
             <div class="mp_more">
               <a href="/#/products">Learn more &gt;</a>
             </div>
           </div>
-          <div class="main_popup2 main_popup" :class="popIndex == 1?'main_popup_show':''" @mouseleave="leaveTo">
+          <!-- <div class="main_popup2 main_popup" :class="popIndex == 1?'main_popup_show':''" @mouseleave="leaveTo">
             <div class="mainex">
-              <a class="maex_nav" href="/pages/wholesaler?id=0"><div>BECOME A WHOLESALE</div></a>
+              <a class="maex_nav" href="/#/wholesale?id=0"><div>BECOME A WHOLESALE</div></a>
               
-              <a class="maex_nav" href="/pages/wholesaler?id=1"><div>GET FREE SAMPLE</div></a>
+              <a class="maex_nav" href="/#/wholesale?id=1"><div>GET FREE SAMPLE</div></a>
               
-              <a class="maex_nav" href="/pages/wholesaler?id=2"><div>FREE PROMOTIONAL MATERIALS</div></a>
+              <a class="maex_nav" href="/#/wholesale?id=2"><div>FREE PROMOTIONAL MATERIALS</div></a>
               
             </div>
           </div>
@@ -141,76 +79,67 @@
             <div class="mainex">
               
                   
-              <a class="maex_nav" href="/pages/support?id=0"><div>CONTACT US</div></a>
+              <a class="maex_nav" href="/#/support?id=0"><div>CONTACT US</div></a>
               
-              <a class="maex_nav" href="/pages/support?id=1"><div>PRODUCT VERIFICATION</div></a>
+              <a class="maex_nav" href="/#/support?id=1"><div>PRODUCT VERIFICATION</div></a>
               
-              <a class="maex_nav" href="/pages/support?id=2"><div>FAQ</div></a>
+              <a class="maex_nav" href="/#/support?id=2"><div>FAQ</div></a>
               
             </div>
           </div>
           <div class="main_popup4 main_popup" :class="popIndex == 3?'main_popup_show':''" @mouseleave="leaveTo">
             <div class="mainex">
-              <a class="maex_nav" href="/pages/blog?id=0"><div>CONTACT</div></a>
+              <a class="maex_nav" href="/#/blog?id=0"><div>CONTACT</div></a>
             </div>
           </div>
           <div class="main_popup5 main_popup" :class="popIndex == 4?'main_popup_show':''" @mouseleave="leaveTo">
             <div class="mainex">
-              <a class="maex_nav" href="/pages/blog?id=0"><div>ABOUT</div></a>
+              <a class="maex_nav" href="/#/blog?id=0"><div>ABOUT</div></a>
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
       <div class="mobile-only">
         <div class="main" >
+          <div class="main_center">
+            <a href="/"><img src="@/assets/img/logo_black.png"></a>
+          </div>
           <div :class="['main_Mright', show?'Mright_active':'']" @click="targetShowNav">
             <div class="Mright_line" :style="{ background: show?'transparent':'#000'}" ></div>
           </div>
-          <div class="main_center">
-            <a href="/"><img src="https://cdn.shopifycdn.net/s/files/1/0584/6709/0582/files/5c1c18adb65c7850c0e95c123d529df6.png"></a>
-          </div>
-          <div class="main_left"></div>
           <div :class="['Main_popup', show?'Main_popup_active':'']">
             <div class="Main_item">
               <a-collapse  ghost accordion>
-                <a-collapse-panel class="Mnav" key="1" header="HOME" :show-arrow="false">
-                  <template #extra><PlusOutlined /></template>
-                  <div class="Mnav_link">
-                    <a href="/pages/contact">HOME</a>
-                  </div>
-                </a-collapse-panel>
+                <p class="Mnav" >
+                  <a href="/">
+                    HOME
+                  </a>
+                </p>
                 <a-collapse-panel class="Mnav" key="2" header="PRODUCTS" :show-arrow="false">
                   <template #extra><PlusOutlined /></template>
                   <div class="Mnav_link">
-                    <a href="/pages/products">ALL</a>
-                    <a href="/pages/magic-maze-pro">MAGIC MAZE PRO</a>
-                    <a href="/pages/mini">MINI &amp; MINI 2200</a>
-                    <a href="/pages/g8000-pro">G8000 PRO</a>
-                    <a href="/pages/r8000">R8000</a>
-                    <a href="/pages/g8000">G8000</a>
-                    <a href="/pages/rrd">RRD</a>
+                    <a href="/#/products">New Arrivais</a>
+                    <a href="/#/magic-maze-pro">Disposable Series</a>
+                    <a href="/#/mini">E-liquid</a>
+                    <a href="/#/g8000-pro">Coil</a>
+                    <a href="/#/r8000">Other</a>
                   </div>
                 </a-collapse-panel>
-                <a-collapse-panel class="Mnav" key="3" header="WHOLESALE" :show-arrow="false">
-                  <template #extra><PlusOutlined /></template>
-                  <div class="Mnav_link">
-                    <a href="/pages/wholesaler?id=0">BECOME A WHOLESALE</a>
-                    <a href="/pages/wholesaler?id=1">GET FREE SAMPLE</a>
-                    <a href="/pages/wholesaler?id=2">FREE PROMOTIONAL MATERIALS</a>
-                  </div>
-                </a-collapse-panel>
-                <a-collapse-panel class="Mnav" key="3" header="CONTACT US" :show-arrow="false">
-                  <template #extra><PlusOutlined /></template>
-                  <div class="Mnav_link">
-                    <a href="/pages/contact">CONTACT US</a>
-                  </div>
-                </a-collapse-panel>
-                <a-collapse-panel class="Mnav" key="3" header="ABOUT US" :show-arrow="false">
-                  <template #extra><PlusOutlined /></template>
-                  <div class="Mnav_link">
-                    <a href="/pages/about">ABOUT US</a>
-                  </div>
-                </a-collapse-panel>
+                <p class="Mnav" >
+                  <a href="/#/wholesale">
+                    WHOLESALE
+                  </a>
+                </p>
+                <p class="Mnav" >
+                  <a href="/#/contact">
+                  CONTACT US
+                </a>
+                </p>
+                <p class="Mnav" >
+                  <a href="/#/about">
+                    ABOUT US
+                  </a>
+                </p>
               </a-collapse>
             </div>
           </div>
@@ -225,6 +154,7 @@ import "@/assets/style/header.less"
 import { nextTick, onMounted, reactive, ref, toRefs, watch } from 'vue';
 import { PlusOutlined } from "@ant-design/icons-vue";
 import { useRoute, useRouter } from 'vue-router';
+import { Empty } from "ant-design-vue";
 import Storage from '@/utils/storage';
 import _ from 'lodash';
 export default {
@@ -242,31 +172,42 @@ export default {
       navList: [
         {name: 'HOME', path: '/home', active: false},
         {name: 'PRODUCTS', path: '/products', active: false},
-        {name: 'WHOLESALE', path: '/wholesaler', active: false},
-        {name: 'CONTACT US', path: '/contact', active: false},
+        {name: 'WHOLESALE', path: '/wholesale', active: false},
         {name: 'ABOUT US', path: '/about', active: false},
+        {name: 'CONTACT US', path: '/contact', active: false},
       ],
       mpIndex: 0,
       proIndex: 0,
+      mpType:[
+        {name: 'New Arrivals'},
+        {name: 'Disposable Series'},
+        {name: 'Pod Series'},
+        {name: 'E-liquid'},
+        {name: 'Other'},
+      ],
       mpList: [
-        {name: 'ALL', product:[
-          { name: 'MAGIC MAZE PRO',  path : '/pages/magic-maze-pro', imgurl: '//www.oxbar.com/cdn/shop/files/2024-_-_-594x636-MAZE_PRO.png?v=1709796749'},
-          { name: 'MINI',  path : '/pages/mini', imgurl: '//www.oxbar.com/cdn/shop/files/2024-_-_-594x636-MINI_ddd64a2d-b600-4507-8edf-ed99344cf8d1.png?v=1709792444'},
-          { name: 'MINI 2200',  path : '/pages/mini', imgurl: '//www.oxbar.com/cdn/shop/files/2024-_-_-594x636-MINI_2200_dd76599c-096d-4f23-9ea7-34dec90b3cbe.png?v=1709792444'},
-          { name: 'G8000 PRO',  path : '/pages/g8000-pro', imgurl: '//www.oxbar.com/cdn/shop/files/2024-_-_-594x636-G8000_PRO.png?v=1708914584'},
-          { name: 'G8000',  path : '/pages/g8000-pro', imgurl: '//www.oxbar.com/cdn/shop/files/2024-_-_-594x636-G8000_6e956cb2-e862-440d-a8b3-662ec4eb0a09.png?v=1709792444'},
-        ]},
-        {name: 'DISPOSABLE', product:[
+        [
+          { name: 'MAGIC MAZE PRO',  path : '/#/product?id=1', imgurl: require('../assets/img/product/pro_1.png')},
+          { name: 'MINI',  path : '/#/product?id=2', imgurl: require('../assets/img/product/pro_2.png')},
+          { name: 'MINI 2200',  path : '/#/product?id=3', imgurl: require('../assets/img/product/pro_3.png')},
+          { name: 'G8000 PRO',  path : '/#/product?id=4', imgurl: require('../assets/img/product/pro_4.png')},
+          { name: 'G8000',  path : '/#/product?id=5', imgurl: require('../assets/img/product/pro_5.png')},
+        ],
+        [
 
-          { name: 'MAGIC MAZE PRO',  path : '/pages/magic-maze-pro', imgurl: '//www.oxbar.com/cdn/shop/files/2024-_-_-594x636-MAZE_PRO.png?v=1709796749'},
-          { name: 'G8000 PRO',  path : '/pages/g8000-pro', imgurl: '//www.oxbar.com/cdn/shop/files/2024-_-_-594x636-G8000_PRO.png?v=1708914584'},
-          { name: 'G8000',  path : '/pages/g8000-pro', imgurl: '//www.oxbar.com/cdn/shop/files/2024-_-_-594x636-G8000_6e956cb2-e862-440d-a8b3-662ec4eb0a09.png?v=1709792444'},
-        ]},
-        {name: 'REFILLABLE', product:[
-          { name: 'MINI',  path : '/pages/mini', imgurl: '//www.oxbar.com/cdn/shop/files/2024-_-_-594x636-MINI_ddd64a2d-b600-4507-8edf-ed99344cf8d1.png?v=1709792444'},
-          { name: 'MINI 2200',  path : '/pages/mini', imgurl: '//www.oxbar.com/cdn/shop/files/2024-_-_-594x636-MINI_2200_dd76599c-096d-4f23-9ea7-34dec90b3cbe.png?v=1709792444'},
-          { name: 'MAGIC MAZE PRO',  path : '/pages/magic-maze-pro', imgurl: '//www.oxbar.com/cdn/shop/files/2024-_-_-594x636-MAZE_PRO.png?v=1709796749'},
-        ]}
+          { name: 'MAGIC MAZE PRO',  path : '/#/product?id=1', imgurl: require('../assets/img/product/pro_1.png')},
+          { name: 'G8000 PRO',  path : '/#/product?id=4', imgurl: require('../assets/img/product/pro_4.png')},
+          { name: 'G8000',  path : '/#/product?id=5', imgurl: require('../assets/img/product/pro_5.png')},
+        ],
+        [
+          { name: 'MINI',  path : '/#/product?id=2', imgurl: require('../assets/img/product/pro_2.png')},
+          { name: 'MINI 2200',  path : '/#/product?id=3', imgurl: require('../assets/img/product/pro_3.png')},
+          { name: 'MAGIC MAZE PRO',  path : '/#/product?id=1', imgurl: require('../assets/img/product/pro_1.png')},
+        ],
+        [
+          { name: 'MINI 2200',  path : '/#/product?id=3', imgurl: require('../assets/img/product/pro_3.png')},
+          { name: 'MAGIC MAZE PRO',  path : '/#/product?id=1', imgurl: require('../assets/img/product/pro_1.png')},
+        ]
       ]
     })
     onMounted(async () => { 
@@ -297,7 +238,6 @@ export default {
      var path = e.fullPath
      if (Storage.getItem('navActive')) {
         state.navList = _.map(state.navList, item => {
-          console.log(item.path, path)
           if (item.path === path) {
             item.active = true;
           } else {
@@ -308,6 +248,7 @@ export default {
       }
     }, { immediate: true })
     return {
+      Empty,
       ...toRefs(state),
       targetShowNav,
       linkTo,
