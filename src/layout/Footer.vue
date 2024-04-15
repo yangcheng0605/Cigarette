@@ -17,8 +17,8 @@
                         <div class="fi2_text">
                             <div><a href="/#/products?type=1">&gt; New Arrivais</a> <!-- <span>NEW</span> --></div>
                             <div><a href="/#/products?type=2">&gt; Disposable Series</a> </div>
-                            <div><a href="/#/products?type=3">&gt; E-liquid</a></div>
-                            <div><a href="/#/products?type=4">&gt; Coil</a></div>
+                            <div><a href="/#/products?type=3">&gt; Pod Series</a></div>
+                            <div><a href="/#/products?type=4">&gt; E-liquid</a></div>
                             <div><a href="/#/products?type=5">&gt; Other</a></div>
                         </div>
                     </div>
@@ -94,8 +94,8 @@
           <div class="Fnav_link">
               <a href="/#/products?type=1">New Arrivais</a>
               <a href="/#/products?type=2">Disposable Series</a>
-              <a href="/#/products?type=3">E-liquid</a>
-              <a href="/#/products?type=4">Coil</a>
+              <a href="/#/products?type=3">Pod Series</a>
+              <a href="/#/products?type=4">E-liquid</a>
               <a href="/#/products?type=5">Other</a>
           </div>
           <div class="Fnav">

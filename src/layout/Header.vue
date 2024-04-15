@@ -14,7 +14,7 @@
       <div class="desktop-only">
         <div class="main">
           <div class="main_left">
-            <a href="/"><img src="@/assets/img/logo_black.png"></a>
+            <a href="/#/"><img src="@/assets/img/logo_black.png"></a>
           </div>
           <div class="main_center">
             <!-- <img src="https://cdn.shopify.com/s/files/1/0584/6709/0582/files/LOGO_ef84e310-cf14-4332-84b8-9289cc9bcf8e.png?v=1708911023"> -->
@@ -49,8 +49,8 @@
             <div class="mp_content">
               <div class="mp_product">
                 <div class="mp_items" v-if="mpList[proIndex] && mpList[proIndex].length>0">
-                  <div class="mp_item" v-for="(item, index) in mpList[proIndex] || []" :key=index>
-                    <a :href="item.path" >
+                  <div class="mp_item" v-for="(item, index) in mpList[proIndex] || []" :key=index @click="linkToPro(item)">
+                    <a >
                       <div class="mp_img">
                         <img :src="item.imgurl">
                       </div>
@@ -102,7 +102,7 @@
       <div class="mobile-only">
         <div class="main" >
           <div class="main_center">
-            <a href="/"><img src="@/assets/img/logo_black.png"></a>
+            <a href="/#/"><img src="@/assets/img/logo_black.png"></a>
           </div>
           <div :class="['main_Mright', show?'Mright_active':'']" @click="targetShowNav">
             <div class="Mright_line" :style="{ background: show?'transparent':'#000'}" ></div>
@@ -111,7 +111,7 @@
             <div class="Main_item">
               <a-collapse  ghost accordion>
                 <p class="Mnav">
-                  <a href="/" @click="show=false">
+                  <a href="/#/" @click="show=false">
                     HOME
                   </a>
                 </p>
@@ -187,25 +187,25 @@ export default {
       ],
       mpList: [
         [
-          { name: 'MAGIC MAZE PRO',  path : '/#/products?id=1', imgurl: require('../assets/img/product/pro_1.png')},
-          { name: 'MINI',  path : '/#/products?id=2', imgurl: require('../assets/img/product/pro_2.png')},
-          { name: 'MINI 2200',  path : '/#/products?id=3', imgurl: require('../assets/img/product/pro_3.png')},
-          { name: 'G8000 PRO',  path : '/#/products?id=4', imgurl: require('../assets/img/product/pro_4.png')},
-          { name: 'G8000',  path : '/#/products?id=5', imgurl: require('../assets/img/product/pro_5.png')},
+          { id: 1, name: 'MAGIC MAZE PRO',  path : '/#/products?id=1', imgurl: require('../assets/img/product/pro_1.png')},
+          { id: 2, name: 'MINI',  path : '/#/products?id=2', imgurl: require('../assets/img/product/pro_2.png')},
+          { id: 3, name: 'MINI 2200',  path : '/#/products?id=3', imgurl: require('../assets/img/product/pro_3.png')},
+          { id: 4, name: 'G8000 PRO',  path : '/#/products?id=4', imgurl: require('../assets/img/product/pro_4.png')},
+          { id: 5, name: 'G8000',  path : '/#/products?id=5', imgurl: require('../assets/img/product/pro_5.png')},
         ],
         [
-          { name: 'MAGIC MAZE PRO',  path : '/#/products?id=1', imgurl: require('../assets/img/product/pro_1.png')},
-          { name: 'G8000 PRO',  path : '/#/products?id=4', imgurl: require('../assets/img/product/pro_4.png')},
-          { name: 'G8000',  path : '/#/products?id=5', imgurl: require('../assets/img/product/pro_5.png')},
+          { id: 1, name: 'MAGIC MAZE PRO',  path : '/#/products?id=1', imgurl: require('../assets/img/product/pro_1.png')},
+          { id: 4, name: 'G8000 PRO',  path : '/#/products?id=4', imgurl: require('../assets/img/product/pro_4.png')},
+          { id: 5, name: 'G8000',  path : '/#/products?id=5', imgurl: require('../assets/img/product/pro_5.png')},
         ],
         [
-          { name: 'MINI',  path : '/#/products?id=2', imgurl: require('../assets/img/product/pro_2.png')},
-          { name: 'MINI 2200',  path : '/#/products?id=3', imgurl: require('../assets/img/product/pro_3.png')},
-          { name: 'MAGIC MAZE PRO',  path : '/#/products?id=1', imgurl: require('../assets/img/product/pro_1.png')},
+          { id: 2, name: 'MINI',  path : '/#/products?id=2', imgurl: require('../assets/img/product/pro_2.png')},
+          { id: 3, name: 'MINI 2200',  path : '/#/products?id=3', imgurl: require('../assets/img/product/pro_3.png')},
+          { id: 1, name: 'MAGIC MAZE PRO',  path : '/#/products?id=1', imgurl: require('../assets/img/product/pro_1.png')},
         ],
         [
-          { name: 'MINI 2200',  path : '/#/products?id=3', imgurl: require('../assets/img/product/pro_3.png')},
-          { name: 'MAGIC MAZE PRO',  path : '/#/products?id=1', imgurl: require('../assets/img/product/pro_1.png')},
+          { id: 3, name: 'MINI 2200',  path : '/#/products?id=3', imgurl: require('../assets/img/product/pro_3.png')},
+          { id: 1, name: 'MAGIC MAZE PRO',  path : '/#/products?id=1', imgurl: require('../assets/img/product/pro_1.png')},
         ]
       ]
     })
@@ -223,6 +223,9 @@ export default {
       });
       Storage.setItem('navActive', e.path)
     }
+    const linkToPro = (res) => {
+        router.push('/productsDetail?id=' + res.id);
+      };
     const hoverTo = (e) => {
       state.popIndex = e
     }
@@ -255,6 +258,7 @@ export default {
       ...toRefs(state),
       targetShowNav,
       linkTo,
+      linkToPro,
       hoverTo,
       leaveTo,
       proHoverTo,
