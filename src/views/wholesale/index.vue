@@ -1,17 +1,17 @@
 <template>
-  <div class="about">
+  <div class="wholesale">
     <div class="top_banner2">
       <img src="@/assets/img/about/wholesale_banner.png" alt="">
       <div class="t_box">
         <p style="font-size: 1.5rem;">BECOME A WHOLESALER</p>
-        <p  class="title AntonFont">How can we help you?</p>
+        <p class="title AntonFont">How can we help you?</p>
         <p style="font-size: .875rem;">Please check  the sections below related to your inquiry</p>
       </div>
     </div> 
     <div class="a_content">
       <a-row :gutter="30">
-      <a-col class="gutter-row" :span="8">
-        <div class="gutter-box hoverBox">
+      <a-col class="gutter-row" :xs="24" :sm="24" :md="8">
+        <div class="gutter-box hoverBox wow animate__bounceIn" data-wow-offset="50" @click="contact">
           <img class="hoverImg" src="@/assets/img/about/img_1.png" alt="">
           <div class="a_text">
             <p class="a_title AntonFont">Support</p>
@@ -20,8 +20,8 @@
           </div>
         </div>
       </a-col>
-      <a-col class="gutter-row" :span="8">
-        <div class="gutter-box hoverBox">
+      <a-col class="gutter-row" :xs="24" :sm="24" :md="8">
+        <div class="gutter-box hoverBox wow animate__bounceIn" data-wow-offset="50" @click="contact">
           <img class="hoverImg" src="@/assets/img/about/img_2.png" alt="">
           <div class="a_text">
             <p class="a_title AntonFont">Sales Become</p>
@@ -31,8 +31,8 @@
           </div>
         </div>
       </a-col>
-      <a-col class="gutter-row" :span="8">
-        <div class="gutter-box hoverBox">
+      <a-col class="gutter-row" :xs="24" :sm="24" :md="8">
+        <div class="gutter-box hoverBox wow animate__bounceIn" data-wow-offset="50" @click="contact">
           <img class="hoverImg" src="@/assets/img/about/img_3.png" alt="">
           <div class="a_text">
             <p class="a_title AntonFont">Marketing</p>
@@ -44,27 +44,61 @@
       </a-col>
     </a-row>
     </div>
+    <a-modal class="contact_pop" v-model:open="contactModal" :width="480" title="" :closable="false" :footer="null">
+      <div class="pop_top">
+        <span class="title AntonFont">Email</span>
+        <img src="@/assets/img/email.png" alt="">
+      </div>
+      <p class="email">{{email}}</p>
+      <a-button class="copyBtn" shape="round" @click="handleCopy">Copy email address</a-button>
+    </a-modal>
   </div>
 </template>
 <script>
-import { nextTick, onMounted, reactive, toRefs } from 'vue';
+import { getCurrentInstance, nextTick, onMounted, reactive, toRefs } from 'vue';
   export default {
     name: "wholesale",
     components: {
     },
     setup() {
+      const { proxy } = getCurrentInstance();
       const state = reactive({
+        contactModal: false,
+        email: 'support@ehonos.com'
       })
       onMounted(async () => { 
         nextTick(() => {
         })
       })
-
-      // const onSwiper = (swiper) => {
-      //   console.log(swiper);
-      // };
+      const contact = () => {
+        state.contactModal = true
+      };
+      const handleCopy = () => {
+        copyToClipboard(state.email)
+        state.contactModal = false
+        proxy.$message.success('Success copy');
+      };
+      const copyToClipboard = (text) => {
+        if (navigator.clipboard) {
+          navigator.clipboard.writeText(text)
+            .then(() => {
+            })
+            .catch((err) => {
+              console.error('无法复制到剪贴板: ', err);
+            });
+        } else {
+          const textArea = document.createElement('textarea');
+          textArea.value = text;
+          document.body.appendChild(textArea);
+          textArea.select();
+          document.execCommand('copy');
+          document.body.removeChild(textArea);
+        }
+      }
       return {
         ...toRefs(state),
+        contact,
+        handleCopy,
       };
     },
   };

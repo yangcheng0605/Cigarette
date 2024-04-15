@@ -5,16 +5,19 @@ import store from "./store";
 import wow from 'wowjs'
 
 // 样式
+import '@/assets/style/index.less'
+import '@/assets/style/media.less'
 import 'animate.css';
 import 'swiper/css/bundle';
-import '@/assets/style/index.less'
 import 'wowjs/css/libs/animate.css'
+
+const app = createApp(App)
+
 import { Spin, Image, message, Popover, Steps, Drawer, Collapse, Dropdown, Timeline, Modal, Descriptions, ConfigProvider, 
   Table, Menu, Layout, Input, Button, Popconfirm, Form, Checkbox, Radio, TimePicker, Select, Card, Row, Tooltip, 
   Col, Tabs, DatePicker, Space, InputNumber, Slider, Upload, Badge, Tag, Avatar, Statistic, Divider, Empty, 
   Switch, Result, Progress, Cascader, Breadcrumb, Transfer, Pagination } from 'ant-design-vue';
 
-const app = createApp(App)
 
 app.config.globalProperties.$wow = wow
 app.config.globalProperties.$message = message

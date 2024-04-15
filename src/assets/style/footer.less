@@ -34,6 +34,37 @@
   padding: 6.25rem 12.5rem 6.25rem 8.375rem;
   width: calc(100% - 26.8%);
 }
+
+.mobile-only{
+  .footer-top {
+    height: 170px;
+    background: url('../img/footer/mark_bg.png') no-repeat left/contain;
+    .f_t_content{
+      padding: 2rem 5%;
+      .f_block{
+        width: 100%;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        .f_logo{
+          width: 8.375rem;
+        }
+        .f_mark{
+          height: 4px;
+          margin: 15px 0 30px;
+        }
+        .f_mark2{
+          width: 90px;
+        }
+      }
+    }
+  }
+  .footer-bottom{
+    padding: 2rem 5%;
+    margin-top: 40px;
+  }
+}
+
 .fi1_right {
   width: 38%;
   display: flex;
@@ -53,8 +84,9 @@
 }
 
 .ft_title {
-  // font-family: H-Bold;
+  // // font-family: H-Bold;
   font-size: 14px;
+  line-height: 14px;
 }
 
 .fir1_right {
@@ -96,7 +128,6 @@
 }
 
 .footer_item2 {
-  padding: 1rem 0 1rem;
   display: flex;
   justify-content: space-between;
 }
@@ -108,22 +139,32 @@
 }
 
 .fi2_right {
-  width: 26%
+  width: 26%;
+  .fir2_text {
+    margin-top: 1rem;
+  }
 }
 .fi2_text {
-  margin-top: 1rem;
+  margin-top: .7rem;
   font-size: 12px
 }
 
 .fi2_text div {
-  margin-bottom: .75rem;
+  margin-bottom: .65rem;
   cursor: pointer
 }
+.fi2_text div:last-of-type {
+  margin-bottom: 0;
+}
+
 .ft_title a:hover,
 .fi2_text div:hover {
   color: #FAC233
 }
 
+.fi2_text a {
+  color: rgba(255,255,255,0.5);
+}
 .fi2_text span {
   color: #FAC233;
   // font-family: H-ExtLtIta
@@ -137,7 +178,7 @@
 }
 
 .fir2_text div {
-  // font-family: H-Bold;
+  // // font-family: H-Bold;
   font-size: 1.5rem;
   margin-bottom: 1.5rem
 }
@@ -176,7 +217,7 @@
 }
 
 .footerFlag {
-  margin-top: 1rem;
+  margin-top: 3rem;
   font-size: 12px;
   color: rgba(255, 255, 255, .5);
   // font-family: H-Regular
@@ -211,9 +252,8 @@
 @media (max-width: 750px) {
   .footer {
       background: #111;
-      padding: 2rem 5%
   }
-
+  
   .fi1_right {
       width: 100%;
       display: block;
@@ -269,22 +309,22 @@
   }
 
   .fir3_right a {
-      width: 2rem;
-      height: 2rem
+    width: 40px;
+    height: 40px;
+    background: #FAC233
   }
-
   .footerFlag {
       margin-top: 0;
       font-size: .75rem;
-      padding-top: .5rem;
+      padding-top: 20px;
       border-top: .1rem solid #666
   }
 
   .Fnav {
-      padding: .8rem 0;
+      padding: 18px 0;
       border-top: 1px solid #666;
-      // font-family: H-Bold;
-      font-size: 1.2rem;
+      // // font-family: H-Bold;
+      font-size: 18px;
       color: #fff
   }
 
@@ -299,7 +339,7 @@
   .Fnav_link a {
       // font-family: H-Light;
       font-size: .9375rem;
-      color: #fff;
+      color: #ccc;
       line-height: 2rem;
       display: block
   }
@@ -328,6 +368,7 @@
   .fir2_text p:last-child {
       margin-top: 1rem
   }
+  
 }
 
 /*# sourceMappingURL=/cdn/shop/t/7/assets/footer.css.map?v=53831992482027147201710214712 */

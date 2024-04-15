@@ -5,6 +5,9 @@ module.exports = defineConfig({
   publicPath: "./",
   outputDir: "build",
   productionSourceMap: false,
+  devServer: {
+    hot: true
+  },
   css: {
     loaderOptions: {
       less: {

@@ -62,7 +62,7 @@
               </div>
             </div>
             <div class="mp_more">
-              <a href="/#/products">Learn more &gt;</a>
+              <a href="/#/productss">Learn more &gt;</a>
             </div>
           </div>
           <!-- <div class="main_popup2 main_popup" :class="popIndex == 1?'main_popup_show':''" @mouseleave="leaveTo">
@@ -110,33 +110,33 @@
           <div :class="['Main_popup', show?'Main_popup_active':'']">
             <div class="Main_item">
               <a-collapse  ghost accordion>
-                <p class="Mnav" >
-                  <a href="/">
+                <p class="Mnav">
+                  <a href="/" @click="show=false">
                     HOME
                   </a>
                 </p>
                 <a-collapse-panel class="Mnav" key="2" header="PRODUCTS" :show-arrow="false">
                   <template #extra><PlusOutlined /></template>
                   <div class="Mnav_link">
-                    <a href="/#/products">New Arrivais</a>
-                    <a href="/#/magic-maze-pro">Disposable Series</a>
-                    <a href="/#/mini">E-liquid</a>
-                    <a href="/#/g8000-pro">Coil</a>
-                    <a href="/#/r8000">Other</a>
+                    <a href="/#/productss" @click="show=false">New Arrivais</a>
+                    <a href="/#/magic-maze-pro" @click="show=false">Disposable Series</a>
+                    <a href="/#/mini" @click="show=false">E-liquid</a>
+                    <a href="/#/g8000-pro" @click="show=false">Coil</a>
+                    <a href="/#/r8000" @click="show=false">Other</a>
                   </div>
                 </a-collapse-panel>
                 <p class="Mnav" >
-                  <a href="/#/wholesale">
+                  <a href="/#/wholesale" @click="show=false">
                     WHOLESALE
                   </a>
                 </p>
                 <p class="Mnav" >
-                  <a href="/#/contact">
+                  <a href="/#/contact" @click="show=false">
                   CONTACT US
                 </a>
                 </p>
                 <p class="Mnav" >
-                  <a href="/#/about">
+                  <a href="/#/about" @click="show=false">
                     ABOUT US
                   </a>
                 </p>
@@ -187,26 +187,25 @@ export default {
       ],
       mpList: [
         [
-          { name: 'MAGIC MAZE PRO',  path : '/#/product?id=1', imgurl: require('../assets/img/product/pro_1.png')},
-          { name: 'MINI',  path : '/#/product?id=2', imgurl: require('../assets/img/product/pro_2.png')},
-          { name: 'MINI 2200',  path : '/#/product?id=3', imgurl: require('../assets/img/product/pro_3.png')},
-          { name: 'G8000 PRO',  path : '/#/product?id=4', imgurl: require('../assets/img/product/pro_4.png')},
-          { name: 'G8000',  path : '/#/product?id=5', imgurl: require('../assets/img/product/pro_5.png')},
+          { name: 'MAGIC MAZE PRO',  path : '/#/products?id=1', imgurl: require('../assets/img/product/pro_1.png')},
+          { name: 'MINI',  path : '/#/products?id=2', imgurl: require('../assets/img/product/pro_2.png')},
+          { name: 'MINI 2200',  path : '/#/products?id=3', imgurl: require('../assets/img/product/pro_3.png')},
+          { name: 'G8000 PRO',  path : '/#/products?id=4', imgurl: require('../assets/img/product/pro_4.png')},
+          { name: 'G8000',  path : '/#/products?id=5', imgurl: require('../assets/img/product/pro_5.png')},
         ],
         [
-
-          { name: 'MAGIC MAZE PRO',  path : '/#/product?id=1', imgurl: require('../assets/img/product/pro_1.png')},
-          { name: 'G8000 PRO',  path : '/#/product?id=4', imgurl: require('../assets/img/product/pro_4.png')},
-          { name: 'G8000',  path : '/#/product?id=5', imgurl: require('../assets/img/product/pro_5.png')},
+          { name: 'MAGIC MAZE PRO',  path : '/#/products?id=1', imgurl: require('../assets/img/product/pro_1.png')},
+          { name: 'G8000 PRO',  path : '/#/products?id=4', imgurl: require('../assets/img/product/pro_4.png')},
+          { name: 'G8000',  path : '/#/products?id=5', imgurl: require('../assets/img/product/pro_5.png')},
         ],
         [
-          { name: 'MINI',  path : '/#/product?id=2', imgurl: require('../assets/img/product/pro_2.png')},
-          { name: 'MINI 2200',  path : '/#/product?id=3', imgurl: require('../assets/img/product/pro_3.png')},
-          { name: 'MAGIC MAZE PRO',  path : '/#/product?id=1', imgurl: require('../assets/img/product/pro_1.png')},
+          { name: 'MINI',  path : '/#/products?id=2', imgurl: require('../assets/img/product/pro_2.png')},
+          { name: 'MINI 2200',  path : '/#/products?id=3', imgurl: require('../assets/img/product/pro_3.png')},
+          { name: 'MAGIC MAZE PRO',  path : '/#/products?id=1', imgurl: require('../assets/img/product/pro_1.png')},
         ],
         [
-          { name: 'MINI 2200',  path : '/#/product?id=3', imgurl: require('../assets/img/product/pro_3.png')},
-          { name: 'MAGIC MAZE PRO',  path : '/#/product?id=1', imgurl: require('../assets/img/product/pro_1.png')},
+          { name: 'MINI 2200',  path : '/#/products?id=3', imgurl: require('../assets/img/product/pro_3.png')},
+          { name: 'MAGIC MAZE PRO',  path : '/#/products?id=1', imgurl: require('../assets/img/product/pro_1.png')},
         ]
       ]
     })
@@ -245,7 +244,11 @@ export default {
           }
           return item;
         });
-      }
+     }
+    window.scrollTo({
+        top: 0,
+        behavior:'smooth'
+      })
     }, { immediate: true })
     return {
       Empty,
