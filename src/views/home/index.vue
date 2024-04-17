@@ -247,6 +247,12 @@ import { useRouter } from 'vue-router';
     .home_sildeNext{
       background: url('../../assets/img/arrow_white_r.png') no-repeat 100%/contain;
     }
+    .home_sildePre:hover{
+      background: url('../../assets/img/arrow_yellow_l.png') no-repeat 100%/contain;
+    }
+    .home_sildeNext:hover{
+      background: url('../../assets/img/arrow_yellow_r.png') no-repeat 100%/contain;
+    }
   }
   .homeSwiper{
     .swiper_box {
@@ -285,7 +291,7 @@ import { useRouter } from 'vue-router';
     font-size: 2.5rem;
   }
   .home_center{
-    background: #F5B81A;
+    background: #F5B81A url('../../assets/img/product/bg_r.png') no-repeat 100% / cover;
     position: relative;
     padding: 6.25rem 15rem 6.75rem;
     .proImg{
