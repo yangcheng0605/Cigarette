@@ -8,7 +8,7 @@
               :navigation="true"
               @swiper="onSwiper"
             >
-              <swiper-slide v-for="(item) in bannerList" :key="item.id">
+              <swiper-slide v-for="(item) in (isMobile ? mobilebannerList:bannerList)" :key="item.id">
                 <div class="home_banner">
                   <img :src="item.url" alt="">
                 </div>
@@ -114,10 +114,16 @@ import { useRouter } from 'vue-router';
         between: 40,
         swiper1: null,
         swiper2: null,
+        isMobile: false,
         bannerList: [
           { id: 1, url:require('@/assets/img/home/banner.png')},
           { id: 2, url:require('@/assets/img/home/banner.png')},
           { id: 3, url:require('@/assets/img/home/banner.png')},
+        ],
+        mobilebannerList: [
+          { id: 1, url:require('@/assets/img/home/m_banner.png')},
+          { id: 2, url:require('@/assets/img/home/m_banner.png')},
+          { id: 3, url:require('@/assets/img/home/m_banner.png')},
         ],
          otherProList: [
           { id: 1, name: 'GT501', url:require('@/assets/img/product/pro_11.png')},
@@ -151,9 +157,11 @@ import { useRouter } from 'vue-router';
        if (windowWidth < 750) {
          state.between = 15
          state.perView = 'auto'
+         state.isMobile = true
         } else {
           state.between = 40
           state.perView = 4
+          state.isMobile = false
         }
       };
       const onSwiper = (swiper) => {
@@ -198,13 +206,17 @@ import { useRouter } from 'vue-router';
     .homt_pros{
       .home_tab{
         margin: .812rem 0 3.75rem;
-        .ant-tabs-nav::before{
-          border: none;
+        .ant-tabs-nav{
+          margin: 0;
+          &::before{
+            border: none;
+          }
         }
         .ant-tabs-nav-wrap{
-          overflow-x: scroll !important;
+          padding: 0;
         }
         .ant-tabs-tab{
+          padding: 9px 0;
           .ant-tabs-tab-btn:hover,
           .ant-tabs-tab-btn:focus{
             color: #111;
@@ -279,7 +291,7 @@ import { useRouter } from 'vue-router';
     .proImg{
       height: 27.5rem;
       border-radius: 8px;
-      background: rgba(0, 0, 0, 0.9) url('../../assets/img/product/bg_r.png') no-repeat 100% / cover;
+      background: url('../../assets/img/product/bg_r.png') no-repeat 100% / cover;
       img{
         height: 100%;
         object-fit: cover;

@@ -1,6 +1,9 @@
 <template>
   <div class="products productsDetail">
-    <div class="proImg" v-for="(item, index) in proData.imgs" :key='index'>
+    <div class="proImg" >
+      <img :src="isMobile?proData.mobilebanner:proData.banner" alt="">
+    </div>
+    <div class="proImg" v-for="(item, index) in (isMobile?proData.mobileimgs:proData.imgs)" :key='index'>
       <img :src="item" alt="">
     </div>
     <div class="other_pro">
@@ -57,6 +60,7 @@ import 'swiper/css';
         between: 30,
         modules: [Navigation],
         swiper: null,
+        isMobile: false,
         otherProList: [
           { id: 1, name: 'GT501', url:require('@/assets/img/product/pro_11.png'), info:'Beauty and Beast Performance 65ast Performanast Performan0mAh and 8000 puffs yeah bro',},
           { id: 2, name: 'GT502', url:require('@/assets/img/product/pro_22.png'), info:'Beauty and 0 ',},
@@ -65,17 +69,24 @@ import 'swiper/css';
           { id: 5, name: 'GT505', url:require('@/assets/img/product/pro_5.png'), info:'Beauty and 00 puffs yeah',},
           { id: 6, name: 'GT506', url:require('@/assets/img/product/pro_11.png'), info:'Beauty and Beast Performance',},
         ],
-        proData: { 
+        proData: {
           id: 1, 
           name: 'GT501', 
+          banner: require('@/assets/img/product/banner.png'),
+          mobilebanner: require('@/assets/img/product/m_pro_banner.png'),
           imgs:[
-            require('@/assets/img/product/pro_detail_1.png'),
+            require('@/assets/img/product/pro_detail_2.png'),
+            require('@/assets/img/product/pro_detail_3.png'),
+            require('@/assets/img/product/pro_detail_4.png'),
+          ],
+          mobileimgs:[
             require('@/assets/img/product/pro_detail_2.png'),
             require('@/assets/img/product/pro_detail_3.png'),
             require('@/assets/img/product/pro_detail_4.png'),
           ],
           url: require('@/assets/img/product/pro_11.png'), 
-          info:'Beauty and Beast Performance 65ast Performanast Performan0mAh and 8000 puffs yeah bro',},
+          info:'Beauty and Beast Performance 65ast Performanast Performan0mAh and 8000 puffs yeah bro'
+        }
       })
 
       onMounted(async () => { 
@@ -101,9 +112,11 @@ import 'swiper/css';
        if (windowWidth < 750) {
          state.between = 15
          state.perView = 'auto'
+         state.isMobile = true
         } else {
           state.between = 30
           state.perView = 5
+          state.isMobile = false
         }
       };
       const onSwiper = (swiper) => {
@@ -139,7 +152,7 @@ import 'swiper/css';
 <style lang="less">
 .productsDetail{
   .proImg{
-    margin-bottom: 2.5rem;
+    margin-bottom: 1rem;
     img{
       height: 100vh;
     }

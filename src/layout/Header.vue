@@ -3,12 +3,10 @@
     <div class="header">
       <div class="warning">
         <div class="warning_move warning_move1">
-          <div><span>WARNING: </span>This product contains nicotine. Nicotine is an addictive chemical.</div>
-          <div class="desktop-only">Only for adults, MINORS are prohibited from buying e-cigarette</div>
+          <div><span>WARNING: </span>This product contains nicotine. Nicotine is an addictive chemical.　Only for adults, MINORS are prohibited from buying e-cigarette</div>
         </div>
         <div class="warning_move warning_move2">
-          <div><span>WARNING: </span>This product contains nicotine. Nicotine is an addictive chemical.</div>
-          <div>Only for adults, MINORS are prohibited from buying e-cigarette</div>
+          <div><span>WARNING: </span>This product contains nicotine. Nicotine is an addictive chemical.　Only for adults, MINORS are prohibited from buying e-cigarette</div>
         </div>
       </div>
       <div class="desktop-only">
@@ -51,8 +49,8 @@
                 <div class="mp_items" v-if="mpList[proIndex] && mpList[proIndex].length>0">
                   <div class="mp_item" v-for="(item, index) in mpList[proIndex] || []" :key=index @click="linkToPro(item)">
                     <a >
-                      <div class="mp_img">
-                        <img :src="item.imgurl">
+                      <div class="mp_img hoverBox">
+                        <img class="hoverImg" :src="item.imgurl">
                       </div>
                       <span>{{item.name}}</span>
                     </a>
@@ -118,11 +116,11 @@
                 <a-collapse-panel class="Mnav" key="2" header="PRODUCTS" :show-arrow="false">
                   <template #extra><PlusOutlined /></template>
                   <div class="Mnav_link">
-                    <a href="/#/productss" @click="show=false">New Arrivais</a>
-                    <a href="/#/magic-maze-pro" @click="show=false">Disposable Series</a>
-                    <a href="/#/mini" @click="show=false">E-liquid</a>
-                    <a href="/#/g8000-pro" @click="show=false">Coil</a>
-                    <a href="/#/r8000" @click="show=false">Other</a>
+                    <a href="/#/products?type=1" @click="show=false">New Arrivais</a>
+                    <a href="/#/products?type=2" @click="show=false">Disposable Series</a>
+                    <a href="/#/products?type=3" @click="show=false">Pod Series</a>
+                    <a href="/#/products?type=4" @click="show=false">E-liquid</a>
+                    <a href="/#/products?type=5" @click="show=false">Other</a>
                   </div>
                 </a-collapse-panel>
                 <p class="Mnav" >

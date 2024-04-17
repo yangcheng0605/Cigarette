@@ -37,17 +37,13 @@
                     <div class="ft_title">Follow Us</div>
                     <div class="fir2_text">
                       <div class="fir3_right">
-                          <a target="_blank" href="https://www.facebook.com/">
-                              <img src="https://cdn.shopify.com/s/files/1/0584/6709/0582/files/facebook_c7ba42e0-d9e9-4f2c-8314-b316042a6928.svg?v=1709176793">
+                          <a class="icon_meida icon_face" target="_blank" href="https://www.facebook.com/">
                           </a>
-                          <a target="_blank" href="https://www.instagram.com/">
-                              <img src="https://cdn.shopify.com/s/files/1/0584/6709/0582/files/instagram_f4d4419b-426b-428a-9eda-88ee8db79713.svg?v=1709176793">
+                          <a class="icon_meida icon_ins" target="_blank" href="https://www.instagram.com/">
                           </a>
-                          <a target="_blank" href="https://line.me/R/ti/p">
-                              <img src="https://cdn.shopify.com/s/files/1/0502/8033/3505/files/line_1.svg?v=1705385328">
+                          <a class="icon_meida icon_line" target="_blank" href="https://line.me/R/ti/p">
                           </a>
-                          <a target="_blank" href="https://www.youtube.com">
-                              <img src="https://cdn.shopify.com/s/files/1/0584/6709/0582/files/youtube_72fb2d6a-e0b4-4cec-8b17-ba79d5f9c8e8.svg?v=1709176793">
+                          <a class="icon_meida icon_youtube" target="_blank" href="https://www.youtube.com">
                           </a>
                       </div>
                     </div>
@@ -71,17 +67,13 @@
                   <div>Follow Us</div>
               </div>
               <div class="fir3_right">
-                  <a target="_blank" href="https://www.facebook.com/Oxbar.Official">
-                      <img src="https://cdn.shopify.com/s/files/1/0584/6709/0582/files/facebook_c7ba42e0-d9e9-4f2c-8314-b316042a6928.svg?v=1709176793">
+                  <a class="icon_meida icon_face_y" target="_blank" href="https://www.facebook.com">
                   </a>
-                  <a target="_blank" href="https://www.instagram.com/oxbar_tech/">
-                      <img src="https://cdn.shopify.com/s/files/1/0584/6709/0582/files/instagram_f4d4419b-426b-428a-9eda-88ee8db79713.svg?v=1709176793">
+                  <a class="icon_meida icon_ins_y" target="_blank" href="https://www.instagram.com">
                   </a>
-                  <a target="_blank" href="https://t.me/OXBARRUSSIA7">
-                      <img src="https://cdn.shopify.com/s/files/1/0584/6709/0582/files/telegram.svg?v=1709176793">
+                  <a class="icon_meida icon_line_y" target="_blank" href="https://line.me/R/ti/p">
                   </a>
-                  <a target="_blank" href="https://www.youtube.com/channel/UCy-_WzGr3bznRtQqQSDw3Lw">
-                      <img src="https://cdn.shopify.com/s/files/1/0584/6709/0582/files/youtube_72fb2d6a-e0b4-4cec-8b17-ba79d5f9c8e8.svg?v=1709176793">
+                  <a class="icon_meida icon_youtube_y" target="_blank" href="https://www.youtube.com">
                   </a>
               </div>
             </div>

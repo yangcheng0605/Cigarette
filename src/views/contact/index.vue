@@ -20,7 +20,7 @@
             <div class="a_text">
               <p class="a_title AntonFont">Support</p>
               <p class="a_title AntonFont">Customer Service</p>
-              <p class="a_email">{{email}}</p>
+              <p class="a_email smallArrow_box"><span>{{email}}</span><img class="smallArrow" src="../../assets/img/about/arrow_r.png" alt=""></p>
             </div>
           </div>
         </a-col>
@@ -31,7 +31,7 @@
               <p class="a_title AntonFont">Sales Become</p>
               <p class="a_title AntonFont">an Authorized</p>
               <p class="a_title AntonFont">Distributor</p>
-              <p class="a_email">{{email}}</p>
+              <p class="a_email smallArrow_box"><span>{{email}}</span><img class="smallArrow" src="../../assets/img/about/arrow_r.png" alt=""></p>
             </div>
           </div>
         </a-col>
@@ -42,13 +42,13 @@
               <p class="a_title AntonFont">Marketing</p>
               <p class="a_title AntonFont">Co-Marketing</p>
               <p class="a_title AntonFont">Cooperation</p>
-              <p class="a_email">{{email}}</p>
+              <p class="a_email smallArrow_box"><span>{{email}}</span><img class="smallArrow" src="../../assets/img/about/arrow_r.png" alt=""></p>
             </div>
           </div>
         </a-col>
       </a-row>
     </div>
-    <a-modal class="contact_pop" v-model:open="contactModal" :width="480" title="" :closable="false" :footer="null">
+    <a-modal class="contact_pop" v-model:open="contactModal" :width="480" title="" :closable="false" :footer="null" centered>
       <div class="pop_top">
         <span class="title AntonFont">Email</span>
         <img src="@/assets/img/email.png" alt="">
