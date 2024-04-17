@@ -291,7 +291,7 @@ import { useRouter } from 'vue-router';
     font-size: 2.5rem;
   }
   .home_center{
-    background: #F5B81A url('../../assets/img/product/bg_r.png') no-repeat 100% / cover;
+    background: #F5B81A ;
     position: relative;
     padding: 6.25rem 15rem 6.75rem;
     .proImg{

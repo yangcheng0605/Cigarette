@@ -16,7 +16,7 @@
           <div class="a_text">
             <p class="a_title AntonFont">Support</p>
             <p class="a_title AntonFont">Customer Service</p>
-            <p class="a_email">{{email}}<img class="smallArrow" src="../../assets/img/about/arrow_r.png" alt=""></p>
+            <p class="a_email smallArrow_box">{{email}}<img class="smallArrow" src="../../assets/img/about/arrow_r.png" alt=""></p>
           </div>
         </div>
       </a-col>
@@ -27,7 +27,7 @@
             <p class="a_title AntonFont">Sales Become</p>
             <p class="a_title AntonFont">an Authorized</p>
             <p class="a_title AntonFont">Distributor</p>
-            <p class="a_email">{{email}}<img class="smallArrow" src="../../assets/img/about/arrow_r.png" alt=""></p>
+            <p class="a_email smallArrow_box">{{email}}<img class="smallArrow" src="../../assets/img/about/arrow_r.png" alt=""></p>
           </div>
         </div>
       </a-col>
@@ -38,7 +38,7 @@
             <p class="a_title AntonFont">Marketing</p>
             <p class="a_title AntonFont">Co-Marketing</p>
             <p class="a_title AntonFont">Cooperation</p>
-            <p class="a_email">{{email}}<img class="smallArrow" src="../../assets/img/about/arrow_r.png" alt=""></p>
+            <p class="a_email smallArrow_box">{{email}}<img class="smallArrow" src="../../assets/img/about/arrow_r.png" alt=""></p>
           </div>
         </div>
       </a-col>
