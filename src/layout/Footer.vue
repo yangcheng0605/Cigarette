@@ -80,18 +80,57 @@
           </div>
         </div>
         <div class="footer-bottom">
+          <a-collapse ghost accordion>
+            <a-collapse-panel class="white_Mnav" header="PRODUCTS" :show-arrow="false">
+              <template #extra><img class="headerExtra" src="@/assets/img/footer/open.png" alt=""> </template>
+              <div class="Mnav_link">
+                <a-collapse ghost accordion>
+                  <a-collapse-panel  header="New Arrivais" :show-arrow="false">
+                    <template #extra> <img class="childExtra" src="@/assets/img/footer/open_op.png" alt=""> </template>
+                      <div class="Mnav_pro">
+                        <a href="/#/productsDetail?type=1" @click="show=false">New Arrivais</a>
+                        <a href="/#/productsDetail?type=2" @click="show=false">New Arrivais</a>
+                        <a href="/#/productsDetail?type=3" @click="show=false">New Arrivais</a>
+                      </div>
+                  </a-collapse-panel>
+                  <a-collapse-panel  header="Disposable Series" :show-arrow="false">
+                    <template #extra> <img class="childExtra" src="@/assets/img/footer/open_op.png" alt=""> </template>
+                      <div class="Mnav_pro">
+                        <a href="/#/productsDetail?type=1" @click="show=false">New Arrivais</a>
+                        <a href="/#/productsDetail?type=2" @click="show=false">New Arrivais</a>
+                        <a href="/#/productsDetail?type=3" @click="show=false">New Arrivais</a>
+                      </div>
+                  </a-collapse-panel>
+                  <a-collapse-panel  header="Pod Series" :show-arrow="false">
+                    <template #extra> <img class="childExtra" src="@/assets/img/footer/open_op.png" alt=""> </template>
+                      <div class="Mnav_pro">
+                        <a href="/#/productsDetail?type=1" @click="show=false">New Arrivais</a>
+                      </div>
+                  </a-collapse-panel>
+                  <a-collapse-panel  header="E-liquid" :show-arrow="false">
+                    <template #extra> <img class="childExtra" src="@/assets/img/footer/open_op.png" alt=""> </template>
+                      <div class="Mnav_pro">
+                        <a href="/#/productsDetail?type=1" @click="show=false">New Arrivais</a>
+                        <a href="/#/productsDetail?type=2" @click="show=false">New Arrivais</a>
+                      </div>
+                  </a-collapse-panel>
+                  <a-collapse-panel  header="Other" :show-arrow="false">
+                    <template #extra> <img class="childExtra" src="@/assets/img/footer/open_op.png" alt=""> </template>
+                      <div class="Mnav_pro">
+                        <a href="/#/productsDetail?type=1" @click="show=false">New Arrivais</a>
+                      </div>
+                  </a-collapse-panel>
+                </a-collapse>
+                <!-- <a href="/#/products?type=1" @click="show=false">New Arrivais</a>
+                <a href="/#/products?type=2" @click="show=false">Disposable Series</a>
+                <a href="/#/products?type=3" @click="show=false">Pod Series</a>
+                <a href="/#/products?type=4" @click="show=false">E-liquid</a>
+                <a href="/#/products?type=5" @click="show=false">Other</a> -->
+              </div>
+            </a-collapse-panel>
+          </a-collapse>
           <div class="Fnav">
-            <a href="/#/products">PRODUCTS</a>
-            <div class="Fnav_link">
-              <a href="/#/products?type=1">New Arrivais</a>
-              <a href="/#/products?type=2">Disposable Series</a>
-              <a href="/#/products?type=3">Pod Series</a>
-              <a href="/#/products?type=4">E-liquid</a>
-              <a href="/#/products?type=5">Other</a>
-            </div>
-          </div>
-          <div class="Fnav">
-          <a href="/#/wholesale">WHOLESALE</a>
+            <a href="/#/wholesale">WHOLESALE</a>
           </div>
           <div class="Fnav">
             <a href="/#/about">ABOUT US</a>
@@ -100,6 +139,16 @@
               <a href="/#/about">Why Ehonos</a>
             </div>
           </div>
+          <!-- <div class="Fnav">
+            <a href="/#/products">PRODUCTS</a>
+            <div class="Fnav_link">
+              <a href="/#/products?type=1">New Arrivais</a>
+              <a href="/#/products?type=2">Disposable Series</a>
+              <a href="/#/products?type=3">Pod Series</a>
+              <a href="/#/products?type=4">E-liquid</a>
+              <a href="/#/products?type=5">Other</a>
+            </div>
+          </div> -->
           <div class="footerFlag">COPYRIGHT © 2024 EHONOS ALL RIGHTS RESERVED.</div>
         </div>
       </div>

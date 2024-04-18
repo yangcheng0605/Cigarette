@@ -114,57 +114,51 @@
                     HOME
                   </a>
                 </p>
-                <a-collapse-panel class="Mnav" key="2" header="PRODUCTS" :show-arrow="false">
-                  <template #extra><PlusOutlined /></template>
+                <a-collapse-panel class="Mnav" header="PRODUCTS" :show-arrow="false">
+                  <template #extra><img class="headerExtra" src="@/assets/img/open_black.png" alt=""> </template>
                   <div class="Mnav_link">
-                    <a-collapse  ghost accordion>
-                      <a-collapse-panel key="1" header="New Arrivais" :show-arrow="false">
-                        <template #extra><PlusOutlined /></template>
-                          <a href="/#/products?type=1" @click="show=false">New Arrivais</a>
-                          <a href="/#/products?type=2" @click="show=false">New Arrivais</a>
-                          <a href="/#/products?type=3" @click="show=false">New Arrivais</a>
+                    <a-collapse ghost accordion>
+                      <a-collapse-panel  header="New Arrivais" :show-arrow="false">
+                        <template #extra> <img class="childExtra" src="@/assets/img/open_black_op.png" alt=""> </template>
+                          <div class="Mnav_pro">
+                            <a href="/#/productsDetail?type=1" @click="show=false">New Arrivais</a>
+                            <a href="/#/productsDetail?type=2" @click="show=false">New Arrivais</a>
+                            <a href="/#/productsDetail?type=3" @click="show=false">New Arrivais</a>
+                          </div>
+                      </a-collapse-panel>
+                      <a-collapse-panel  header="Disposable Series" :show-arrow="false">
+                        <template #extra> <img class="childExtra" src="@/assets/img/open_black_op.png" alt=""> </template>
+                          <div class="Mnav_pro">
+                            <a href="/#/productsDetail?type=1" @click="show=false">New Arrivais</a>
+                            <a href="/#/productsDetail?type=2" @click="show=false">New Arrivais</a>
+                            <a href="/#/productsDetail?type=3" @click="show=false">New Arrivais</a>
+                          </div>
+                      </a-collapse-panel>
+                      <a-collapse-panel  header="Pod Series" :show-arrow="false">
+                        <template #extra> <img class="childExtra" src="@/assets/img/open_black_op.png" alt=""> </template>
+                          <div class="Mnav_pro">
+                            <a href="/#/productsDetail?type=1" @click="show=false">New Arrivais</a>
+                          </div>
+                      </a-collapse-panel>
+                      <a-collapse-panel  header="E-liquid" :show-arrow="false">
+                        <template #extra> <img class="childExtra" src="@/assets/img/open_black_op.png" alt=""> </template>
+                          <div class="Mnav_pro">
+                            <a href="/#/productsDetail?type=1" @click="show=false">New Arrivais</a>
+                            <a href="/#/productsDetail?type=2" @click="show=false">New Arrivais</a>
+                          </div>
+                      </a-collapse-panel>
+                      <a-collapse-panel  header="Other" :show-arrow="false">
+                        <template #extra> <img class="childExtra" src="@/assets/img/open_black_op.png" alt=""> </template>
+                          <div class="Mnav_pro">
+                            <a href="/#/productsDetail?type=1" @click="show=false">New Arrivais</a>
+                          </div>
                       </a-collapse-panel>
                     </a-collapse>
-                    <a-collapse  ghost accordion>
-                      <a-collapse-panel key="3" header="Disposable Series" :show-arrow="false">
-                        <template #extra><PlusOutlined /></template>
-                          <a href="/#/products?type=1" @click="show=false">New Arrivais</a>
-                          <a href="/#/products?type=2" @click="show=false">New Arrivais</a>
-                      </a-collapse-panel>
-                    </a-collapse>
-                    <a-collapse  ghost accordion>
-                      <a-collapse-panel key="4" header="Pod Series" :show-arrow="false">
-                        <template #extra><PlusOutlined /></template>
-                          <a href="/#/products?type=1" @click="show=false">New Arrivais</a>
-                          <a href="/#/products?type=2" @click="show=false">New Arrivais</a>
-                      </a-collapse-panel>
-                    </a-collapse>
-                    <a-collapse  ghost accordion>
-                      <a-collapse-panel key="5" header="E-liquid" :show-arrow="false">
-                        <template #extra><PlusOutlined /></template>
-                          <a href="/#/products?type=1" @click="show=false">New Arrivais</a>
-                          <a href="/#/products?type=2" @click="show=false">New Arrivais</a>
-                      </a-collapse-panel>
-                    </a-collapse>
-                    <a-collapse  ghost accordion>
-                      <a-collapse-panel key="6" header="Other" :show-arrow="false">
-                        <template #extra><PlusOutlined /></template>
-                          <a href="/#/products?type=1" @click="show=false">New Arrivais</a>
-                          <a href="/#/products?type=2" @click="show=false">New Arrivais</a>
-                      </a-collapse-panel>
-                    </a-collapse>
-                    <!-- <a-collapse-panel class="Mnav" key="1" header="Disposable Series" :show-arrow="false">
-                      <template #extra><PlusOutlined /></template>
-                    </a-collapse-panel> -->
-                    <!-- <a-collapse-panel class="Mnav" key="1" header="Pod Series" :show-arrow="false">
-                      <template #extra><PlusOutlined /></template>
-                    </a-collapse-panel>
-                    <a-collapse-panel class="Mnav" key="1" header="E-liquid" :show-arrow="false">
-                      <template #extra><PlusOutlined /></template>
-                    </a-collapse-panel>
-                    <a-collapse-panel class="Mnav" key="1" header="Other" :show-arrow="false">
-                      <template #extra><PlusOutlined /></template>
-                    </a-collapse-panel> -->
+                    <!-- <a href="/#/products?type=1" @click="show=false">New Arrivais</a>
+                    <a href="/#/products?type=2" @click="show=false">Disposable Series</a>
+                    <a href="/#/products?type=3" @click="show=false">Pod Series</a>
+                    <a href="/#/products?type=4" @click="show=false">E-liquid</a>
+                    <a href="/#/products?type=5" @click="show=false">Other</a> -->
                   </div>
                 </a-collapse-panel>
                 <p class="Mnav" >
@@ -229,25 +223,25 @@ export default {
       ],
       mpList: [
         [
-          { id: 1, name: 'MAGIC MAZE PRO',  path : '/#/products?id=1', imgurl: require('../assets/img/product/pro_1.png')},
-          { id: 2, name: 'MINI',  path : '/#/products?id=2', imgurl: require('../assets/img/product/pro_2.png')},
-          { id: 3, name: 'MINI 2200',  path : '/#/products?id=3', imgurl: require('../assets/img/product/pro_3.png')},
-          { id: 4, name: 'G8000 PRO',  path : '/#/products?id=4', imgurl: require('../assets/img/product/pro_4.png')},
-          { id: 5, name: 'G8000',  path : '/#/products?id=5', imgurl: require('../assets/img/product/pro_5.png')},
+          { id: 1, name: 'MAGIC MAZE PRO',  path : '/#/products?id=1'},
+          { id: 2, name: 'MINI',  path : '/#/products?id=2'},
+          { id: 3, name: 'MINI 2200',  path : '/#/products?id=3'},
+          { id: 4, name: 'G8000 PRO',  path : '/#/products?id=4'},
+          { id: 5, name: 'G8000',  path : '/#/products?id=5'},
         ],
         [
-          { id: 1, name: 'MAGIC MAZE PRO',  path : '/#/products?id=1', imgurl: require('../assets/img/product/pro_1.png')},
-          { id: 4, name: 'G8000 PRO',  path : '/#/products?id=4', imgurl: require('../assets/img/product/pro_4.png')},
-          { id: 5, name: 'G8000',  path : '/#/products?id=5', imgurl: require('../assets/img/product/pro_5.png')},
+          { id: 1, name: 'MAGIC MAZE PRO',  path : '/#/products?id=1'},
+          { id: 4, name: 'G8000 PRO',  path : '/#/products?id=4'},
+          { id: 5, name: 'G8000',  path : '/#/products?id=5'},
         ],
         [
-          { id: 2, name: 'MINI',  path : '/#/products?id=2', imgurl: require('../assets/img/product/pro_2.png')},
-          { id: 3, name: 'MINI 2200',  path : '/#/products?id=3', imgurl: require('../assets/img/product/pro_3.png')},
-          { id: 1, name: 'MAGIC MAZE PRO',  path : '/#/products?id=1', imgurl: require('../assets/img/product/pro_1.png')},
+          { id: 2, name: 'MINI',  path : '/#/products?id=2'},
+          { id: 3, name: 'MINI 2200',  path : '/#/products?id=3'},
+          { id: 1, name: 'MAGIC MAZE PRO',  path : '/#/products?id=1'},
         ],
         [
-          { id: 3, name: 'MINI 2200',  path : '/#/products?id=3', imgurl: require('../assets/img/product/pro_3.png')},
-          { id: 1, name: 'MAGIC MAZE PRO',  path : '/#/products?id=1', imgurl: require('../assets/img/product/pro_1.png')},
+          { id: 3, name: 'MINI 2200',  path : '/#/products?id=3'},
+          { id: 1, name: 'MAGIC MAZE PRO',  path : '/#/products?id=1'},
         ]
       ]
     })
