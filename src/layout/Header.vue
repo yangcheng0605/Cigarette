@@ -117,11 +117,54 @@
                 <a-collapse-panel class="Mnav" key="2" header="PRODUCTS" :show-arrow="false">
                   <template #extra><PlusOutlined /></template>
                   <div class="Mnav_link">
-                    <a href="/#/products?type=1" @click="show=false">New Arrivais</a>
-                    <a href="/#/products?type=2" @click="show=false">Disposable Series</a>
-                    <a href="/#/products?type=3" @click="show=false">Pod Series</a>
-                    <a href="/#/products?type=4" @click="show=false">E-liquid</a>
-                    <a href="/#/products?type=5" @click="show=false">Other</a>
+                    <a-collapse  ghost accordion>
+                      <a-collapse-panel key="1" header="New Arrivais" :show-arrow="false">
+                        <template #extra><PlusOutlined /></template>
+                          <a href="/#/products?type=1" @click="show=false">New Arrivais</a>
+                          <a href="/#/products?type=2" @click="show=false">New Arrivais</a>
+                          <a href="/#/products?type=3" @click="show=false">New Arrivais</a>
+                      </a-collapse-panel>
+                    </a-collapse>
+                    <a-collapse  ghost accordion>
+                      <a-collapse-panel key="3" header="Disposable Series" :show-arrow="false">
+                        <template #extra><PlusOutlined /></template>
+                          <a href="/#/products?type=1" @click="show=false">New Arrivais</a>
+                          <a href="/#/products?type=2" @click="show=false">New Arrivais</a>
+                      </a-collapse-panel>
+                    </a-collapse>
+                    <a-collapse  ghost accordion>
+                      <a-collapse-panel key="4" header="Pod Series" :show-arrow="false">
+                        <template #extra><PlusOutlined /></template>
+                          <a href="/#/products?type=1" @click="show=false">New Arrivais</a>
+                          <a href="/#/products?type=2" @click="show=false">New Arrivais</a>
+                      </a-collapse-panel>
+                    </a-collapse>
+                    <a-collapse  ghost accordion>
+                      <a-collapse-panel key="5" header="E-liquid" :show-arrow="false">
+                        <template #extra><PlusOutlined /></template>
+                          <a href="/#/products?type=1" @click="show=false">New Arrivais</a>
+                          <a href="/#/products?type=2" @click="show=false">New Arrivais</a>
+                      </a-collapse-panel>
+                    </a-collapse>
+                    <a-collapse  ghost accordion>
+                      <a-collapse-panel key="6" header="Other" :show-arrow="false">
+                        <template #extra><PlusOutlined /></template>
+                          <a href="/#/products?type=1" @click="show=false">New Arrivais</a>
+                          <a href="/#/products?type=2" @click="show=false">New Arrivais</a>
+                      </a-collapse-panel>
+                    </a-collapse>
+                    <!-- <a-collapse-panel class="Mnav" key="1" header="Disposable Series" :show-arrow="false">
+                      <template #extra><PlusOutlined /></template>
+                    </a-collapse-panel> -->
+                    <!-- <a-collapse-panel class="Mnav" key="1" header="Pod Series" :show-arrow="false">
+                      <template #extra><PlusOutlined /></template>
+                    </a-collapse-panel>
+                    <a-collapse-panel class="Mnav" key="1" header="E-liquid" :show-arrow="false">
+                      <template #extra><PlusOutlined /></template>
+                    </a-collapse-panel>
+                    <a-collapse-panel class="Mnav" key="1" header="Other" :show-arrow="false">
+                      <template #extra><PlusOutlined /></template>
+                    </a-collapse-panel> -->
                   </div>
                 </a-collapse-panel>
                 <p class="Mnav" >

@@ -222,12 +222,14 @@ import { useRouter } from 'vue-router';
         }
         .ant-tabs-tab{
           padding: 9px 0;
+          font-weight: bold;
           .ant-tabs-tab-btn:hover,
           .ant-tabs-tab-btn:focus{
             color: #111;
           }
         }
         .ant-tabs-tab-active .ant-tabs-tab-btn{
+          letter-spacing: 0;
           color: #111 !important;
         }
         .ant-tabs-ink-bar{
@@ -330,6 +332,7 @@ import { useRouter } from 'vue-router';
         height: 37.5rem;
       }
       .home_imgs_right{
+        border-radius: 5px;
         width: 25rem;
         height: 37.5rem;
         margin-left: 2.5rem;
@@ -342,6 +345,9 @@ import { useRouter } from 'vue-router';
       position: relative;
       img{
         height: 17.5rem;
+      }
+      .home_img_s,.home_img_r{
+        border-radius: 5px;
       }
     }
     .hoverBox {

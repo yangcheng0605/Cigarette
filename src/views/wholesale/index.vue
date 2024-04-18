@@ -3,9 +3,9 @@
     <div class="top_banner2">
       <img src="@/assets/img/about/wholesale_banner.png" alt="">
       <div class="t_box">
-        <p style="font-size: 1.5rem;">BECOME A WHOLESALER</p>
+        <p class="text_1">BECOME A WHOLESALER</p>
         <p class="title AntonFont">How can we help you?</p>
-        <p style="font-size: .875rem;">Please check  the sections below related to your inquiry</p>
+        <p class="text_2">Please check  the sections below related to your inquiry</p>
       </div>
     </div> 
     <div class="a_content">

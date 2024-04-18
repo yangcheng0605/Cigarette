@@ -81,24 +81,24 @@
         </div>
         <div class="footer-bottom">
           <div class="Fnav">
-              <a href="/#/products">PRODUCTS</a>
-          </div>
-          <div class="Fnav_link">
+            <a href="/#/products">PRODUCTS</a>
+            <div class="Fnav_link">
               <a href="/#/products?type=1">New Arrivais</a>
               <a href="/#/products?type=2">Disposable Series</a>
               <a href="/#/products?type=3">Pod Series</a>
               <a href="/#/products?type=4">E-liquid</a>
               <a href="/#/products?type=5">Other</a>
+            </div>
           </div>
           <div class="Fnav">
           <a href="/#/wholesale">WHOLESALE</a>
           </div>
           <div class="Fnav">
-          <a href="/#/about">ABOUT US</a>
-          </div>
-          <div class="Fnav_link">
+            <a href="/#/about">ABOUT US</a>
+            <div class="Fnav_link">
               <a href="/#/contact">Contact Us</a>
               <a href="/#/about">Why Ehonos</a>
+            </div>
           </div>
           <div class="footerFlag">COPYRIGHT © 2024 EHONOS ALL RIGHTS RESERVED.</div>
         </div>

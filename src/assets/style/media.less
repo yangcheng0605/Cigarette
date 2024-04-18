@@ -10,14 +10,14 @@
     height: 400px;
     .t_box{
       width: 100%;
-      & p:nth-of-type(1){
+      .text_1{
         font-size: 1rem;
         margin-bottom: 48px;
       }
-      & p:nth-of-type(3){
+      .text_2{
         font-size: .75rem;
         width: 65%;
-        margin: 0 auto;
+        margin: 12px auto 0;
       }
       .title{
         font-size: 2.5rem;
@@ -46,6 +46,13 @@
     }
     .gutter-box{
       margin-bottom: 20px;
+    }
+    .a_text{
+      left: 20px;
+      bottom: 20px;
+      .a_email{
+        margin-top: 8px;
+      }
     }
   }
   .a_content{
@@ -94,6 +101,7 @@
     }
     .proImg{
       font-size: .75rem;
+      margin-bottom: 0.8rem;
     }
     .p_text{
       font-size: .75rem;
@@ -107,7 +115,7 @@
         margin: .275rem 0 .425rem !important;
       }
       .p_learn{
-        margin-bottom: .75rem;
+        // margin-bottom: .75rem;
       }
     }
   }
@@ -119,8 +127,9 @@
       }
     }
     .other_pro{
-      padding: 2.375rem 1.25rem;
+      padding: 2.375rem 0;
       .swiper-wrapper{
+        margin-left: 1.25rem;
         .swiper-slide{
           width: 140px !important;
         }
@@ -129,12 +138,21 @@
         height: 140px;
       }
       .title{
-        font-size: 24px;
+        padding: 0 1.25rem;
+        font-size: 28px;
+        line-height: 32px;
         margin-bottom: 30px;
       }
       .products_list{
         .p_text{
           font-size: .75rem;
+        }
+        .p_hint{
+          height: 48px;
+          font-size: 12px;
+          line-height: 16px;
+          margin: 6px 0 10px;
+          -webkit-line-clamp: 3 !important;
         }
         .p_name{
           font-size: 1.125rem;
@@ -158,9 +176,15 @@
       display: none;
     }
     .home_block.home_center {
-      padding: 2.5rem 1.25rem;
+      padding: 2.5rem 0;
+      .homt_pros{
+        padding: 0 1.25rem;
+      }
+      .swiper-wrapper{
+        margin-left: 1.25rem;
+      }
       .swiper-slide{
-        width: 16.5rem !important;
+        width: 264px !important;
       }
       .proImg{
         height: 22rem;
@@ -179,6 +203,9 @@
     }
     .home_block.home_bottom {
       padding: 2.5rem 1.25rem;
+      .home_b_top{
+        margin-bottom: 24px;
+      }
       .home_imgs{
         flex-flow: column;
         font-size: 1.25rem;
