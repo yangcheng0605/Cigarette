@@ -7,6 +7,8 @@
             <swiper
               :navigation="true"
               @swiper="onSwiper"
+              :effect="'fade'"
+              :modules="[EffectFade, Navigation]"
             >
               <swiper-slide v-for="(item) in (isMobile ? mobilebannerList:bannerList)" :key="item.id">
                 <div class="home_banner">
@@ -94,6 +96,7 @@
 </template>
 <script>
 import { Swiper, SwiperSlide } from 'swiper/vue';
+import { EffectFade, Navigation } from 'swiper/modules';
 import { getCurrentInstance, nextTick, onMounted, reactive, toRefs } from 'vue';
 import 'swiper/css/navigation';
 import 'swiper/css';
@@ -109,6 +112,8 @@ import { useRouter } from 'vue-router';
       const router = useRouter()
       const { proxy } = getCurrentInstance();
       const state = reactive({
+        EffectFade,
+        Navigation,
         activeKey: 1,
         perView: 4,
         between: 40,
@@ -247,12 +252,6 @@ import { useRouter } from 'vue-router';
     .home_sildeNext{
       background: url('../../assets/img/arrow_white_r.png') no-repeat 100%/contain;
     }
-    .home_sildePre:hover{
-      background: url('../../assets/img/arrow_yellow_l.png') no-repeat 100%/contain;
-    }
-    .home_sildeNext:hover{
-      background: url('../../assets/img/arrow_yellow_r.png') no-repeat 100%/contain;
-    }
   }
   .homeSwiper{
     .swiper_box {
@@ -264,6 +263,12 @@ import { useRouter } from 'vue-router';
       }
       .home_sildeNext{
         left: 12.5rem;
+      }
+      .home_sildePre:hover{
+      background: url('../../assets/img/arrow_yellow_l.png') no-repeat 100%/contain;
+      }
+      .home_sildeNext:hover{
+        background: url('../../assets/img/arrow_yellow_r.png') no-repeat 100%/contain;
       }
     }
   }

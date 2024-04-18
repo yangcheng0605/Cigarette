@@ -102,8 +102,9 @@
           <div class="main_center">
             <a href="/#/"><img src="@/assets/img/logo_black.png"></a>
           </div>
-          <div :class="['main_Mright', show?'Mright_active':'']" @click="targetShowNav">
-            <div class="Mright_line" :style="{ background: show?'transparent':'#000'}" ></div>
+          <div class="main_Mright" @click="targetShowNav">
+            <img  v-if="show" src="@/assets/img/mb_nav_close.png" alt="">
+            <img v-else src="@/assets/img/mb_nav.png" alt="">
           </div>
           <div :class="['Main_popup', show?'Main_popup_active':'']">
             <div class="Main_item">
