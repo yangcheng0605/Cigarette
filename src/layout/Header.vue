@@ -48,12 +48,10 @@
               <div class="mp_product">
                 <div class="mp_items" v-if="mpList[proIndex] && mpList[proIndex].length>0">
                   <div class="mp_item" v-for="(item, index) in mpList[proIndex] || []" :key=index @click="linkToPro(item)">
-                    <a >
                       <div class="mp_img hoverBox">
                         <img class="hoverImg" :src="item.imgurl">
                       </div>
                       <span>{{item.name}}</span>
-                    </a>
                   </div>
                 </div>
                 <a-empty :image="Empty.PRESENTED_IMAGE_SIMPLE" v-else />
@@ -223,25 +221,25 @@ export default {
       ],
       mpList: [
         [
-          { id: 1, name: 'MAGIC MAZE PRO',  path : '/#/products?id=1'},
-          { id: 2, name: 'MINI',  path : '/#/products?id=2'},
-          { id: 3, name: 'MINI 2200',  path : '/#/products?id=3'},
-          { id: 4, name: 'G8000 PRO',  path : '/#/products?id=4'},
-          { id: 5, name: 'G8000',  path : '/#/products?id=5'},
+         { id: 1, name: 'MAGIC MAZE PRO',  path : '/#/products?id=1', imgurl: require('../assets/img/product/pro_1.png')},
+          { id: 2, name: 'MINI',  path : '/#/products?id=2', imgurl: require('../assets/img/product/pro_2.png')},
+          { id: 3, name: 'MINI 2200',  path : '/#/products?id=3', imgurl: require('../assets/img/product/pro_3.png')},
+          { id: 4, name: 'G8000 PRO',  path : '/#/products?id=4', imgurl: require('../assets/img/product/pro_4.png')},
+          { id: 5, name: 'G8000',  path : '/#/products?id=5', imgurl: require('../assets/img/product/pro_5.png')},
         ],
         [
-          { id: 1, name: 'MAGIC MAZE PRO',  path : '/#/products?id=1'},
-          { id: 4, name: 'G8000 PRO',  path : '/#/products?id=4'},
-          { id: 5, name: 'G8000',  path : '/#/products?id=5'},
+          { id: 1, name: 'MAGIC MAZE PRO',  path : '/#/products?id=1', imgurl: require('../assets/img/product/pro_1.png')},
+          { id: 4, name: 'G8000 PRO',  path : '/#/products?id=4', imgurl: require('../assets/img/product/pro_4.png')},
+          { id: 5, name: 'G8000',  path : '/#/products?id=5', imgurl: require('../assets/img/product/pro_5.png')},
         ],
         [
-          { id: 2, name: 'MINI',  path : '/#/products?id=2'},
-          { id: 3, name: 'MINI 2200',  path : '/#/products?id=3'},
-          { id: 1, name: 'MAGIC MAZE PRO',  path : '/#/products?id=1'},
+         { id: 2, name: 'MINI',  path : '/#/products?id=2', imgurl: require('../assets/img/product/pro_2.png')},
+          { id: 3, name: 'MINI 2200',  path : '/#/products?id=3', imgurl: require('../assets/img/product/pro_3.png')},
+          { id: 1, name: 'MAGIC MAZE PRO',  path : '/#/products?id=1', imgurl: require('../assets/img/product/pro_1.png')},
         ],
         [
-          { id: 3, name: 'MINI 2200',  path : '/#/products?id=3'},
-          { id: 1, name: 'MAGIC MAZE PRO',  path : '/#/products?id=1'},
+          { id: 3, name: 'MINI 2200',  path : '/#/products?id=3', imgurl: require('../assets/img/product/pro_3.png')},
+          { id: 1, name: 'MAGIC MAZE PRO',  path : '/#/products?id=1', imgurl: require('../assets/img/product/pro_1.png')},
         ]
       ]
     })
