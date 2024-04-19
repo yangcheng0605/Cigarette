@@ -223,6 +223,7 @@ import { useRouter } from 'vue-router';
         .ant-tabs-tab{
           padding: 9px 0;
           font-weight: bold;
+          color: #111 !important;
           .ant-tabs-tab-btn{
             letter-spacing: 0;
           }
@@ -233,7 +234,7 @@ import { useRouter } from 'vue-router';
         }
         .ant-tabs-tab-active .ant-tabs-tab-btn{
           color: #111 !important;
-          letter-spacing: 0;
+          text-shadow: none;
         }
         .ant-tabs-ink-bar{
           background: #111 !important;

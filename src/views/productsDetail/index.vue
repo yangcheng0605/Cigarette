@@ -156,7 +156,7 @@ import 'swiper/css';
   .proImg{
     margin-bottom: 1rem;
     img{
-      height: 100vh;
+      // height: 100vh;
     }
   }
   .other_pro{
