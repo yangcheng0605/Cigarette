@@ -89,11 +89,6 @@
                 <a href="/#/products?type=3" @click="show=false">Pod Series</a>
                 <a href="/#/products?type=4" @click="show=false">E-liquid</a>
                 <a href="/#/products?type=5" @click="show=false">Other</a>
-                <!-- <a href="/#/products?type=1" @click="show=false">New Arrivais</a>
-                <a href="/#/products?type=2" @click="show=false">Disposable Series</a>
-                <a href="/#/products?type=3" @click="show=false">Pod Series</a>
-                <a href="/#/products?type=4" @click="show=false">E-liquid</a>
-                <a href="/#/products?type=5" @click="show=false">Other</a> -->
               </div>
             </a-collapse-panel>
           </a-collapse>

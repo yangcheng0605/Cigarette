@@ -36,19 +36,19 @@
         <a-col class="gutter-row" :xs="24" :sm="24" :md="8">
           <div class="gutter-box wow animate__fadeInUp" data-wow-offset="50">
             <p class="a_title AntonFont">OUR PHILOSOPHY</p>
-            <p>Beauty and Beast Performance 650mAh and 8000 puffs yeah 8000 puffs yeah bro.Beauty and Beast Performance 650mAh puffs yeah 8000 puffs yeah bro.</p>
+            <p class="a_bottom_text">Beauty and Beast Performance 650mAh and 8000 puffs yeah 8000 puffs yeah bro.Beauty and Beast Performance 650mAh puffs yeah 8000 puffs yeah bro.</p>
           </div>
         </a-col>
         <a-col class="gutter-row" :xs="24" :sm="24" :md="8">
           <div class="gutter-box wow animate__fadeInUp" data-wow-offset="50">
             <p class="a_title AntonFont">OUR VISION</p>
-            <p>Beauty and Beast Performance 650mAh and 8000 puffs yeah 8000 puffs yeah bro.Beauty and Beast Performance 650mAh puffs yeah 8000 puffs yeah bro.</p>
+            <p class="a_bottom_text">Beauty and Beast Performance 650mAh and 8000 puffs yeah 8000 puffs yeah bro.Beauty and Beast Performance 650mAh puffs yeah 8000 puffs yeah bro.</p>
           </div>
         </a-col>
         <a-col class="gutter-row" :xs="24" :sm="24" :md="8">
           <div class="gutter-box wow animate__fadeInUp" data-wow-offset="50">
             <p class="a_title AntonFont">OUR VALUE</p>
-            <p>Beauty and Beast Performance 650mAh and 8000 puffs yeah 8000 puffs yeah bro.Beauty and Beast Performance 650mAh puffs yeah 8000 puffs yeah bro.</p>
+            <p class="a_bottom_text">Beauty and Beast Performance 650mAh and 8000 puffs yeah 8000 puffs yeah bro.Beauty and Beast Performance 650mAh puffs yeah 8000 puffs yeah bro.</p>
           </div>
         </a-col>
       </a-row>
@@ -122,6 +122,7 @@ import { getCurrentInstance, nextTick, onMounted, reactive, toRefs } from 'vue';
     margin-bottom: 1.875rem;
     .title{
       font-size: 2.5rem;
+      line-height: 2.5rem;
     }
     img{
       width: 4rem;
@@ -129,17 +130,19 @@ import { getCurrentInstance, nextTick, onMounted, reactive, toRefs } from 'vue';
   }
   .a_text_bottom{
     color: #111;
-    font-size: .875rem;
-    
+    font-size: 1rem;
+    line-height: 1.25rem;
   }
 }
 .a_bottom_box{
-  p{
+  .a_bottom_text{
     font-size: .875rem;
+    line-height: 1.125rem;
   }
   .a_title{
     font-size: 2rem;
     margin-bottom: .25rem;
+    line-height: 2.5rem;
   }
 }
 </style>

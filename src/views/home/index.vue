@@ -209,6 +209,9 @@ import { useRouter } from 'vue-router';
       animation: home_rotate 10s linear infinite ;
     }
     .homt_pros{
+      .title{
+        line-height: 2.5rem;
+      }
       .home_tab{
         margin: .812rem 0 3.75rem;
         .ant-tabs-nav{
@@ -222,7 +225,7 @@ import { useRouter } from 'vue-router';
         }
         .ant-tabs-tab{
           padding: 9px 0;
-          font-weight: bold;
+          font-weight: 500;
           color: #111 !important;
           .ant-tabs-tab-btn{
             letter-spacing: 0;
@@ -323,6 +326,9 @@ import { useRouter } from 'vue-router';
       align-items: center;
       justify-content: space-between;
       margin-bottom: 3.75rem;
+      .title{
+        line-height: 2.5rem;
+      }
       img{
         width: 8.375rem;
       }
@@ -336,12 +342,13 @@ import { useRouter } from 'vue-router';
         height: 37.5rem;
       }
       .home_imgs_right{
-        border-radius: 5px;
+        border-radius: 8px;
         width: 25rem;
         height: 37.5rem;
         margin-left: 2.5rem;
         flex-shrink: 0;
         position: relative;
+        background: linear-gradient(225deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
       }
     }
     .imgs_lr,.imgs_rl{
@@ -351,7 +358,8 @@ import { useRouter } from 'vue-router';
         height: 17.5rem;
       }
       .home_img_s,.home_img_r{
-        border-radius: 5px;
+        border-radius: 8px;
+        background: linear-gradient(225deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
       }
     }
     .hoverBox {
@@ -360,6 +368,7 @@ import { useRouter } from 'vue-router';
         position: absolute;
         left: 1.875rem;
         bottom: 1.5rem;
+        line-height: 2.5rem;
       }
     }
     .imgs_lr{

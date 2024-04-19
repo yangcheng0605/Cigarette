@@ -171,6 +171,7 @@ import 'swiper/css';
     .title{
       text-align: center;
       font-size: 3rem;
+      line-height: 3rem;
       color: #fff;
       margin-bottom: 3.75rem;
     }
