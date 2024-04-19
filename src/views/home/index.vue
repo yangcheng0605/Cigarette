@@ -65,28 +65,33 @@
             <div class="home_imgs_left">
               <div class="imgs_lr">
                 <div class="home_img_s hoverBox wow animate__fadeInTopLeft" data-wow-offset="50">
+                  <div class="shade"></div>
                   <img class="hoverImg" src="@/assets/img/home/live_4.png" alt="">
                   <p class="img_text AntonFont">Text content</p>
                 </div>
                 <div class="home_img_r hoverBox wow animate__fadeInTopRight" data-wow-offset="50">
+                  <div class="shade"></div>
                   <img class="hoverImg" src="@/assets/img/home/live_2.png" alt="">
                   <p class="img_text AntonFont">Text content</p>
                 </div>
               </div>
               <div class="imgs_rl">
                 <div class="home_img_r hoverBox wow animate__fadeInBottomLeft " data-wow-offset="50">
+                  <div class="shade"></div>
                   <img class="hoverImg" src="@/assets/img/home/live_3.png" alt="">
                   <p class="img_text AntonFont">Text content</p>
                 </div>
                 <div class="home_img_s hoverBox wow animate__fadeInBottomRight" data-wow-offset="50">
+                  <div class="shade"></div>
                   <img class="hoverImg" src="@/assets/img/home/live_4.png" alt="">
                   <p class="img_text AntonFont">Text content</p>
                 </div>
               </div>
             </div>
             <div class="home_imgs_right hoverBox wow animate__bounceInRight"  data-wow-offset="50" data-wow-delay='.2s'>
-              <img class="hoverImg" src="@/assets/img/home/live_5.png" alt="">
-               <p class="img_text AntonFont">Text content</p>
+                <div class="shade"></div>
+                <img class="hoverImg" src="@/assets/img/home/live_5.png" alt="">
+                <p class="img_text AntonFont">Text content</p>
             </div>
           </div>
         </div>
@@ -283,6 +288,9 @@ import { useRouter } from 'vue-router';
   }
   .home_center{
     .swiper_box {
+      .swiper{
+        padding-right: 2.5rem;
+      }
       .home_sildePre, .home_sildeNext {
         top: 50%;
       }
@@ -340,6 +348,7 @@ import { useRouter } from 'vue-router';
       font-size: 2rem;
       .home_imgs_left{
         height: 37.5rem;
+        position: relative;
       }
       .home_imgs_right{
         border-radius: 8px;
@@ -348,7 +357,13 @@ import { useRouter } from 'vue-router';
         margin-left: 2.5rem;
         flex-shrink: 0;
         position: relative;
+      }
+      .shade{
         background: linear-gradient(225deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
       }
     }
     .imgs_lr,.imgs_rl{
@@ -359,7 +374,6 @@ import { useRouter } from 'vue-router';
       }
       .home_img_s,.home_img_r{
         border-radius: 8px;
-        background: linear-gradient(225deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
       }
     }
     .hoverBox {
