@@ -80,28 +80,41 @@
           </div>
         </div>
         <div class="footer-bottom">
-          <a-collapse ghost accordion>
-            <a-collapse-panel class="white_Mnav" header="PRODUCTS" :show-arrow="false">
-              <template #extra><img class="headerExtra" src="@/assets/img/footer/open.png" alt=""> </template>
-              <div class="Mnav_link">
-                <a href="/#/products?type=1" @click="show=false">New Arrivais</a>
-                <a href="/#/products?type=2" @click="show=false">Disposable Series</a>
-                <a href="/#/products?type=3" @click="show=false">Pod Series</a>
-                <a href="/#/products?type=4" @click="show=false">E-liquid</a>
-                <a href="/#/products?type=5" @click="show=false">Other</a>
-              </div>
-            </a-collapse-panel>
-          </a-collapse>
+          <div class="Fnav">
+            <a-collapse ghost accordion>
+              <a-collapse-panel class="white_Mnav" header="PRODUCTS" :show-arrow="false">
+                <template #extra><img class="headerExtra" src="@/assets/img/footer/open.png" alt=""> </template>
+                <div class="Mnav_link">
+                  <a href="/#/products?type=1" @click="show=false">New Arrivais</a>
+                  <a href="/#/products?type=2" @click="show=false">Disposable Series</a>
+                  <a href="/#/products?type=3" @click="show=false">Pod Series</a>
+                  <a href="/#/products?type=4" @click="show=false">E-liquid</a>
+                  <a href="/#/products?type=5" @click="show=false">Other</a>
+                </div>
+              </a-collapse-panel>
+            </a-collapse>
+          </div>
           <div class="Fnav">
             <a href="/#/wholesale">WHOLESALE</a>
           </div>
           <div class="Fnav">
+            <a-collapse ghost accordion>
+              <a-collapse-panel class="white_Mnav" header="ABOUT US" :show-arrow="false">
+                <template #extra><img class="headerExtra" src="@/assets/img/footer/open.png" alt=""> </template>
+                <div class="Mnav_link">
+                  <a href="/#/contact">Contact Us</a>
+                  <a href="/#/about">Why Ehonos</a>
+                </div>
+              </a-collapse-panel>
+            </a-collapse>
+          </div>
+          <!-- <div class="Fnav">
             <a href="/#/about">ABOUT US</a>
             <div class="Fnav_link">
               <a href="/#/contact">Contact Us</a>
               <a href="/#/about">Why Ehonos</a>
             </div>
-          </div>
+          </div> -->
           <!-- <div class="Fnav">
             <a href="/#/products">PRODUCTS</a>
             <div class="Fnav_link">

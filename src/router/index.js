@@ -10,7 +10,7 @@ const routes = [
   {
     path: "/home",
     name: "home",
-    title: 'Home',
+    title: 'EHONOS',
     component: () =>
       import("@/views/home/index.vue"),
   },

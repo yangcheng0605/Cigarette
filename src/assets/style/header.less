@@ -94,6 +94,10 @@
   display: flex;
   justify-content: space-between;
   font-size: .75rem;
+  div {
+    font-weight: 500;
+    cursor: pointer
+  }
   .mp_nav_hover {
     color: #F5B81A;
   }
@@ -110,11 +114,6 @@
 .mp_content .mp_product:nth-child(1) {
   display: block
 }
-
-.mp_nav div {
-  cursor: pointer
-}
-
 .mp_items {
   display: flex;
   justify-content: center;
@@ -196,10 +195,6 @@
 .main_mask_show{
   height: 100vh;
 }
-.nav span:nth-child(1),.nav span:nth-child(2),.nav span:nth-child(3) {
-  // margin-top: 3rem;
-  // padding-bottom: 3rem
-}
 
 .main_left {
   width: 20%;
@@ -248,6 +243,7 @@
     cursor: pointer;
     display: inline-block;
     padding: 1.25rem 0;
+    font-weight: 500;
   }
   .nav_active{
     color: #F5B81A;
@@ -264,6 +260,7 @@
     padding-left: 8px !important;
     .ant-select-selection-item{
       font-size: 0.75rem !important;
+      font-weight: 500;
     }
   }
 }
@@ -382,11 +379,15 @@
       font-size: 1.2rem;
       color: #000;
       border-radius: 0 !important;
+      a{
+        font-weight: 500;
+      }
       .ant-collapse-header{
         padding: 0 !important;
         line-height: 1.125rem !important;
         &>span{
           font-size: 1.125rem;
+          font-weight: 500;
         }
       }
       .ant-collapse-extra{
@@ -417,6 +418,7 @@
   }
   .Mnav_link a {
     font-size: .9375rem;
+    font-weight: 500;
     color: #666;
     display: block;
     margin-top: 1.25rem;
@@ -426,18 +428,15 @@
       transform: rotate(45deg);
     }
   }
-  .Mnav_pro{
-
-  }
   .Mnav_right {
-      position: relative
+    position: relative
   }
 
   .Mnav_line {
-      width: 1rem;
-      height: 1px;
-      background: #000;
-      transition: all .3s
+    width: 1rem;
+    height: 1px;
+    background: #000;
+    transition: all .3s
   }
 
   .Mnav_line:after {
