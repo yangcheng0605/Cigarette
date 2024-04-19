@@ -90,11 +90,21 @@
   }
   // 产品列表
   .products .products_content{
+    padding: 1.875rem 0 !important;
     .a_content_top{
       margin-bottom: 16px;
     }
-    .products_tab{
+    .a_content_top .title, .a_content_bottom{
+      padding: 0 1.25rem !important;
+    }
+    .products_tab {
       width: 100%;
+      .ant-tabs-tab:first-of-type {
+        margin-left: 1.25rem;
+      }
+      .ant-tabs-tab {
+        margin-right: 1rem;
+      }
     }
     .gutter-box{
       margin-bottom: 0px;

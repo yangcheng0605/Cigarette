@@ -21,24 +21,24 @@
           </a-tabs>
         </div>
       </div>
-      <div>
+      <div class="a_content_bottom">
+        <a-row :gutter="gutter">
+          <a-col class="gutter-row" :span='colSpan' v-for="item in proList" :key='item.id'>
+            <div class="gutter-box " @click="linkTo(item)" >
+              <div class="hoverBox proImg">
+                <img class="hoverImg" :src="item.url" alt="">
+              </div>
+              <div class="p_text">
+                <p class="p_name">{{item.name}}</p>
+                <p class="p_hint">{{item.info}}</p>
+                <p class="p_learn smallArrow_box">
+                  <span>Learn more</span><img class="smallArrow" src="@/assets/img/arrow_white_r_small.png" alt="">
+                </p>
+              </div>
+            </div>
+          </a-col>
+        </a-row>
       </div>
-      <a-row :gutter="gutter">
-        <a-col class="gutter-row" :span='colSpan' v-for="item in proList" :key='item.id'>
-          <div class="gutter-box " @click="linkTo(item)" >
-            <div class="hoverBox proImg">
-              <img class="hoverImg" :src="item.url" alt="">
-            </div>
-            <div class="p_text">
-              <p class="p_name">{{item.name}}</p>
-              <p class="p_hint">{{item.info}}</p>
-              <p class="p_learn smallArrow_box">
-                <span>Learn more</span><img class="smallArrow" src="@/assets/img/arrow_white_r_small.png" alt="">
-              </p>
-            </div>
-          </div>
-        </a-col>
-      </a-row>
     </div>
   </div>
 </template>
