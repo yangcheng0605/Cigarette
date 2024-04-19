@@ -232,6 +232,7 @@ import { useRouter } from 'vue-router';
           padding: 9px 0;
           font-weight: 500;
           color: #111 !important;
+          font-size: 1rem;
           .ant-tabs-tab-btn{
             letter-spacing: 0;
           }
@@ -359,11 +360,13 @@ import { useRouter } from 'vue-router';
         position: relative;
       }
       .shade{
-        background: linear-gradient(225deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
+        background: linear-gradient(225deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
         position: absolute;
         top: 0;
         width: 100%;
         height: 100%;
+        transition: all .5s;
+        z-index: 10;
       }
     }
     .imgs_lr,.imgs_rl{
@@ -383,6 +386,7 @@ import { useRouter } from 'vue-router';
         left: 1.875rem;
         bottom: 1.5rem;
         line-height: 2.5rem;
+        z-index: 12;
       }
     }
     .imgs_lr{

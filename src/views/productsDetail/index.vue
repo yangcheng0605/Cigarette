@@ -185,7 +185,6 @@ import 'swiper/css';
       top: 25%;
       cursor: pointer;
     }
-    position: relative;
     .custom_sildePre{
       left: -5rem;
       background: url('../../assets/img/arrow_white_l.png') no-repeat 100%/contain;
@@ -193,6 +192,12 @@ import 'swiper/css';
     .custom_sildeNext{
       right: -5rem;
       background: url('../../assets/img/arrow_white_r.png') no-repeat 100%/contain;
+    }
+    .custom_sildePre:hover{
+      background: url('../../assets/img/arrow_yellow_l.png') no-repeat 100%/contain;
+    }
+    .custom_sildeNext:hover{
+      background: url('../../assets/img/arrow_yellow_r.png') no-repeat 100%/contain;
     }
   }
 }
