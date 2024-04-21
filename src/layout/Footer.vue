@@ -15,11 +15,12 @@
                     <div class="fi2_item">
                         <div class="ft_title"><a href="/#/products">Product</a></div>
                         <div class="fi2_text">
-                            <div><a href="/#/products?type=1">&gt; New Arrivais</a> <!-- <span>NEW</span> --></div>
+                            <div v-for="item in mpType" :key="item.cateId"><a :href="`/#/products?id=${item.cateId}`" >&gt; {{item.cateName || ''}}</a></div>
+                            <!-- <div><a href="/#/products?type=1">&gt; New Arrivais</a> </div>
                             <div><a href="/#/products?type=2">&gt; Disposable Series</a> </div>
                             <div><a href="/#/products?type=3">&gt; Pod Series</a></div>
                             <div><a href="/#/products?type=4">&gt; E-liquid</a></div>
-                            <div><a href="/#/products?type=5">&gt; Other</a></div>
+                            <div><a href="/#/products?type=5">&gt; Other</a></div> -->
                         </div>
                     </div>
                     <div class="fi2_item">
@@ -85,12 +86,15 @@
               <a-collapse-panel class="white_Mnav" header="PRODUCTS" :show-arrow="false">
                 <template #extra><img class="headerExtra" src="@/assets/img/footer/open.png" alt=""> </template>
                 <div class="Mnav_link">
+                  <a :href="`/#/products?id=${item.cateId}`" v-for="item in mpType" :key="item.cateId">{{item.cateName || ''}}</a>
+                </div>
+                <!-- <div class="Mnav_link">
                   <a href="/#/products?type=1" @click="show=false">New Arrivais</a>
                   <a href="/#/products?type=2" @click="show=false">Disposable Series</a>
                   <a href="/#/products?type=3" @click="show=false">Pod Series</a>
                   <a href="/#/products?type=4" @click="show=false">E-liquid</a>
                   <a href="/#/products?type=5" @click="show=false">Other</a>
-                </div>
+                </div> -->
               </a-collapse-panel>
             </a-collapse>
           </div>
@@ -133,8 +137,41 @@
 </template>
 <script>
 import "@/assets/style/footer.less"
+import { getCurrentInstance, onMounted, reactive, ref, toRefs, watch } from 'vue';
+import { PlusOutlined } from "@ant-design/icons-vue";
+import { Empty } from "ant-design-vue";
+import Storage from '@/utils/storage';
 export default {
   name: "Footer",
+  components: {
+    PlusOutlined
+  },
+  setup() {
+    const { proxy } = getCurrentInstance();
+    const state = reactive({
+      mpType:[],
+    })
+    onMounted(async () => {
+      getCategoryList()
+    })
+    const getCategoryList = () => {
+      proxy.$api.categoryList('').then(res=>{
+        state.mpType = res
+        Storage.setItem('navList', res)
+      })
+    };
+    const linkTo = (e) => {
+      router.push({
+        path: e.path
+      });
+      Storage.setItem('navActive', e.path)
+    }
+    return {
+      Empty,
+      ...toRefs(state),
+      linkTo,
+    }
+  }
 };
 </script>
 

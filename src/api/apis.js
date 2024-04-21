@@ -1,12 +1,20 @@
 import { get, post } from '../utils/http'
 /* api管理 */
-function facilityTypesList(data) {
-  return get('/admin/facility_types?facilities=all', data)
+function picList(data) {
+  return get('/dzy/ccgj/pic/api/list', data)
 }
-function addFacilityTypes(data) {
-  return post('/admin/facility_types', data)
+function categoryList(data) {
+  return get('/dzy/ccgj/category/api/list', data)
+}
+function productList(data) {
+  return get('/dzy/ccgj/product/api/detail/' + data )
+}
+function productListByCate(data) {
+  return get('/dzy/ccgj/product/api/listByCate/' + data)
 }
 export {
-  facilityTypesList,
-  addFacilityTypes,
+  picList,
+  categoryList,
+  productList,
+  productListByCate,
 }

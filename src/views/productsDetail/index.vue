@@ -1,12 +1,12 @@
 <template>
   <div class="products productsDetail">
     <div class="proImg" >
-      <img :src="isMobile?proData.mobilebanner:proData.banner" alt="">
+      <img :src="isMobile && proData?proData.proSPath:proData.proPath" alt="">
     </div>
-    <div class="proImg" v-for="(item, index) in (isMobile?proData.mobileimgs:proData.imgs)" :key='index'>
+    <div class="proImg" v-for="(item, index) in imageUrls" :key='index'>
       <img :src="item" alt="">
     </div>
-    <div class="other_pro">
+    <div class="other_pro" v-if="proList && proList.length>0">
       <p class="title AntonFont wow animate__fadeInUp" data-wow-offset="50">Other Product Recommendations</p>
       <div class="swiper_box wow animate__fadeInUp" data-wow-offset="50">
         <swiper
@@ -16,14 +16,14 @@
           :modules="modules" 
           @swiper="onSwiper"
         >
-          <swiper-slide v-for="(item) in otherProList" :key="item.id">
+          <swiper-slide v-for="(item) in proList" :key="item.proId">
             <div class="products_list" @click="linkTo(item)">
               <div class="hoverBox proImg">
-                <img class="hoverImg" :src="item.url" alt="">
+                <img class="hoverImg" :src="item.cover" alt="">
               </div>
               <div class="p_text">
-                <p class="p_name">{{item.name}}</p>
-                <p class="p_hint">{{item.info}}</p>
+                <p class="p_name">{{item.proName}}</p>
+                <p class="p_hint">{{item.proDesc}}</p>
                 <p class="p_learn smallArrow_box">
                   <span>Learn more</span><img class="smallArrow" src="@/assets/img/arrow_white_r_small.png" alt="">
                 </p>
@@ -62,33 +62,17 @@ import 'swiper/css';
         between: 30,
         modules: [Navigation],
         swiper: null,
+        imageUrls: null,
         isMobile: false,
-        otherProList: [
-          { id: 1, name: 'GT501', url:require('@/assets/img/product/pro_11.png'), info:'Beauty and Beast Performance 65ast Performanast Performan0mAh and 8000 puffs yeah bro',},
-          { id: 2, name: 'GT502', url:require('@/assets/img/product/pro_22.png'), info:'Beauty and 0 ',},
-          { id: 3, name: 'GT503', url:require('@/assets/img/product/pro_3.png'), info:'Beauty and Beast Performance 650mAh and 8000 puffs yeah bro',},
-          { id: 4, name: 'GT504', url:require('@/assets/img/product/pro_4.png'), info:'Beauty and Beast Performance 650mAh and 8000 puffs',},
-          { id: 5, name: 'GT505', url:require('@/assets/img/product/pro_5.png'), info:'Beauty and 00 puffs yeah',},
-          { id: 6, name: 'GT506', url:require('@/assets/img/product/pro_11.png'), info:'Beauty and Beast Performance',},
+        proList: [
+          // { id: 1, name: 'GT501', url:require('@/assets/img/product/pro_11.png'), info:'Beauty and Beast Performance 65ast Performanast Performan0mAh and 8000 puffs yeah bro',},
+          // { id: 2, name: 'GT502', url:require('@/assets/img/product/pro_22.png'), info:'Beauty and 0 ',},
+          // { id: 3, name: 'GT503', url:require('@/assets/img/product/pro_3.png'), info:'Beauty and Beast Performance 650mAh and 8000 puffs yeah bro',},
+          // { id: 4, name: 'GT504', url:require('@/assets/img/product/pro_4.png'), info:'Beauty and Beast Performance 650mAh and 8000 puffs',},
+          // { id: 5, name: 'GT505', url:require('@/assets/img/product/pro_5.png'), info:'Beauty and 00 puffs yeah',},
+          // { id: 6, name: 'GT506', url:require('@/assets/img/product/pro_11.png'), info:'Beauty and Beast Performance',},
         ],
-        proData: {
-          id: 1, 
-          name: 'GT501', 
-          banner: require('@/assets/img/product/banner.png'),
-          mobilebanner: require('@/assets/img/product/m_pro_banner.png'),
-          imgs:[
-            require('@/assets/img/product/pro_detail_2.png'),
-            require('@/assets/img/product/pro_detail_3.png'),
-            require('@/assets/img/product/pro_detail_4.png'),
-          ],
-          mobileimgs:[
-            require('@/assets/img/product/pro_detail_2.png'),
-            require('@/assets/img/product/pro_detail_3.png'),
-            require('@/assets/img/product/pro_detail_4.png'),
-          ],
-          url: require('@/assets/img/product/pro_11.png'), 
-          info:'Beauty and Beast Performance 65ast Performanast Performan0mAh and 8000 puffs yeah bro'
-        }
+        proData: {proSPath:null, proPath:null}
       })
 
       onMounted(async () => { 
@@ -109,7 +93,19 @@ import 'swiper/css';
           wow.init()
         })
       })
-       const handleResize = () => {
+      const getProductList = (id) => {
+        proxy.$api.productList(id).then(res=>{
+          state.proData = res
+          state.imageUrls = res.imageUrls && res.imageUrls.split(',')
+          getProductListByCate(res.cId)
+        })
+      };
+      const getProductListByCate = (id) => {
+        proxy.$api.productListByCate(id).then(res=>{
+          state.proList = res
+        })
+      };
+      const handleResize = () => {
         const windowWidth = window.innerWidth;
        if (windowWidth < 750) {
          state.between = 15
@@ -125,7 +121,7 @@ import 'swiper/css';
         state.swiper = swiper
       };
       const linkTo = (res) => {
-        router.push('/productsDetail?id=' + res.id);
+        router.push('/productsDetail?id=' + res.proId);
       };
       const sildePre = () => {
         state.swiper.slidePrev(500, res=>{
@@ -139,7 +135,10 @@ import 'swiper/css';
       };
       watch(route, (e) => {
         const query = e.query
-        state.id = parseInt(query.id) || null;
+        if (query.id)  {
+          state.id = parseInt(query.id) || null;
+          getProductList(query.id)
+        }
       }, { immediate: true })
       return {
         ...toRefs(state),

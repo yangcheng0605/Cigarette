@@ -3,16 +3,17 @@
     <div class="banner1">
       <div class="Desktop_swiper">
         <div class="homeSwiper">
-          <div class="swiper_box">
+          <div class="swiper_box" v-if="bannerList && bannerList.length>0">
             <swiper
               :navigation="true"
               @swiper="onSwiper"
               :effect="'fade'"
+              :loop="true"
               :modules="[EffectFade, Navigation]"
             >
-              <swiper-slide v-for="(item) in (isMobile ? mobilebannerList:bannerList)" :key="item.id">
+              <swiper-slide v-for="(item) in bannerList" :key="item.id">
                 <div class="home_banner">
-                  <img :src="item.url" alt="">
+                  <img :src="isMobile?item.pSPath:item.pPath" alt="">
                 </div>
               </swiper-slide>
             </swiper>
@@ -21,19 +22,25 @@
             <div class="home_sildeNext" @click="sildeNext(1)">
             </div>
           </div>
+          <div class="spin" v-else>
+            <a-spin :indicator="indicator" size="large" />
+          </div>
         </div>
         <div class="home_block home_center">
           <div class="home_tag"><img src="@/assets/img/home/tag.png" alt=""></div>
           <div class="homt_pros">
             <p class="title AntonFont wow animate__fadeInLeft" data-wow-offset="50">Our Recommendations</p>
              <div class="home_tab wow animate__fadeInLeft" data-wow-offset="50">
-              <a-tabs v-model:activeKey="activeKey">
+                <a-tabs v-model:activeKey="activeKey" @change="changeTab">
+                  <a-tab-pane :tab="item.cateName" v-for="item in mpType" :key='item.cateId'></a-tab-pane>
+                </a-tabs>
+              <!-- <a-tabs v-model:activeKey="activeKey">
                 <a-tab-pane :key="1" tab="Our Recommendations"></a-tab-pane>
                 <a-tab-pane :key="2" tab="New"></a-tab-pane>
                 <a-tab-pane :key="3" tab="Disposable"></a-tab-pane>
                 <a-tab-pane :key="4" tab="Pod Series"></a-tab-pane>
                 <a-tab-pane :key="5" tab="E-liquid"></a-tab-pane>
-              </a-tabs>
+              </a-tabs> -->
             </div>
           </div>
             <!-- <div class="wow animate__rubberBand" data-wow-offset="50">显示1</div> -->
@@ -44,9 +51,9 @@
               :navigation="true"
               @swiper="onSwiper2"
             >
-              <swiper-slide v-for="(item) in otherProList" :key="item.id">
+              <swiper-slide v-for="(item) in proList" :key="item.proId">
                 <div class="hoverBox proImg" @click="linkTo(item)">
-                  <img class="hoverImg" :src="item.url" alt="">
+                  <img class="hoverImg" :src="item.cover" alt="">
                 </div>
               </swiper-slide>
             </swiper>
@@ -102,7 +109,9 @@
 <script>
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { EffectFade, Navigation } from 'swiper/modules';
-import { getCurrentInstance, nextTick, onMounted, reactive, toRefs } from 'vue';
+import { getCurrentInstance, nextTick, onMounted, reactive, toRefs, h } from 'vue';
+import { LoadingOutlined } from '@ant-design/icons-vue';
+import Storage from '@/utils/storage';
 import 'swiper/css/navigation';
 import 'swiper/css';
 import { useRouter } from 'vue-router';
@@ -116,6 +125,12 @@ import { useRouter } from 'vue-router';
     setup() {
       const router = useRouter()
       const { proxy } = getCurrentInstance();
+      const indicator = h(LoadingOutlined, {
+        style: {
+          fontSize: '24px',
+        },
+        spin: true,
+      });
       const state = reactive({
         EffectFade,
         Navigation,
@@ -125,26 +140,28 @@ import { useRouter } from 'vue-router';
         swiper1: null,
         swiper2: null,
         isMobile: false,
-        bannerList: [
-          { id: 1, url:require('@/assets/img/home/banner.png')},
-          { id: 2, url:require('@/assets/img/home/banner.png')},
-          { id: 3, url:require('@/assets/img/home/banner.png')},
-        ],
-        mobilebannerList: [
-          { id: 1, url:require('@/assets/img/home/m_banner.png')},
-          { id: 2, url:require('@/assets/img/home/m_banner.png')},
-          { id: 3, url:require('@/assets/img/home/m_banner.png')},
-        ],
-         otherProList: [
-          { id: 1, name: 'GT501', url:require('@/assets/img/product/pro_11.png')},
-          { id: 2, name: 'GT502', url:require('@/assets/img/product/pro_22.png')},
-          { id: 3, name: 'GT503', url:require('@/assets/img/product/pro_3.png')},
-          { id: 4, name: 'GT504', url:require('@/assets/img/product/pro_4.png')},
-          { id: 5, name: 'GT505', url:require('@/assets/img/product/pro_5.png')},
-          { id: 6, name: 'GT506', url:require('@/assets/img/product/pro_11.png')},
-        ],
+        bannerList: null,
+        mpType: null,
+        proList: null,
+        indicator: indicator,
+        // otherProList: [
+        //   { id: 1, name: 'GT501', url:require('@/assets/img/product/pro_11.png')},
+        //   { id: 2, name: 'GT502', url:require('@/assets/img/product/pro_22.png')},
+        //   { id: 3, name: 'GT503', url:require('@/assets/img/product/pro_3.png')},
+        //   { id: 4, name: 'GT504', url:require('@/assets/img/product/pro_4.png')},
+        //   { id: 5, name: 'GT505', url:require('@/assets/img/product/pro_5.png')},
+        //   { id: 6, name: 'GT506', url:require('@/assets/img/product/pro_11.png')},
+        // ],
       })
       onMounted(async () => { 
+        getPicList()
+        if (!Storage.getItem('navList')) {
+          getCategoryList()
+        } else {
+          state.mpType = Storage.getItem('navList')
+          state.activeKey = state.mpType[0].cateId
+          getProductListByCate(state.mpType[0].cateId)
+        }
         nextTick(() => {
            var wow = new proxy.$wow.WOW({boxClass: "wow",
                animateClass: "animated", 
@@ -162,6 +179,28 @@ import { useRouter } from 'vue-router';
         handleResize();
         window.addEventListener('resize', handleResize);
       })
+     
+      const getPicList = () => {
+        proxy.$api.picList('').then(res=>{
+          state.bannerList = res
+        })
+      };
+      const getCategoryList = () => {
+        proxy.$api.categoryList('').then(res=>{
+          state.mpType = res
+          state.activeKey = res[0].cateId
+          getProductListByCate(res[0].cateId)
+          Storage.setItem('navList', res)
+        })
+      };
+      const getProductListByCate = (id) => {
+        proxy.$api.productListByCate(id).then(res=>{
+          state.proList = res
+        })
+      };
+      const changeTab = (res) => {
+         getProductListByCate(res)
+      };
       const handleResize = () => {
         const windowWidth = window.innerWidth;
        if (windowWidth < 750) {
@@ -181,7 +220,7 @@ import { useRouter } from 'vue-router';
         state.swiper2 = swiper
       };
       const linkTo = (res) => {
-        router.push('/productsDetail?id=' + res.id);
+        router.push('/productsDetail?id=' + res.proId);
       };
       const sildePre = (e) => {
         state[`swiper${e}`].slidePrev(500, res=>{
@@ -198,6 +237,7 @@ import { useRouter } from 'vue-router';
         linkTo,
         sildePre,
         sildeNext,
+        changeTab,
       };
     },
   };
@@ -269,6 +309,15 @@ import { useRouter } from 'vue-router';
     }
   }
   .homeSwiper{
+    .spin{
+      width: 100%;
+      height: 100vh;
+      text-align: center;
+      line-height: 100vh;
+      .anticon-loading {
+        font-size: 80px !important;
+      }
+    }
     .swiper_box {
       .home_sildePre, .home_sildeNext {
         bottom: 11rem;

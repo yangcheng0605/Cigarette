@@ -42,23 +42,23 @@
           <div class="main_mask" :class="popIndex===1?'main_mask_show':''" @mouseover="leaveTo"></div>
           <div class="main_popup1 main_popup" :class="popIndex == 1?'main_popup_show':''" @mouseleave="leaveTo">
             <div class="mp_nav">
-              <div @mouseover="proHoverTo(index)" v-for="(item, index) in mpType" :key="index" :class="index == proIndex?'mp_nav_hover':''">{{index == proIndex?'&gt;':''}} {{item.name}}</div>
+              <div @mouseover="proHoverTo(item.cateId)" v-for="item in mpType" :key="item.cateId" :class="item.cateId == proIndex?'mp_nav_hover':''">{{item.cateId == proIndex?'&gt;':''}} {{item.cateName || ''}}</div>
             </div>
             <div class="mp_content">
               <div class="mp_product">
-                <div class="mp_items" v-if="mpList[proIndex] && mpList[proIndex].length>0">
-                  <div class="mp_item" v-for="(item, index) in mpList[proIndex] || []" :key=index @click="linkToPro(item)">
+                <div class="mp_items" v-if="mpList && mpList.length>0">
+                  <div class="mp_item" v-for="(item, index) in mpList|| []" :key="index" @click="linkToPro(item)">
                       <div class="mp_img hoverBox">
-                        <img class="hoverImg" :src="item.imgurl">
+                        <img class="hoverImg" :src="item.cover">
                       </div>
-                      <span>{{item.name}}</span>
+                      <span>{{item.proName}}</span>
                   </div>
                 </div>
                 <a-empty :image="Empty.PRESENTED_IMAGE_SIMPLE" v-else />
               </div>
             </div>
             <div class="mp_more">
-              <a href="/#/productss">Learn more &gt;</a>
+              <a href="/#/products">Learn more &gt;</a>
             </div>
           </div>
           <!-- <div class="main_popup2 main_popup" :class="popIndex == 1?'main_popup_show':''" @mouseleave="leaveTo">
@@ -115,11 +115,7 @@
                 <a-collapse-panel class="Mnav" header="PRODUCTS" :show-arrow="false">
                   <template #extra><img class="headerExtra" src="@/assets/img/open_black.png" alt=""> </template>
                   <div class="Mnav_link">
-                    <a href="/#/products?type=1" @click="show=false">New Arrivais</a>
-                    <a href="/#/products?type=2" @click="show=false">Disposable Series</a>
-                    <a href="/#/products?type=3" @click="show=false">Pod Series</a>
-                    <a href="/#/products?type=4" @click="show=false">E-liquid</a>
-                    <a href="/#/products?type=5" @click="show=false">Other</a>
+                    <a :href="`/#/products?id=${item.cateId}`" @click="show=false" v-for="item in mpType" :key="item.cateId">{{item.cateName || ''}}</a>
                   </div>
                 </a-collapse-panel>
                 <p class="Mnav" >
@@ -148,12 +144,11 @@
 
 <script>
 import "@/assets/style/header.less"
-import { nextTick, onMounted, reactive, ref, toRefs, watch } from 'vue';
+import { getCurrentInstance, nextTick, onMounted, reactive, ref, toRefs, watch } from 'vue';
 import { PlusOutlined } from "@ant-design/icons-vue";
 import { useRoute, useRouter } from 'vue-router';
 import { Empty } from "ant-design-vue";
 import Storage from '@/utils/storage';
-import _ from 'lodash';
 export default {
   name: "Header",
   components: {
@@ -162,6 +157,7 @@ export default {
   setup() {
     let router = useRouter();
     let route = useRoute();
+    const { proxy } = getCurrentInstance();
     const state = reactive({
       lang_itemp: 'en',
       show: false,
@@ -174,43 +170,28 @@ export default {
         {name: 'CONTACT US', path: '/contact', active: false},
       ],
       mpIndex: 0,
-      proIndex: 0,
-      mpType:[
-        {name: 'New Arrivals'},
-        {name: 'Disposable Series'},
-        {name: 'Pod Series'},
-        {name: 'E-liquid'},
-        {name: 'Other'},
-      ],
-      mpList: [
-        [
-         { id: 1, name: 'MAGIC MAZE PRO',  path : '/#/products?id=1', imgurl: require('../assets/img/product/pro_1.png')},
-          { id: 2, name: 'MINI',  path : '/#/products?id=2', imgurl: require('../assets/img/product/pro_2.png')},
-          { id: 3, name: 'MINI 2200',  path : '/#/products?id=3', imgurl: require('../assets/img/product/pro_3.png')},
-          { id: 4, name: 'G8000 PRO',  path : '/#/products?id=4', imgurl: require('../assets/img/product/pro_4.png')},
-          { id: 5, name: 'G8000',  path : '/#/products?id=5', imgurl: require('../assets/img/product/pro_5.png')},
-        ],
-        [
-          { id: 1, name: 'MAGIC MAZE PRO',  path : '/#/products?id=1', imgurl: require('../assets/img/product/pro_1.png')},
-          { id: 4, name: 'G8000 PRO',  path : '/#/products?id=4', imgurl: require('../assets/img/product/pro_4.png')},
-          { id: 5, name: 'G8000',  path : '/#/products?id=5', imgurl: require('../assets/img/product/pro_5.png')},
-        ],
-        [
-         { id: 2, name: 'MINI',  path : '/#/products?id=2', imgurl: require('../assets/img/product/pro_2.png')},
-          { id: 3, name: 'MINI 2200',  path : '/#/products?id=3', imgurl: require('../assets/img/product/pro_3.png')},
-          { id: 1, name: 'MAGIC MAZE PRO',  path : '/#/products?id=1', imgurl: require('../assets/img/product/pro_1.png')},
-        ],
-        [
-          { id: 3, name: 'MINI 2200',  path : '/#/products?id=3', imgurl: require('../assets/img/product/pro_3.png')},
-          { id: 1, name: 'MAGIC MAZE PRO',  path : '/#/products?id=1', imgurl: require('../assets/img/product/pro_1.png')},
-        ]
-      ]
+      proIndex: null,
+      mpType:[],
+      mpList: []
     })
-    onMounted(async () => { 
+    onMounted(async () => {
+      getCategoryList()
       nextTick(() => {
       })
     })
-
+    const getCategoryList = () => {
+      proxy.$api.categoryList('').then(res=>{
+        state.mpType = res
+        state.proIndex = res[0].cateId
+        getProductListByCate(res[0].cateId)
+        Storage.setItem('navList', res)
+      })
+    };
+    const getProductListByCate = (id) => {
+      proxy.$api.productListByCate(id).then(res=>{
+        state.mpList = res
+      })
+    };
     const targetShowNav = () => {
       state.show = !state.show
     }
@@ -221,31 +202,32 @@ export default {
       Storage.setItem('navActive', e.path)
     }
     const linkToPro = (res) => {
-        router.push('/productsDetail?id=' + res.id);
+        router.push('/productsDetail?id=' + res.proId);
       };
     const hoverTo = (e) => {
       state.popIndex = e
     }
     const proHoverTo = (e) => {
       state.proIndex = e
+      getProductListByCate(e)
     }
     const leaveTo = (e) => {
       state.popIndex = null
       state.proIndex = 0
     }
     watch(route, (e) => {
-     var path = e.fullPath
-     if (Storage.getItem('navActive')) {
-        state.navList = _.map(state.navList, item => {
-          if (item.path === path) {
-            item.active = true;
-          } else {
-            item.active = false;
-          }
-          return item;
-        });
-     }
-    window.scrollTo({
+      var path = e.fullPath
+      if (Storage.getItem('navActive')) {
+          state.navList = state.navList.map(item => {
+            if (item.path === path) {
+              item.active = true;
+            } else {
+              item.active = false;
+            }
+            return item;
+          });
+      }
+      window.scrollTo({
         top: 0,
         behavior:'smooth'
       })

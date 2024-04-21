@@ -3,6 +3,7 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 import wow from 'wowjs'
+import * as Api  from '@/api/apis.js'
 
 // 样式
 import '@/assets/style/index.less'
@@ -21,6 +22,7 @@ import { Spin, Image, message, Popover, Steps, Drawer, Collapse, Dropdown, Timel
 
 app.config.globalProperties.$wow = wow
 app.config.globalProperties.$message = message
+app.config.globalProperties.$api = Api
 
 // 常用的ant-design-vue组件
 app.use(Image)
