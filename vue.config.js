@@ -1,4 +1,6 @@
 const { defineConfig } = require("@vue/cli-service");
+const CompressionPlugin = require('compression-webpack-plugin');
+ 
 module.exports = defineConfig({
   transpileDependencies: true,
   lintOnSave: false,
@@ -16,5 +18,20 @@ module.exports = defineConfig({
         },
       },
     },
+  },
+  configureWebpack: config => {
+    if (process.env.NODE_ENV === 'production') {
+      // 生产环境开启Gzip压缩
+      return {
+        plugins: [
+          new CompressionPlugin({
+            algorithm: 'gzip',
+            test: /\.js$|\.css$|\.html$/,
+            threshold: 10240,
+            minRatio: 0.8,
+          }),
+        ],
+      };
+    }
   },
 });
