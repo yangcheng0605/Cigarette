@@ -211,9 +211,12 @@ export default {
       state.proIndex = e
       getProductListByCate(e)
     }
-    const leaveTo = (e) => {
+    const leaveTo = () => {
       state.popIndex = null
-      state.proIndex = 0
+      setTimeout(() => {
+        state.proIndex = state.mpType && state.mpType[0].cateId || 0
+        getProductListByCate(state.proIndex)
+      }, 300);
     }
     watch(route, (e) => {
       var path = e.fullPath

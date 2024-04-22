@@ -67,11 +67,6 @@ import Storage from '@/utils/storage';
         ]
       })
       onMounted(async () => {
-        if (!Storage.getItem('navList')) {
-          getCategoryList()
-        } else {
-          state.mpType = Storage.getItem('navList')
-        }
         handleResize(); // 初始化时执行一次
         // 监听窗口大小变化
         window.addEventListener('resize', handleResize);
@@ -112,6 +107,14 @@ import Storage from '@/utils/storage';
             state.activeKey = parseInt(query.id) || 1
             getProductListByCate(query.id)
           })
+        } else {
+          if (!Storage.getItem('navList')) {
+            getCategoryList()
+          } else {
+            state.mpType = Storage.getItem('navList')
+            state.activeKey = state.mpType &&  state.mpType[0].cateId
+            getProductListByCate(state.activeKey)
+          }
         }
       }, { immediate: true })
       return {
