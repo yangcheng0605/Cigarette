@@ -171,22 +171,27 @@ export default {
       ],
       mpIndex: 0,
       proIndex: null,
-      mpType:[],
+      mpType:[
+        { cateId: 1, name: 'Recommendations'},
+        { cateId: 2, name: 'New'},
+        { cateId: 3, name: 'Disposable'},
+        { cateId: 4, name: 'Pod Series'},
+        { cateId: 5, name: 'E-liquid'},
+        { cateId: 6, name: 'Other'},
+      ],
       mpList: []
     })
     onMounted(async () => {
-      getCategoryList()
-      nextTick(() => {
-      })
+      getProductListByCate(1)
     })
-    const getCategoryList = () => {
-      proxy.$api.categoryList('').then(res=>{
-        state.mpType = res
-        state.proIndex = res[0].cateId
-        getProductListByCate(res[0].cateId)
-        Storage.setItem('navList', res)
-      })
-    };
+    // const getCategoryList = () => {
+    //   proxy.$api.categoryList('').then(res=>{
+    //     state.mpType = res
+    //     state.proIndex = res[0].cateId
+    //     getProductListByCate(res[0].cateId)
+    //     Storage.setItem('navList', res)
+    //   })
+    // };
     const getProductListByCate = (id) => {
       proxy.$api.productListByCate(id).then(res=>{
         state.mpList = res

@@ -16,11 +16,11 @@
                         <div class="ft_title"><a href="/#/products">Product</a></div>
                         <div class="fi2_text">
                             <div v-for="item in mpType" :key="item.cateId"><a :href="`/#/products?id=${item.cateId}`" >&gt; {{item.cateName || ''}}</a></div>
-                            <!-- <div><a href="/#/products?type=1">&gt; New Arrivais</a> </div>
-                            <div><a href="/#/products?type=2">&gt; Disposable Series</a> </div>
-                            <div><a href="/#/products?type=3">&gt; Pod Series</a></div>
-                            <div><a href="/#/products?type=4">&gt; E-liquid</a></div>
-                            <div><a href="/#/products?type=5">&gt; Other</a></div> -->
+                            <!-- <div><a href="/#/products?type=2">&gt; New</a> </div>
+                            <div><a href="/#/products?type=3">&gt; Disposable</a> </div>
+                            <div><a href="/#/products?type=4">&gt; Pod Series</a></div>
+                            <div><a href="/#/products?type=5">&gt; E-liquid</a></div>
+                            <div><a href="/#/products?type=6">&gt; Other</a></div> -->
                         </div>
                     </div>
                     <div class="fi2_item">
@@ -89,11 +89,11 @@
                   <a :href="`/#/products?id=${item.cateId}`" v-for="item in mpType" :key="item.cateId">{{item.cateName || ''}}</a>
                 </div>
                 <!-- <div class="Mnav_link">
-                  <a href="/#/products?type=1" @click="show=false">New Arrivais</a>
-                  <a href="/#/products?type=2" @click="show=false">Disposable Series</a>
-                  <a href="/#/products?type=3" @click="show=false">Pod Series</a>
-                  <a href="/#/products?type=4" @click="show=false">E-liquid</a>
-                  <a href="/#/products?type=5" @click="show=false">Other</a>
+                  <a href="/#/products?type=2" @click="show=false">New</a>
+                  <a href="/#/products?type=3" @click="show=false">Disposable</a>
+                  <a href="/#/products?type=4" @click="show=false">Pod Series</a>
+                  <a href="/#/products?type=5" @click="show=false">E-liquid</a>
+                  <a href="/#/products?type=6" @click="show=false">Other</a>
                 </div> -->
               </a-collapse-panel>
             </a-collapse>
@@ -149,27 +149,33 @@ export default {
   setup() {
     const { proxy } = getCurrentInstance();
     const state = reactive({
-      mpType:[],
+      mpType:[
+        { cateId: 2, name: 'New'},
+        { cateId: 3, name: 'Disposable'},
+        { cateId: 4, name: 'Pod Series'},
+        { cateId: 5, name: 'E-liquid'},
+        { cateId: 6, name: 'Other'},
+      ],
     })
     onMounted(async () => {
-      getCategoryList()
+      // getCategoryList()
     })
-    const getCategoryList = () => {
-      proxy.$api.categoryList('').then(res=>{
-        state.mpType = res
-        Storage.setItem('navList', res)
-      })
-    };
-    const linkTo = (e) => {
-      router.push({
-        path: e.path
-      });
-      Storage.setItem('navActive', e.path)
-    }
+    // const getCategoryList = () => {
+    //   proxy.$api.categoryList('').then(res=>{
+    //     state.mpType = res
+    //     Storage.setItem('navList', res)
+    //   })
+    // };
+    // const linkTo = (e) => {
+    //   router.push({
+    //     path: e.path
+    //   });
+    //   Storage.setItem('navActive', e.path)
+    // }
     return {
       Empty,
       ...toRefs(state),
-      linkTo,
+      // linkTo,
     }
   }
 };

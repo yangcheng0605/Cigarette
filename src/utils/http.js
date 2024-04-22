@@ -3,7 +3,7 @@ import store from '@/store'
 import Storage from '@/utils/storage'
 import { resetRouter } from '@/router'
 
-axios.defaults.baseURL = 'http://47.238.209.75:9401/'
+axios.defaults.baseURL = 'https://www.ehonosvape.com'
 axios.defaults.timeout = 10000
 // axios.defaults.headers['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8'
 // axios.defaults.transformRequest = [function(data) {

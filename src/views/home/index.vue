@@ -31,11 +31,11 @@
           <div class="homt_pros">
             <p class="title AntonFont wow animate__fadeInLeft" data-wow-offset="50">Our Recommendations</p>
              <div class="home_tab wow animate__fadeInLeft" data-wow-offset="50">
-                <a-tabs v-model:activeKey="activeKey" @change="changeTab">
-                  <a-tab-pane :tab="item.cateName" v-for="item in mpType" :key='item.cateId'></a-tab-pane>
-                </a-tabs>
-              <!-- <a-tabs v-model:activeKey="activeKey">
-                <a-tab-pane :key="1" tab="Our Recommendations"></a-tab-pane>
+              <a-tabs v-model:activeKey="activeKey" >
+                <a-tab-pane :tab="item.cateName" v-for="item in mpType" :key='item.cateId'></a-tab-pane>
+              </a-tabs>
+              <!-- <a-tabs v-model:activeKey="activeKey" @change="changeTab">
+                <a-tab-pane :key="1" tab="Recommendations"></a-tab-pane>
                 <a-tab-pane :key="2" tab="New"></a-tab-pane>
                 <a-tab-pane :key="3" tab="Disposable"></a-tab-pane>
                 <a-tab-pane :key="4" tab="Pod Series"></a-tab-pane>
@@ -141,7 +141,13 @@ import { useRouter } from 'vue-router';
         swiper2: null,
         isMobile: false,
         bannerList: null,
-        mpType: null,
+        mpType:[
+          { cateId: 1, name: 'Recommendations'},
+          { cateId: 2, name: 'New'},
+          { cateId: 3, name: 'Disposable'},
+          { cateId: 4, name: 'Pod Series'},
+          { cateId: 5, name: 'E-liquid'},
+        ],
         proList: null,
         indicator: indicator,
         // otherProList: [
@@ -155,13 +161,13 @@ import { useRouter } from 'vue-router';
       })
       onMounted(async () => { 
         getPicList()
-        if (!Storage.getItem('navList')) {
-          getCategoryList()
-        } else {
-          state.mpType = Storage.getItem('navList')
-          state.activeKey = state.mpType[0].cateId
-          getProductListByCate(state.mpType[0].cateId)
-        }
+        // if (!Storage.getItem('navList')) {
+        //   getCategoryList()
+        // } else {
+          // state.mpType = Storage.getItem('navList')
+          // state.activeKey = state.mpType[0].cateId
+          getProductListByCate(state.activeKey)
+        // }
         nextTick(() => {
            var wow = new proxy.$wow.WOW({boxClass: "wow",
                animateClass: "animated", 
@@ -185,14 +191,14 @@ import { useRouter } from 'vue-router';
           state.bannerList = res
         })
       };
-      const getCategoryList = () => {
-        proxy.$api.categoryList('').then(res=>{
-          state.mpType = res
-          state.activeKey = res[0].cateId
-          getProductListByCate(res[0].cateId)
-          Storage.setItem('navList', res)
-        })
-      };
+      // const getCategoryList = () => {
+      //   proxy.$api.categoryList('').then(res=>{
+      //     state.mpType = res
+      //     state.activeKey = res[0].cateId
+      //     getProductListByCate(res[0].cateId)
+      //     Storage.setItem('navList', res)
+      //   })
+      // };
       const getProductListByCate = (id) => {
         proxy.$api.productListByCate(id).then(res=>{
           state.proList = res

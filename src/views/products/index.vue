@@ -55,8 +55,14 @@ import Storage from '@/utils/storage';
       const state = reactive({
         colSpan: 5,
         gutter: [30, 30],
-        activeKey: null,
-        mpType: null,
+        activeKey: 2,
+        mpType:[
+          { cateId: 2, name: 'New'},
+          { cateId: 3, name: 'Disposable'},
+          { cateId: 4, name: 'Pod Series'},
+          { cateId: 5, name: 'E-liquid'},
+          { cateId: 6, name: 'Other'},
+        ],
         proList: [
           // { id: 1, name: 'GT501', url:require('@/assets/img/product/pro_11.png'), info:'Beauty and Beast Performance 65ast Performanast Performan0mAh and 8000 puffs yeah bro',},
           // { id: 2, name: 'GT502', url:require('@/assets/img/product/pro_22.png'), info:'Beauty and 0 ',},
@@ -71,14 +77,14 @@ import Storage from '@/utils/storage';
         // 监听窗口大小变化
         window.addEventListener('resize', handleResize);
       })
-      const getCategoryList = () => {
-        proxy.$api.categoryList('').then(res=>{
-          state.mpType = res
-          state.activeKey = res[0].cateId
-          getProductListByCate(res[0].cateId)
-          Storage.setItem('navList', res)
-        })
-      };
+      // const getCategoryList = () => {
+      //   proxy.$api.categoryList('').then(res=>{
+      //     state.mpType = res
+      //     state.activeKey = res[0].cateId
+      //     getProductListByCate(res[0].cateId)
+      //     Storage.setItem('navList', res)
+      //   })
+      // };
       const getProductListByCate = (id) => {
         proxy.$api.productListByCate(id).then(res=>{
           state.proList = res
@@ -108,13 +114,14 @@ import Storage from '@/utils/storage';
             getProductListByCate(query.id)
           })
         } else {
-          if (!Storage.getItem('navList')) {
-            getCategoryList()
-          } else {
-            state.mpType = Storage.getItem('navList')
-            state.activeKey = state.mpType &&  state.mpType[0].cateId
+          // if (!Storage.getItem('navList')) {
+          //   getCategoryList()
+          // } else {
+            // state.mpType = Storage.getItem('navList')
+            // state.activeKey = state.mpType &&  state.mpType[0].cateId
+            state.activeKey = 2
             getProductListByCate(state.activeKey)
-          }
+          // }
         }
       }, { immediate: true })
       return {
