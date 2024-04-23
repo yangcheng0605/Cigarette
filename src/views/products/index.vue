@@ -18,23 +18,25 @@
         </div>
       </div>
       <div class="a_content_bottom">
-        <a-row :gutter="gutter" v-if="proList && proList.length>0">
-          <a-col class="gutter-row" :span='colSpan' v-for="item in proList" :key='item.proId'>
-            <div class="gutter-box " @click="linkTo(item)" >
-              <div class="hoverBox proImg">
-                <img class="hoverImg" :src="item.cover" alt="">
+        <a-spin :spinning="spinning">
+          <a-row :gutter="gutter" v-if="proList && proList.length>0">
+            <a-col class="gutter-row" :span='colSpan' v-for="item in proList" :key='item.proId'>
+              <div class="gutter-box " @click="linkTo(item)" >
+                <div class="hoverBox proImg">
+                  <img class="hoverImg" :src="item.cover" alt="">
+                </div>
+                <div class="p_text">
+                  <p class="p_name">{{item.proName}}</p>
+                  <p class="p_hint">{{item.proDesc}}</p>
+                  <p class="p_learn smallArrow_box">
+                    <span>Learn more</span><img class="smallArrow" src="@/assets/img/arrow_white_r_small.png" alt="">
+                  </p>
+                </div>
               </div>
-              <div class="p_text">
-                <p class="p_name">{{item.proName}}</p>
-                <p class="p_hint">{{item.proDesc}}</p>
-                <p class="p_learn smallArrow_box">
-                  <span>Learn more</span><img class="smallArrow" src="@/assets/img/arrow_white_r_small.png" alt="">
-                </p>
-              </div>
-            </div>
-          </a-col>
-        </a-row>
-        <a-empty v-else />
+            </a-col>
+          </a-row>
+          <a-empty v-else />
+        </a-spin>
       </div>
     </div>
   </div>
@@ -53,6 +55,7 @@ import Storage from '@/utils/storage';
       const router = useRouter()
       const route = useRoute()
       const state = reactive({
+        spinning: false,
         colSpan: 5,
         gutter: [30, 30],
         activeKey: 2,
@@ -78,8 +81,10 @@ import Storage from '@/utils/storage';
       //   })
       // };
       const getProductListByCate = (id) => {
+        state.spinning = true
         proxy.$api.productListByCate(id).then(res=>{
           state.proList = res
+          state.spinning = false
         })
       };
       const changeTab = (res) => {
@@ -128,5 +133,13 @@ import Storage from '@/utils/storage';
 <style lang="less">
 .ant-col-5{
   max-width: 20%;
+}
+.ant-spin-nested-loading {
+  .ant-spin-container::after {
+    background: transparent;
+  }
+  .ant-spin-dot .ant-spin-dot-item{
+    background-color: #FAC233 !important;
+  }
 }
 </style>

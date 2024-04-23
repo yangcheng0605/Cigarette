@@ -215,7 +215,7 @@ export default {
       getProductListByCate(e)
     }
     const leaveTo = () => {
-      // state.popIndex = null
+      state.popIndex = null
       setTimeout(() => {
         state.proIndex = state.mpType && state.mpType[0].cateId || 0
       }, 300);
