@@ -57,24 +57,16 @@ import Storage from '@/utils/storage';
         gutter: [30, 30],
         activeKey: 2,
         mpType:[
-          { cateId: 2, name: 'New'},
-          { cateId: 3, name: 'Disposable'},
-          { cateId: 4, name: 'Pod Series'},
-          { cateId: 5, name: 'E-liquid'},
-          { cateId: 6, name: 'Other'},
+          { cateId: 2, cateName: 'New'},
+          { cateId: 3, cateName: 'Disposable'},
+          { cateId: 4, cateName: 'Pod Series'},
+          { cateId: 5, cateName: 'E-liquid'},
+          { cateId: 6, cateName: 'Other'},
         ],
-        proList: [
-          // { id: 1, name: 'GT501', url:require('@/assets/img/product/pro_11.png'), info:'Beauty and Beast Performance 65ast Performanast Performan0mAh and 8000 puffs yeah bro',},
-          // { id: 2, name: 'GT502', url:require('@/assets/img/product/pro_22.png'), info:'Beauty and 0 ',},
-          // { id: 3, name: 'GT503', url:require('@/assets/img/product/pro_3.png'), info:'Beauty and Beast Performance 650mAh and 8000 puffs yeah bro',},
-          // { id: 4, name: 'GT504', url:require('@/assets/img/product/pro_4.png'), info:'Beauty and Beast Performance 650mAh and 8000 puffs',},
-          // { id: 5, name: 'GT505', url:require('@/assets/img/product/pro_5.png'), info:'Beauty and 00 puffs yeah',},
-          // { id: 6, name: 'GT506', url:require('@/assets/img/product/pro_11.png'), info:'Beauty and Beast Performance',},
-        ]
+        proList: []
       })
       onMounted(async () => {
-        handleResize(); // 初始化时执行一次
-        // 监听窗口大小变化
+        handleResize();
         window.addEventListener('resize', handleResize);
       })
       // const getCategoryList = () => {

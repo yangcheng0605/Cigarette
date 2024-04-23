@@ -142,22 +142,14 @@ import { useRouter } from 'vue-router';
         isMobile: false,
         bannerList: null,
         mpType:[
-          { cateId: 1, name: 'Recommendations'},
-          { cateId: 2, name: 'New'},
-          { cateId: 3, name: 'Disposable'},
-          { cateId: 4, name: 'Pod Series'},
-          { cateId: 5, name: 'E-liquid'},
+          { cateId: 1, cateName: 'Recommendations'},
+          { cateId: 2, cateName: 'New'},
+          { cateId: 3, cateName: 'Disposable'},
+          { cateId: 4, cateName: 'Pod Series'},
+          { cateId: 5, cateName: 'E-liquid'},
         ],
         proList: null,
         indicator: indicator,
-        // otherProList: [
-        //   { id: 1, name: 'GT501', url:require('@/assets/img/product/pro_11.png')},
-        //   { id: 2, name: 'GT502', url:require('@/assets/img/product/pro_22.png')},
-        //   { id: 3, name: 'GT503', url:require('@/assets/img/product/pro_3.png')},
-        //   { id: 4, name: 'GT504', url:require('@/assets/img/product/pro_4.png')},
-        //   { id: 5, name: 'GT505', url:require('@/assets/img/product/pro_5.png')},
-        //   { id: 6, name: 'GT506', url:require('@/assets/img/product/pro_11.png')},
-        // ],
       })
       onMounted(async () => { 
         getPicList()

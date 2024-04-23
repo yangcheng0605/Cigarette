@@ -64,14 +64,7 @@ import 'swiper/css';
         swiper: null,
         imageUrls: null,
         isMobile: false,
-        proList: [
-          // { id: 1, name: 'GT501', url:require('@/assets/img/product/pro_11.png'), info:'Beauty and Beast Performance 65ast Performanast Performan0mAh and 8000 puffs yeah bro',},
-          // { id: 2, name: 'GT502', url:require('@/assets/img/product/pro_22.png'), info:'Beauty and 0 ',},
-          // { id: 3, name: 'GT503', url:require('@/assets/img/product/pro_3.png'), info:'Beauty and Beast Performance 650mAh and 8000 puffs yeah bro',},
-          // { id: 4, name: 'GT504', url:require('@/assets/img/product/pro_4.png'), info:'Beauty and Beast Performance 650mAh and 8000 puffs',},
-          // { id: 5, name: 'GT505', url:require('@/assets/img/product/pro_5.png'), info:'Beauty and 00 puffs yeah',},
-          // { id: 6, name: 'GT506', url:require('@/assets/img/product/pro_11.png'), info:'Beauty and Beast Performance',},
-        ],
+        proList: [],
         proData: {proSPath:null, proPath:null}
       })
 
@@ -125,12 +118,10 @@ import 'swiper/css';
       };
       const sildePre = () => {
         state.swiper.slidePrev(500, res=>{
-          console.log(res)
         })
       };
       const sildeNext = () => {
         state.swiper.slideNext(500, res=>{
-          console.log(res)
         })
       };
       watch(route, (e) => {
@@ -155,7 +146,6 @@ import 'swiper/css';
   .proImg{
     margin-bottom: 1rem;
     img{
-      // height: 100vh;
     }
   }
   .other_pro{

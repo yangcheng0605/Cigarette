@@ -15,7 +15,6 @@
             <a href="/#/"><img src="@/assets/img/logo_black.png"></a>
           </div>
           <div class="main_center">
-            <!-- <img src="https://cdn.shopify.com/s/files/1/0584/6709/0582/files/LOGO_ef84e310-cf14-4332-84b8-9289cc9bcf8e.png?v=1708911023"> -->
             <div class="nav">
               <span :href="item.path" :class="item.active?'nav_active':''" v-for="(item, index) in navList" :key="item.name" @click="linkTo(item)" @mouseover="hoverTo(index)" >{{ item.name }}</span>
             </div>
@@ -169,15 +168,14 @@ export default {
         {name: 'ABOUT US', path: '/about', active: false},
         {name: 'CONTACT US', path: '/contact', active: false},
       ],
-      mpIndex: 0,
-      proIndex: null,
+      proIndex: 1,
       mpType:[
-        { cateId: 1, name: 'Recommendations'},
-        { cateId: 2, name: 'New'},
-        { cateId: 3, name: 'Disposable'},
-        { cateId: 4, name: 'Pod Series'},
-        { cateId: 5, name: 'E-liquid'},
-        { cateId: 6, name: 'Other'},
+        { cateId: 1, cateName: 'Recommendations'},
+        { cateId: 2, cateName: 'New'},
+        { cateId: 3, cateName: 'Disposable'},
+        { cateId: 4, cateName: 'Pod Series'},
+        { cateId: 5, cateName: 'E-liquid'},
+        { cateId: 6, cateName: 'Other'},
       ],
       mpList: []
     })
@@ -211,16 +209,16 @@ export default {
       };
     const hoverTo = (e) => {
       state.popIndex = e
+      getProductListByCate(1)
     }
     const proHoverTo = (e) => {
       state.proIndex = e
       getProductListByCate(e)
     }
     const leaveTo = () => {
-      state.popIndex = null
+      // state.popIndex = null
       setTimeout(() => {
         state.proIndex = state.mpType && state.mpType[0].cateId || 0
-        getProductListByCate(state.proIndex)
       }, 300);
     }
     watch(route, (e) => {

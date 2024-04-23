@@ -16,11 +16,6 @@
                         <div class="ft_title"><a href="/#/products">Product</a></div>
                         <div class="fi2_text">
                             <div v-for="item in mpType" :key="item.cateId"><a :href="`/#/products?id=${item.cateId}`" >&gt; {{item.cateName || ''}}</a></div>
-                            <!-- <div><a href="/#/products?type=2">&gt; New</a> </div>
-                            <div><a href="/#/products?type=3">&gt; Disposable</a> </div>
-                            <div><a href="/#/products?type=4">&gt; Pod Series</a></div>
-                            <div><a href="/#/products?type=5">&gt; E-liquid</a></div>
-                            <div><a href="/#/products?type=6">&gt; Other</a></div> -->
                         </div>
                     </div>
                     <div class="fi2_item">
@@ -88,13 +83,6 @@
                 <div class="Mnav_link">
                   <a :href="`/#/products?id=${item.cateId}`" v-for="item in mpType" :key="item.cateId">{{item.cateName || ''}}</a>
                 </div>
-                <!-- <div class="Mnav_link">
-                  <a href="/#/products?type=2" @click="show=false">New</a>
-                  <a href="/#/products?type=3" @click="show=false">Disposable</a>
-                  <a href="/#/products?type=4" @click="show=false">Pod Series</a>
-                  <a href="/#/products?type=5" @click="show=false">E-liquid</a>
-                  <a href="/#/products?type=6" @click="show=false">Other</a>
-                </div> -->
               </a-collapse-panel>
             </a-collapse>
           </div>
@@ -150,11 +138,11 @@ export default {
     const { proxy } = getCurrentInstance();
     const state = reactive({
       mpType:[
-        { cateId: 2, name: 'New'},
-        { cateId: 3, name: 'Disposable'},
-        { cateId: 4, name: 'Pod Series'},
-        { cateId: 5, name: 'E-liquid'},
-        { cateId: 6, name: 'Other'},
+        { cateId: 2, cateName: 'New'},
+        { cateId: 3, cateName: 'Disposable'},
+        { cateId: 4, cateName: 'Pod Series'},
+        { cateId: 5, cateName: 'E-liquid'},
+        { cateId: 6, cateName: 'Other'},
       ],
     })
     onMounted(async () => {
