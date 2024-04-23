@@ -90,7 +90,7 @@ import 'swiper/css';
         proxy.$api.productList(id).then(res=>{
           state.proData = res
           state.imageUrls = res.imageUrls && res.imageUrls.split(',')
-          getProductListByCate(res.cId)
+          getProductListByCate(1)
         })
       };
       const getProductListByCate = (id) => {

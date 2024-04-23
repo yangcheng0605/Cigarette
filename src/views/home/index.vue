@@ -31,19 +31,11 @@
           <div class="homt_pros">
             <p class="title AntonFont wow animate__fadeInLeft" data-wow-offset="50">Our Recommendations</p>
              <div class="home_tab wow animate__fadeInLeft" data-wow-offset="50">
-              <a-tabs v-model:activeKey="activeKey" >
+              <a-tabs v-model:activeKey="activeKey" @change="changeTab">
                 <a-tab-pane :tab="item.cateName" v-for="item in mpType" :key='item.cateId'></a-tab-pane>
               </a-tabs>
-              <!-- <a-tabs v-model:activeKey="activeKey" @change="changeTab">
-                <a-tab-pane :key="1" tab="Recommendations"></a-tab-pane>
-                <a-tab-pane :key="2" tab="New"></a-tab-pane>
-                <a-tab-pane :key="3" tab="Disposable"></a-tab-pane>
-                <a-tab-pane :key="4" tab="Pod Series"></a-tab-pane>
-                <a-tab-pane :key="5" tab="E-liquid"></a-tab-pane>
-              </a-tabs> -->
             </div>
           </div>
-            <!-- <div class="wow animate__rubberBand" data-wow-offset="50">显示1</div> -->
           <div class="swiper_box wow animate__slideInUp" data-wow-offset="50">
             <swiper
               :slides-per-view="perView"
@@ -142,7 +134,7 @@ import { useRouter } from 'vue-router';
         isMobile: false,
         bannerList: null,
         mpType:[
-          { cateId: 1, cateName: 'Recommendations'},
+          { cateId: 1, cateName: 'Our Recommendations'},
           { cateId: 2, cateName: 'New'},
           { cateId: 3, cateName: 'Disposable'},
           { cateId: 4, cateName: 'Pod Series'},

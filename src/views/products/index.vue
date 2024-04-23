@@ -57,8 +57,8 @@ import Storage from '@/utils/storage';
         gutter: [30, 30],
         activeKey: 2,
         mpType:[
-          { cateId: 2, cateName: 'New'},
-          { cateId: 3, cateName: 'Disposable'},
+          { cateId: 2, cateName: 'New Arrivals'},
+          { cateId: 3, cateName: 'Disposable Series'},
           { cateId: 4, cateName: 'Pod Series'},
           { cateId: 5, cateName: 'E-liquid'},
           { cateId: 6, cateName: 'Other'},
