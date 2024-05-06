@@ -9,7 +9,11 @@
     <div class="a_content">
       <div class="a_top_box">
         <div class="a_c_left wow animate__fadeInLeft" data-wow-offset="50">
-          <img src="@/assets/img/about/example.png" alt="">
+          <!-- <img src="@/assets/img/about/example.png" alt=""> -->
+          <video autoplay="autoplay" loop muted="muted" controls="controls"  poster="@/assets/img/video.jpg">
+            <source src="../../assets/video.mp4" srcset="@/assets/img/video.jpg" type="video/mp4">
+            您的浏览器不支持视频标签。
+          </video>
         </div>
         <div class="a_c_right wow animate__fadeInRight" data-wow-offset="50">
           <div class="a_text_top">
@@ -116,15 +120,16 @@ import { getCurrentInstance, nextTick, onMounted, reactive, toRefs } from 'vue';
     height: 28.125rem;
     flex-shrink: 0;
     margin-right: 3.75rem;
+    video{
+      width: 100%;
+      height: 100%;
+    }
   }
   .a_c_right{
     font-size: 1rem;
   }
   .a_c_left{
     font-size: 0;
-    img {
-      width: 100%;
-    }
   }
   .a_text_top{
     display: flex;
