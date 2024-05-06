@@ -1,6 +1,6 @@
 <template>
   <div class="products productsDetail">
-    <div class="proImg" >
+    <div class="proImg pro_banner" >
       <img :src="isMobile && proData?proData.proSPath:proData.proPath" alt="">
     </div>
     <div class="proImg" v-for="(item, index) in imageUrls" :key='index'>
@@ -23,7 +23,7 @@
               </div>
               <div class="p_text">
                 <p class="p_name">{{item.proName}}</p>
-                <p class="p_hint">{{item.proDesc}}</p>
+                <!-- <p class="p_hint">{{item.proDesc}}</p> -->
                 <p class="p_learn smallArrow_box">
                   <span>Learn more</span><img class="smallArrow" src="@/assets/img/arrow_white_r_small.png" alt="">
                 </p>

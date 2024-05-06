@@ -27,7 +27,7 @@
                 </div>
                 <div class="p_text">
                   <p class="p_name">{{item.proName}}</p>
-                  <p class="p_hint">{{item.proDesc}}</p>
+                  <!-- <p class="p_hint">{{item.proDesc}}</p> -->
                   <p class="p_learn smallArrow_box">
                     <span>Learn more</span><img class="smallArrow" src="@/assets/img/arrow_white_r_small.png" alt="">
                   </p>

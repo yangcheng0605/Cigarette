@@ -33,23 +33,29 @@
         </div>
       </div>
       <a-row :gutter="30" class="a_bottom_box">
-        <a-col class="gutter-row" :xs="24" :sm="24" :md="8">
-          <div class="gutter-box wow animate__fadeInUp" data-wow-offset="50">
+        <a-col class="gutter-row" :xs="24" :sm="24" :md="6">
+          <img src="@/assets/img/about/credential_1.png" alt="">
+          <!-- <div class="gutter-box wow animate__fadeInUp" data-wow-offset="50">
             <p class="a_title AntonFont">OUR PHILOSOPHY</p>
             <p class="a_bottom_text">Beauty and Beast Performance 650mAh and 8000 puffs yeah 8000 puffs yeah bro.Beauty and Beast Performance 650mAh puffs yeah 8000 puffs yeah bro.</p>
-          </div>
+          </div> -->
         </a-col>
-        <a-col class="gutter-row" :xs="24" :sm="24" :md="8">
-          <div class="gutter-box wow animate__fadeInUp" data-wow-offset="50">
+        <a-col class="gutter-row" :xs="24" :sm="24" :md="6">
+          <img src="@/assets/img/about/credential_1.png" alt="">
+          <!-- <div class="gutter-box wow animate__fadeInUp" data-wow-offset="50">
             <p class="a_title AntonFont">OUR VISION</p>
             <p class="a_bottom_text">Beauty and Beast Performance 650mAh and 8000 puffs yeah 8000 puffs yeah bro.Beauty and Beast Performance 650mAh puffs yeah 8000 puffs yeah bro.</p>
-          </div>
+          </div> -->
         </a-col>
-        <a-col class="gutter-row" :xs="24" :sm="24" :md="8">
-          <div class="gutter-box wow animate__fadeInUp" data-wow-offset="50">
+        <a-col class="gutter-row" :xs="24" :sm="24" :md="6">
+          <!-- <div class="gutter-box wow animate__fadeInUp" data-wow-offset="50">
             <p class="a_title AntonFont">OUR VALUE</p>
             <p class="a_bottom_text">Beauty and Beast Performance 650mAh and 8000 puffs yeah 8000 puffs yeah bro.Beauty and Beast Performance 650mAh puffs yeah 8000 puffs yeah bro.</p>
-          </div>
+          </div> -->
+          <img src="@/assets/img/about/credential_2.png" alt="">
+        </a-col>
+        <a-col class="gutter-row" :xs="24" :sm="24" :md="6">
+          <img src="@/assets/img/about/credential_2.png" alt="">
         </a-col>
       </a-row>
     </div>
@@ -105,8 +111,13 @@ import { getCurrentInstance, nextTick, onMounted, reactive, toRefs } from 'vue';
   padding-bottom: 5rem;
   margin-bottom: 3.75rem;
   border-bottom: 1px solid rgba(0, 0, 0, .1);
-  .a_c_left,.a_c_right{
-    width: 48%;
+  .a_c_left{
+    width: 50rem;
+    height: 28.125rem;
+    flex-shrink: 0;
+    margin-right: 3.75rem;
+  }
+  .a_c_right{
     font-size: 1rem;
   }
   .a_c_left{

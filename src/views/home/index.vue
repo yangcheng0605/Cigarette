@@ -64,9 +64,11 @@
             <div class="home_imgs_left">
               <div class="imgs_lr">
                 <div class="home_img_s hoverBox wow animate__fadeInTopLeft" data-wow-offset="50">
-                  <div class="shade"></div>
-                  <img class="hoverImg" src="@/assets/img/home/live_4.png" alt="">
-                  <p class="img_text AntonFont">Text content</p>
+                  <a href="/#/contact">
+                    <div class="shade"></div>
+                    <img class="hoverImg" src="@/assets/img/home/live_1.png" alt="">
+                    <p class="img_text AntonFont">CONTACT US</p>
+                  </a>
                 </div>
                 <div class="home_img_r hoverBox wow animate__fadeInTopRight" data-wow-offset="50">
                   <div class="shade"></div>
