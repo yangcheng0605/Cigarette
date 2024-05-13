@@ -8,8 +8,12 @@
               :navigation="true"
               @swiper="onSwiper"
               :effect="'fade'"
+              :autoplay="{
+                delay: 8000,
+                disableOnInteraction: false,
+              }"
               :loop="true"
-              :modules="[EffectFade, Navigation]"
+              :modules="modules"
             >
               <swiper-slide v-for="(item) in bannerList" :key="item.id">
                 <div class="home_banner">
@@ -103,7 +107,7 @@ transmission</p>
 </template>
 <script>
 import { Swiper, SwiperSlide } from 'swiper/vue';
-import { EffectFade, Navigation } from 'swiper/modules';
+import { Autoplay, EffectFade, Navigation } from 'swiper/modules';
 import { getCurrentInstance, nextTick, onMounted, reactive, toRefs, h } from 'vue';
 import { LoadingOutlined } from '@ant-design/icons-vue';
 import Storage from '@/utils/storage';
@@ -127,8 +131,7 @@ import { useRouter } from 'vue-router';
         spin: true,
       });
       const state = reactive({
-        EffectFade,
-        Navigation,
+        modules: [Autoplay, EffectFade, Navigation],
         activeKey: 1,
         perView: 4,
         between: 40,
