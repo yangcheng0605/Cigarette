@@ -33,13 +33,13 @@
                     <div class="ft_title">Follow Us</div>
                     <div class="fir2_text">
                       <div class="fir3_right">
-                          <a class="icon_meida icon_face" href="#">
+                          <a class="icon_meida icon_face" target="_blank" href="https://www.facebook.com/profile.php?id=61560998907704">
                           </a>
-                          <a class="icon_meida icon_ins" href="#">
+                          <a class="icon_meida icon_ins" target="_blank" href="https://www.instagram.com/ehonosvape/?hl=zh-tw">
                           </a>
-                          <a class="icon_meida icon_line" href="#">
+                          <a class="icon_meida icon_tiktok" target="_blank" href="#">
                           </a>
-                          <a class="icon_meida icon_youtube" href="#">
+                          <a class="icon_meida icon_youtube" target="_blank" href="https://www.youtube.com/@EHONOSVAPE">
                           </a>
                       </div>
                     </div>
@@ -63,19 +63,19 @@
                   <div>Follow Us</div>
               </div>
               <div class="fir3_right">
-                  <a class="icon_meida icon_face_y" href="#">
+                  <a class="icon_meida icon_face_y" target="_blank" href="https://www.facebook.com/profile.php?id=61560998907704">
                   </a>
-                  <a class="icon_meida icon_ins_y" href="#">
+                  <a class="icon_meida icon_ins_y" target="_blank" href="https://www.instagram.com/ehonosvape/?hl=zh-tw">
                   </a>
-                  <a class="icon_meida icon_line_y" href="#">
+                  <a class="icon_meida icon_tiktok_y" target="_blank" href="#">
                   </a>
-                  <a class="icon_meida icon_youtube_y" href="#">
+                  <a class="icon_meida icon_youtube_y" target="_blank" href="https://www.youtube.com/@EHONOSVAPE">
                   </a>
                   <!-- <a class="icon_meida icon_face_y" target="_blank" href="https://www.facebook.com">
                   </a>
                   <a class="icon_meida icon_ins_y" target="_blank" href="https://www.instagram.com">
                   </a>
-                  <a class="icon_meida icon_line_y" target="_blank" href="https://line.me/R/ti/p">
+                  <a class="icon_meida icon_tiktok_y" target="_blank" href="https://line.me/R/ti/p">
                   </a>
                   <a class="icon_meida icon_youtube_y" target="_blank" href="https://www.youtube.com">
                   </a> -->

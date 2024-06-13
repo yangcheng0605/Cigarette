@@ -30,8 +30,33 @@
             <a-spin :indicator="indicator" size="large" />
           </div>
         </div>
-        <div class="home_block home_center">
+        <div class="home_block home_company">
           <div class="home_tag"><img src="@/assets/img/home/tag.png" alt=""></div>
+          <div class="home_c_top">
+            <p class="title AntonFont wow animate__fadeInLeft" data-wow-offset="50">WHY EHONOS</p>
+          </div>
+          <div class="home_c_contain wow animate__fadeInLeft" data-wow-offset="50">
+            <div class="pc_web" v-if="!isMobile">
+              <div class="contain_left" :style="`background: url('${companysImg[currentCompany-1]}') no-repeat center/cover;`">
+              </div>
+              <div class="contain_right">
+                <div :class="['contain_list', currentCompany==item.id?'active':'']" v-for="item in companys" :key="item.id" @mouseenter="chooseCompany(item)">
+                  <p>{{ item.name }}</p>
+                </div>
+              </div>
+            </div>
+            <div v-else>
+              <div class="contain_top">
+                <div :class="['contain_list', currentCompany==item.id?'active':'']" v-for="item in companys" :key="item.id" @mouseenter="chooseCompany(item)" :style="`background: rgba(17, 17, 17, 1) url('${currentCompany==item.id?require(`@/assets/img/home/mbnav_in_${currentCompany}.png`):require(`@/assets/img/home/mbnav_out_${currentCompany}.png`)}') no-repeat 100%/100%;`">
+                  <p>{{ item.name }}</p>
+                </div>
+              </div>
+              <div class="contain_bottom" :style="`height: ${companysImg_mb[currentCompany-1].height}rem;background: url('${companysImg_mb[currentCompany-1].img}') no-repeat center/cover;`">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="home_block home_center">
           <div class="homt_pros">
             <p class="title AntonFont wow animate__fadeInLeft" data-wow-offset="50">Our Recommendations</p>
              <div class="home_tab wow animate__fadeInLeft" data-wow-offset="50">
@@ -59,7 +84,7 @@
             </div>
           </div>
         </div>
-        <div class="home_block home_bottom">
+        <!-- <div class="home_block home_bottom">
           <div class="home_b_top">
             <p class="title AntonFont wow animate__fadeInLeft" data-wow-offset="50">EHONOS Live</p>
             <div class="wow animate__fadeInRight" data-wow-offset="50"><img src="@/assets/img/live.png" alt=""></div>
@@ -100,7 +125,7 @@
 transmission</p>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
@@ -139,6 +164,25 @@ import { useRouter } from 'vue-router';
         swiper2: null,
         isMobile: false,
         bannerList: null,
+        currentCompany: 1,
+        companys:[
+          { id: 1, name: 'Brand Philosophy'},
+          { id: 2, name: 'KEYWORD'},
+          { id: 3, name: 'ABOUT EHONOS VAPE'},
+          { id: 4, name: 'Company story'},
+        ],
+        companysImg:[
+          require('@/assets/img/home/live_1.png'),
+          require('@/assets/img/home/live_2.png'),
+          require('@/assets/img/home/live_3.png'),
+          require('@/assets/img/home/live_4.png'),
+        ],
+        companysImg_mb:[
+          { id: 1, img: require('@/assets/img/home/live_1.png'), height:'31.5'},
+          { id: 2, img: require('@/assets/img/home/live_2.png'), height:'61.25'},
+          { id: 3, img: require('@/assets/img/home/live_3.png'), height:'28'},
+          { id: 4, img: require('@/assets/img/home/live_4.png'), height:'46.75'},
+        ],
         mpType:[
           { cateId: 1, cateName: 'Our Recommendations'},
           { cateId: 2, cateName: 'New'},
@@ -194,6 +238,10 @@ import { useRouter } from 'vue-router';
           state.proList = res
         })
       };
+      const chooseCompany = (res) => {
+        state.currentCompany = res.id
+        console.log(res.id)
+      };
       const changeTab = (res) => {
          getProductListByCate(res)
       };
@@ -231,6 +279,7 @@ import { useRouter } from 'vue-router';
         onSwiper,
         onSwiper2,
         linkTo,
+        chooseCompany,
         sildePre,
         sildeNext,
         changeTab,
@@ -332,7 +381,76 @@ import { useRouter } from 'vue-router';
       }
     }
   }
+  .home_company{
+    background: rgba(245, 184, 26, .08) url('../../assets/img/home/bg_img.png') no-repeat 100% / cover;
+    position: relative;
+    padding: 6.25rem 15rem 7.5rem;
+    .home_c_top{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 3.75rem;
+      .title{
+        line-height: 2.5rem;
+      }
+    }
+    .home_c_contain{
+      .pc_web{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .contain_left{
+        width: 100%;
+        height: 37.5rem;
+        border-radius: 2rem;
+        transition: .5s;
+        img{
+          width: 100%;
+          height: 100%;
+        }
+      }
+      .contain_right{
+        border-radius: .5rem;
+        width: 20.625rem;
+        flex-shrink: 0;
+        margin-left: 2.5rem;
+        background: #111;
+        color: #fff;
+        .contain_list{
+          height: 9.375rem;
+          padding: 0 2.5rem;
+          font-size: 1.5rem;
+          line-height: 9.375rem;
+          font-weight: 500;
+          cursor: pointer;
+          transition: .5s;
+          background:  rgba(17, 17, 17,  0.04) url('../../assets/img/home/company_nav_out.png') no-repeat 100% / cover;
+          &.active{
+            opacity: 1;
+            background: rgba(17, 17, 17,  0.04) url('../../assets/img/home/company_nav_in.png') no-repeat 100% / cover;
+          }
+        }
+      }
+    }
+  }
+  .title{
+    color: #111;
+    font-size: 2.5rem;
+  }
   .home_center{
+    background: #F5B81A url('../../assets/img/home/yellow_bg.png') no-repeat 100% / cover;
+    position: relative;
+    padding: 6.25rem 15rem 6.75rem;
+    .proImg{
+      height: 27.5rem;
+      border-radius: 8px;
+      background: url('../../assets/img/product/bg_r.png') no-repeat 100% / cover;
+      img{
+        height: 100%;
+        object-fit: cover;
+      }
+    }
     .swiper_box {
       .swiper{
         padding-right: 2.5rem;
@@ -352,24 +470,6 @@ import { useRouter } from 'vue-router';
     }
     .home_sildeNext{
       background: url('../../assets/img/arrow_r.png') no-repeat 100%/contain;
-    }
-  }
-  .title{
-    color: #111;
-    font-size: 2.5rem;
-  }
-  .home_center{
-    background: #F5B81A url('../../assets/img/home/yellow_bg.png') no-repeat 100% / cover;
-    position: relative;
-    padding: 6.25rem 15rem 6.75rem;
-    .proImg{
-      height: 27.5rem;
-      border-radius: 8px;
-      background: url('../../assets/img/product/bg_r.png') no-repeat 100% / cover;
-      img{
-        height: 100%;
-        object-fit: cover;
-      }
     }
   }
   .home_bottom{
