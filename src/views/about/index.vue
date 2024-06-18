@@ -6,7 +6,7 @@
         <p class="title AntonFont about_title">WHY EHONOS</p>
       </div>
     </div> 
-    <div :class="['a_content', index % 2 ===0 ? 'bg_dark':'bg_light']" v-for="(item, index) in isMobile?companyInfo_mb:companyInfo" :key="item.id">
+    <div :class="['a_content', index % 2 ===0 ? 'bg_dark':'bg_light']" v-for="(item, index) in isMobile?companyInfo_mb:companyInfo" :key="item.id" @click="console.log('')">
       <img :src="item.img" alt="">
       </div>
     <!-- <div class="a_content">

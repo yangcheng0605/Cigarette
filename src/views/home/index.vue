@@ -37,7 +37,7 @@
           </div>
           <div class="home_c_contain wow animate__fadeInLeft" data-wow-offset="50">
             <div class="pc_web" v-if="!isMobile">
-              <div class="contain_left" :style="`background: url('${companysImg[currentCompany-1]}') no-repeat center/cover;`">
+              <div class="contain_left" :style="`background: url('${companysImg[currentCompany-1]}') no-repeat 100%/100%;`">
               </div>
               <div class="contain_right">
                 <div :class="['contain_list', currentCompany==item.id?'active':'']" v-for="item in companys" :key="item.id" @mouseenter="chooseCompany(item)">
@@ -273,6 +273,9 @@ import { useRouter } from 'vue-router';
         state[`swiper${e}`].slideNext(500, res=>{
         })
       };
+      const contact = () => {
+        console.log(1111)
+      };
       return {
         ...toRefs(state),
         onSwiper,
@@ -282,6 +285,7 @@ import { useRouter } from 'vue-router';
         sildePre,
         sildeNext,
         changeTab,
+        contact,
       };
     },
   };
