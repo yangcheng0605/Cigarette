@@ -37,7 +37,7 @@
           </div>
           <div class="home_c_contain wow animate__fadeInLeft" data-wow-offset="50">
             <div class="pc_web" v-if="!isMobile">
-              <div class="contain_left" :style="`background: url('${companysImg[currentCompany-1]}') no-repeat 100%/100%;`">
+              <div class="contain_left" :style="`background: url('${companysImg[currentCompany-1]}') no-repeat 100%/cover;`">
               </div>
               <div class="contain_right">
                 <div :class="['contain_list', currentCompany==item.id?'active':'']" v-for="item in companys" :key="item.id" @mouseenter="chooseCompany(item)">
@@ -47,11 +47,12 @@
             </div>
             <div v-else>
               <div class="contain_top">
-                <div :class="['contain_list', currentCompany==item.id?'active':'']" v-for="item in companys" :key="item.id" @mouseenter="chooseCompany(item)" :style="`background: rgba(17, 17, 17, 1) url('${currentCompany==item.id?require(`@/assets/img/home/mbnav_in_${currentCompany}.png`):require(`@/assets/img/home/mbnav_out_${currentCompany}.png`)}') no-repeat 100%/100%;`">
+                <div :class="['contain_list', currentCompany==item.id?'active':'']" v-for="item in companys" :key="item.id" @mouseenter="chooseCompany(item)" :style="`background: rgba(17, 17, 17, 1) url('${currentCompany==item.id?require(`@/assets/img/home/mbnav_in_${currentCompany}.png`):require(`@/assets/img/home/mbnav_out_${currentCompany}.png`)}') no-repeat 100%/cover;`">
                   <p>{{ item.name }}</p>
                 </div>
               </div>
-              <div class="contain_bottom" :style="`height: ${companysImg_mb[currentCompany-1].height}rem;background: url('${companysImg_mb[currentCompany-1].img}') no-repeat center/cover;`">
+              <div class="contain_bottom" >
+                <img :src="companysImg_mb[currentCompany-1].img" alt="" :style="`height: ${companysImg_mb[currentCompany-1].height}rem`">
               </div>
             </div>
           </div>
@@ -409,7 +410,7 @@ import { useRouter } from 'vue-router';
         border-radius: .5rem;
         transition: .5s;
         &:hover{
-          border-radius: 2rem;
+          border-radius: 1.5625rem;
         }
         img{
           width: 100%;
