@@ -1,23 +1,14 @@
 <template>
   <div class="about">
     <div class="top_banner2">
-      <img src="@/assets/img/about/about_banner.png" alt="">
+      <img src="@/assets/img/about/about_banner.webp" alt="">
       <div class="t_box">
         <p class="title AntonFont about_title">WHY EHONOS</p>
       </div>
     </div> 
-    <div class="a_content bg_dark">
-      <img src="@/assets/img/about/about_banner.png" alt="">
+    <div :class="['a_content', index % 2 ===0 ? 'bg_dark':'bg_light']" v-for="(item, index) in isMobile?companyInfo_mb:companyInfo" :key="item.id">
+      <img :src="item.img" alt="">
       </div>
-    <div class="a_content bg_light">
-      <img src="@/assets/img/about/about_banner.png" alt="">
-    </div>
-    <div class="a_content bg_dark">
-      <img src="@/assets/img/about/about_banner.png" alt="">
-      </div>
-    <div class="a_content bg_light">
-      <img src="@/assets/img/about/about_banner.png" alt="">
-    </div>
     <!-- <div class="a_content">
       <div class="a_top_box">
         <div class="a_c_left wow animate__fadeInLeft" data-wow-offset="50">
@@ -69,12 +60,19 @@ import { getCurrentInstance, nextTick, onMounted, reactive, toRefs } from 'vue';
       const { proxy } = getCurrentInstance();
       const state = reactive({
         gutter: 30,
-        // companyInfo:[
-        //   { id: 1, img: require('@/assets/img/c_info_1.png')},
-        //   { id: 2, img: require('@/assets/img/c_info_2.png')},
-        //   { id: 3, img: require('@/assets/img/c_info_3.png')},
-        //   { id: 4, img: require('@/assets/img/c_info_4.png')},
-        // ],
+        isMobile: false,
+        companyInfo:[
+          { id: 1, img: require('@/assets/img/about/companyInfo_1.webp')},
+          { id: 2, img: require('@/assets/img/about/companyInfo_2.webp')},
+          { id: 3, img: require('@/assets/img/about/companyInfo_3.webp')},
+          { id: 4, img: require('@/assets/img/about/companyInfo_4.webp')},
+        ],
+        companyInfo_mb:[
+          { id: 1, img: require('@/assets/img/home/companyInfo_mb_1.webp')},
+          { id: 2, img: require('@/assets/img/home/companyInfo_mb_2.webp')},
+          { id: 3, img: require('@/assets/img/home/companyInfo_mb_3.webp')},
+          { id: 4, img: require('@/assets/img/home/companyInfo_mb_4.webp')},
+        ],
       })
 
       onMounted(async () => { 
@@ -99,8 +97,10 @@ import { getCurrentInstance, nextTick, onMounted, reactive, toRefs } from 'vue';
         const windowWidth = window.innerWidth;
        if (windowWidth < 750) {
           state.gutter = [15, 15]
-        } else {
-          state.gutter = 30
+          state.isMobile = true
+          } else {
+            state.gutter = 30
+            state.isMobile = false
         }
       };
       const onSwiper = (swiper) => {
@@ -132,10 +132,10 @@ import { getCurrentInstance, nextTick, onMounted, reactive, toRefs } from 'vue';
   }
 }
 .bg_dark{
-  background: rgba(245, 184, 26, .08) url('../../assets/img/about/bg_dark.png') no-repeat center/cover;
+  background: rgba(245, 184, 26, .1) url('../../assets/img/about/bg_dark.png') no-repeat center/cover;
 }
 .bg_light{
-  background: rgba(245, 184, 26, .04) url('../../assets/img/about/bg_light.png') no-repeat center/cover;
+  background: rgba(245, 184, 26, .03) url('../../assets/img/about/bg_light.png') no-repeat center/cover;
 }
 // .a_top_box{
 //   display: flex;

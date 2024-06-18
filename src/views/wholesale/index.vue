@@ -1,7 +1,7 @@
 <template>
   <div class="wholesale">
     <div class="top_banner2">
-      <img src="@/assets/img/about/wholesale_banner.png" alt="">
+      <img src="@/assets/img/about/wholesale_banner.webp" alt="">
       <div class="t_box">
         <p class="text_1">BECOME A WHOLESALER</p>
         <p class="title AntonFont">How can we help you?</p>
@@ -12,7 +12,7 @@
       <a-row :gutter="30">
       <a-col class="gutter-row" :xs="24" :sm="24" :md="8">
         <div class="gutter-box hoverBox wow animate__bounceIn" data-wow-offset="50" @click="contact(1)">
-          <img class="hoverImg" src="@/assets/img/about/img_1.png" alt="">
+          <img class="hoverImg" src="@/assets/img/about/img_1.webp" alt="">
           <div class="a_text">
             <p class="a_title AntonFont">Support</p>
             <p class="a_title AntonFont">Customer Service</p>
@@ -22,7 +22,7 @@
       </a-col>
       <a-col class="gutter-row" :xs="24" :sm="24" :md="8">
         <div class="gutter-box hoverBox wow animate__bounceIn" data-wow-offset="50" @click="contact(2)">
-          <img class="hoverImg" src="@/assets/img/about/img_2.png" alt="">
+          <img class="hoverImg" src="@/assets/img/about/img_2.webp" alt="">
           <div class="a_text">
             <p class="a_title AntonFont">Sales Become</p>
             <p class="a_title AntonFont">an Authorized</p>
@@ -33,7 +33,7 @@
       </a-col>
       <a-col class="gutter-row" :xs="24" :sm="24" :md="8">
         <div class="gutter-box hoverBox wow animate__bounceIn" data-wow-offset="50" @click="contact(2)">
-          <img class="hoverImg" src="@/assets/img/about/img_3.png" alt="">
+          <img class="hoverImg" src="@/assets/img/about/img_3.webp" alt="">
           <div class="a_text">
             <p class="a_title AntonFont">Marketing</p>
             <p class="a_title AntonFont">Co-Marketing</p>

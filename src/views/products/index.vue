@@ -1,7 +1,7 @@
 <template>
   <div class="products">
     <div class="top_banner">
-      <img src="@/assets/img/product/banner_top.png" alt="">
+      <img src="@/assets/img/product/banner_top.webp" alt="">
       <div class="t_box">
         <p class="title AntonFont">PRODUCTS</p>
       </div>

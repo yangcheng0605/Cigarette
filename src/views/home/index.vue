@@ -172,16 +172,16 @@ import { useRouter } from 'vue-router';
           { id: 4, name: 'Company story'},
         ],
         companysImg:[
-          require('@/assets/img/home/live_1.png'),
-          require('@/assets/img/home/live_2.png'),
-          require('@/assets/img/home/live_3.png'),
-          require('@/assets/img/home/live_4.png'),
+          require('@/assets/img/home/companyInfo_1.webp'),
+          require('@/assets/img/home/companyInfo_2.webp'),
+          require('@/assets/img/home/companyInfo_3.webp'),
+          require('@/assets/img/home/companyInfo_4.webp'),
         ],
         companysImg_mb:[
-          { id: 1, img: require('@/assets/img/home/live_1.png'), height:'31.5'},
-          { id: 2, img: require('@/assets/img/home/live_2.png'), height:'61.25'},
-          { id: 3, img: require('@/assets/img/home/live_3.png'), height:'28'},
-          { id: 4, img: require('@/assets/img/home/live_4.png'), height:'46.75'},
+          { id: 1, img: require('@/assets/img/home/companyInfo_mb_1.webp'), height:'31.5'},
+          { id: 2, img: require('@/assets/img/home/companyInfo_mb_2.webp'), height:'61.25'},
+          { id: 3, img: require('@/assets/img/home/companyInfo_mb_3.webp'), height:'28'},
+          { id: 4, img: require('@/assets/img/home/companyInfo_mb_4.webp'), height:'46.75'},
         ],
         mpType:[
           { cateId: 1, cateName: 'Our Recommendations'},
@@ -240,7 +240,6 @@ import { useRouter } from 'vue-router';
       };
       const chooseCompany = (res) => {
         state.currentCompany = res.id
-        console.log(res.id)
       };
       const changeTab = (res) => {
          getProductListByCate(res)
@@ -403,8 +402,11 @@ import { useRouter } from 'vue-router';
       .contain_left{
         width: 100%;
         height: 37.5rem;
-        border-radius: 2rem;
+        border-radius: .5rem;
         transition: .5s;
+        &:hover{
+          border-radius: 2rem;
+        }
         img{
           width: 100%;
           height: 100%;
