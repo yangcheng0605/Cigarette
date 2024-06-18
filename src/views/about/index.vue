@@ -120,7 +120,7 @@ import { getCurrentInstance, nextTick, onMounted, reactive, toRefs } from 'vue';
 <style lang="less">
 .a_content{
   padding: 7.5rem 15rem;
-  img{
+  &>img{
     width: 90rem;
     height: 37.5rem;
     border-radius: .5rem;
