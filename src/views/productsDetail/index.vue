@@ -175,7 +175,7 @@ import 'swiper/css';
       width: 2.5rem;
       height: 2.5rem;
       position: absolute;
-      top: 25%;
+      top: 34%;
       cursor: pointer;
     }
     .custom_sildePre{
