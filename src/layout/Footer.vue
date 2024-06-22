@@ -37,7 +37,7 @@
                           </a>
                           <a class="icon_meida icon_ins" target="_blank" href="https://www.instagram.com/ehonosvape/?hl=zh-tw">
                           </a>
-                          <a class="icon_meida icon_tiktok" target="_blank" href="#">
+                          <a class="icon_meida icon_tiktok" target="_blank" href="https://www.tiktok.com/@EHONOSVAPE?fbclid=IwZXh0bgNhZW0CMTAAAR3e-wb7hFzzArYjVF8i2Oa5iFbwX84_SuC7jihWXeK82RoZ2FX1rrtqex0_aem_HVqkFHYXAPa0hNBD5pDUHA">
                           </a>
                           <a class="icon_meida icon_youtube" target="_blank" href="https://www.youtube.com/@EHONOSVAPE">
                           </a>
@@ -67,7 +67,7 @@
                   </a>
                   <a class="icon_meida icon_ins_y" target="_blank" href="https://www.instagram.com/ehonosvape/?hl=zh-tw">
                   </a>
-                  <a class="icon_meida icon_tiktok_y" target="_blank" href="#">
+                  <a class="icon_meida icon_tiktok_y" target="_blank" href="https://www.tiktok.com/@EHONOSVAPE?fbclid=IwZXh0bgNhZW0CMTAAAR3e-wb7hFzzArYjVF8i2Oa5iFbwX84_SuC7jihWXeK82RoZ2FX1rrtqex0_aem_HVqkFHYXAPa0hNBD5pDUHA">
                   </a>
                   <a class="icon_meida icon_youtube_y" target="_blank" href="https://www.youtube.com/@EHONOSVAPE">
                   </a>
