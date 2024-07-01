@@ -139,22 +139,22 @@ import { useRouter } from 'vue-router';
   }
   .center{
     text-align: center;
-  }
-  .more{
-    margin-top: 3.75rem;
-    width: 12.5rem;
-    height: 4.125rem;
-    border-radius: 2.0625rem;
-    border: 0.125rem solid #111;
-    font-weight: 500;
-    font-size: 1.5rem;
-    color: #111;
-    line-height: 1.5rem;
-    transition: .3s;
-    background: transparent;
-    &:hover{
-      background: #111;
-      color: #F5B81A;
+    .more{
+      margin-top: 3.75rem;
+      width: 12.5rem;
+      height: 4.125rem;
+      border-radius: 2.0625rem;
+      border: 0.125rem solid #111;
+      font-weight: 500;
+      font-size: 1.5rem;
+      color: #111;
+      line-height: 1.5rem;
+      transition: .3s;
+      background: transparent;
+      &:hover{
+        background: #111;
+        color: #F5B81A;
+      }
     }
   }
 }
