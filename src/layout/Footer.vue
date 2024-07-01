@@ -19,14 +19,14 @@
                         </div>
                     </div>
                     <div class="fi2_item">
-                        <div class="ft_title"><a href="/#/wholesale">Wholesaler</a></div>
-                    </div>
-                    <div class="fi2_item">
                         <div class="ft_title"><a href="/#/about">About Us</a></div>
                         <div class="fi2_text">
                             <div><a href="/#/contact">&gt; Contact Us</a></div>
                             <div><a href="/#/about">&gt; Why Ehonos</a></div>
                         </div>
+                    </div>
+                    <div class="fi2_item">
+                        <div class="ft_title"><a href="/#/wholesale">Blog</a></div>
                     </div>
                 </div>
                 <div class="fi2_right">
@@ -94,9 +94,7 @@
               </a-collapse-panel>
             </a-collapse>
           </div>
-          <div class="Fnav">
-            <a href="/#/wholesale">WHOLESALE</a>
-          </div>
+        
           <div class="Fnav">
             <a-collapse ghost accordion>
               <a-collapse-panel class="white_Mnav" header="ABOUT US" :show-arrow="false">
@@ -107,6 +105,9 @@
                 </div>
               </a-collapse-panel>
             </a-collapse>
+          </div>
+          <div class="Fnav">
+            <a href="/#/wholesale">BLOG</a>
           </div>
           <!-- <div class="Fnav">
             <a href="/#/about">ABOUT US</a>

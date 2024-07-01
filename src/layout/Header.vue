@@ -118,11 +118,6 @@
                   </div>
                 </a-collapse-panel>
                 <p class="Mnav" >
-                  <a href="/#/wholesale" @click="show=false">
-                    WHOLESALE
-                  </a>
-                </p>
-                <p class="Mnav" >
                   <a href="/#/contact" @click="show=false">
                   CONTACT US
                 </a>
@@ -130,6 +125,11 @@
                 <p class="Mnav" >
                   <a href="/#/about" @click="show=false">
                     ABOUT US
+                  </a>
+                </p>
+                <p class="Mnav" >
+                  <a href="/#/wholesale" @click="show=false">
+                    BLOG
                   </a>
                 </p>
               </a-collapse>
@@ -164,9 +164,9 @@ export default {
       navList: [
         {name: 'HOME', path: '/home', active: false},
         {name: 'PRODUCTS', path: '/products', active: false},
-        {name: 'WHOLESALE', path: '/wholesale', active: false},
-        {name: 'ABOUT US', path: '/about', active: false},
         {name: 'CONTACT US', path: '/contact', active: false},
+        {name: 'ABOUT US', path: '/about', active: false},
+        {name: 'BLOG', path: '/wholesale', active: false},
       ],
       proIndex: 2,
       mpType:[
