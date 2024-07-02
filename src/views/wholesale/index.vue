@@ -9,16 +9,16 @@
     <div class="a_content">
       <a-spin :spinning="spinning">
         <a-row :gutter="gutter" v-if="blogData && blogData.length>0">
-          <a-col class="gutter-row" :span='colSpan' v-for="item in blogData" :key='item.id'>
+          <a-col class="gutter-row" :span='colSpan' v-for="item in blogData" :key='item.nId'>
             <div class="gutter-box wow animate__bounceIn" data-wow-offset="50" @click="toDetail(item)" >
               <div class="proImg">
-                <img :src="item.img" alt="">
+                <img :src="item.imageUrl" alt="">
               </div>
               <div class="blog_content">
-                <p class="blog_name">{{ item.title }}</p>
+                <p class="blog_name">{{ item.nDesc }}</p>
                 <div class="publish_box">
-                  <div class="publish_user"><img src="@/assets/img/publish_user_w.png" alt=""><span>{{item.user}}</span></div>
-                  <div><img src="@/assets/img/publish_time_w.png" alt=""><span>{{item.time}}</span></div>
+                  <div class="publish_user"><img src="@/assets/img/publish_user_w.png" alt=""><span>{{item.aAddress}}</span></div>
+                  <div><img src="@/assets/img/publish_time_w.png" alt=""><span>{{item.createTime}}</span></div>
                 </div>
               </div>
             </div>
@@ -43,15 +43,10 @@ import { useRouter } from 'vue-router';
       const router = useRouter()
       const { proxy } = getCurrentInstance();
       const state = reactive({
-        blogData: [
-          {id: 1, img: require('@/assets/img/blog/image-BLOG-1.webp'), title: 'EHONOS at the TPE 2024 Expo and Rave Reviews!', time: '21.06.2024', user:'EHONOS'},
-          {id: 2, img: require('@/assets/img/blog/image-BLOG-2.webp'), title: 'ODB & NEX JUICE launch the joint version of Magic Maze Pro Magic sdsdsd', time: '20.06.2024', user:'EHONOS'},
-          {id: 3, img: require('@/assets/img/blog/image-BLOG-3.webp'), title: 'World Vape Show Paraguay 2024!', time: '19.06.2024', user:'EHONOS'},
-          {id: 4, img: require('@/assets/img/blog/image-BLOG-4.webp'), title: 'World Vape Show Paraguay 2024!', time: '18.06.2024', user:'EHONOS'},
-          {id: 5, img: require('@/assets/img/blog/image-BLOG-5.webp'), title: 'EHONOS at the TPE 2024 Expo and Rave Reviews!', time: '17.06.2024', user:'EHONOS'},
-          {id: 6, img: require('@/assets/img/blog/image-BLOG-6.webp'), title: 'ODB & NEX JUICE launch the joint version of Magic Maze Pro Magic sdsdsd', time: '16.06.2024', user:'EHONOS'},
-        ],
+        blogData: [],
         colSpan: 8,
+        pageNum: 1,
+        pageSize: 1,
         gutter: [30, 30],
         spinning: false, 
       })
@@ -59,8 +54,17 @@ import { useRouter } from 'vue-router';
         nextTick(() => {
           handleResize();
           window.addEventListener('resize', handleResize);
+           getBlogList()
         })
       })
+      const getBlogList = () => {
+        proxy.$api.blogList({pageNum: state.pageNum, pageSize: state.pageSize}).then(res=>{
+          if (res.rows && res.rows.length>0) {
+            state.blogData =  state.blogData.concat(res.rows)
+            state.pageNum += 1 
+          }
+        })
+      };
       const handleResize = () => {
         const windowWidth = window.innerWidth;
        if (windowWidth < 750) {
@@ -72,17 +76,10 @@ import { useRouter } from 'vue-router';
         }
       };
       const toDetail = (res) => {
-        router.push('/blogDetails?id=' + res.id);
+        router.push('/blogDetails?nId=' + res.nId);
       };
       const handleMore = (res) => {
-        const obj = {
-          id: 7, 
-          img: require('@/assets/img/home/live_1.png'), 
-          title: 'ODB & NEX JUICE launch the joint version of Magic Maze Pro Magic sdsdsd', 
-          time: '15.06.2024', 
-          user:'EHONOS'
-        }
-        state.blogData.push(obj)
+        getBlogList()
       };
     
       return {

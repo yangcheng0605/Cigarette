@@ -1,38 +1,49 @@
 <template>
   <div class="blog_detail">
     <div class="detail_box">
-      <div class="blog_top">
-        <p class="title">{{ content.title }}</p>
+      <div class="blog_top" v-if="content">
+        <p class="title">{{ content.nDesc }}</p>
         <div class="publish_box">
-          <div class="publish_user"><img src="@/assets/img/publish_user_b.png" alt=""><span>{{content.user}}</span></div>
-          <div><img src="@/assets/img/publish_time_b.png" alt=""><span>{{content.time}}</span></div>
+          <div class="publish_user"><img src="@/assets/img/publish_user_b.png" alt=""><span>{{content.aAddress}}</span></div>
+          <div><img src="@/assets/img/publish_time_b.png" alt=""><span>{{content.createTime}}</span></div>
         </div>
       </div>
-      <div class="blog_content" v-html="content.content"></div>
-      
+      <div class="blog_content" v-if="content" v-html="content.nDetail"></div>
     </div>
   </div>
 </template>
 <script>
-import { getCurrentInstance, nextTick, onMounted, reactive, toRefs } from 'vue';
+import { getCurrentInstance, nextTick, onMounted, reactive, toRefs, watch } from 'vue';
+import { useRoute } from 'vue-router';
   export default {
     name: "contact",
     components: {
     },
     setup() {
+      const route = useRoute()
       const { proxy } = getCurrentInstance();
       const state = reactive({
-        content:{
-          title: 'EHONOS at the TPE 2024 Expo and Rave Reviews!',
-          user: 'EHONOS',
-          time: '21.06.2024',
-          content: 'Resounding success of our beloved Magic Maze Pro.'
-        }
+        nId: null,
+        content: null
       })
       onMounted(async () => { 
         nextTick(() => {
         })
       })
+      const getBlogDetail = () => {
+        proxy.$api.blogDetail(state.nId).then(res=>{
+          state.content = res
+        })
+      };
+      watch(route, (e) => {
+        const query = e.query
+        if (query.nId) {
+          state.nId = route.query.nId
+          nextTick(() => {
+            getBlogDetail()
+          })
+        }
+      }, { immediate: true })
       return {
         ...toRefs(state),
       };
@@ -75,7 +86,7 @@ import { getCurrentInstance, nextTick, onMounted, reactive, toRefs } from 'vue';
     font-size: 1.25rem;
     line-height: 1.875rem;
     img{
-      width: 100%;
+      width: 100% !important;
       height: 35.125rem;
       object-fit: cover;
       margin: 2.5rem 0;
