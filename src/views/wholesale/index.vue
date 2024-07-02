@@ -26,7 +26,7 @@
         </a-row>
         <a-empty v-else />
       </a-spin>
-      <div class="center">
+      <div class="center" v-if="showButton">
         <a-button class="more" shape="round" @click="handleMore">More</a-button>
       </div>
     </div>
@@ -49,6 +49,7 @@ import { useRouter } from 'vue-router';
         pageSize: 6,
         gutter: [30, 30],
         spinning: false, 
+        showButton: true, 
       })
       onMounted(async () => { 
         nextTick(() => {
@@ -62,6 +63,11 @@ import { useRouter } from 'vue-router';
           if (res.rows && res.rows.length>0) {
             state.blogData =  state.blogData.concat(res.rows)
             state.pageNum += 1 
+            if (state.blogData.length === res.total) {
+              state.showButton = false
+            } else {
+              state.showButton = true
+            }
           }
         })
       };

@@ -24,7 +24,7 @@ import { useRoute } from 'vue-router';
       const { proxy } = getCurrentInstance();
       const state = reactive({
         nId: null,
-        content: null
+        content: null,
       })
       onMounted(async () => { 
         nextTick(() => {
