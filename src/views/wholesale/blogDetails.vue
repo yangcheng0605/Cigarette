@@ -53,6 +53,7 @@ import { useRoute } from 'vue-router';
 <style lang="less">
 .detail_box{
   padding: 5rem 28.75rem 7.5rem;
+  min-height: 80vh;
   .blog_top{
     padding-bottom: 1.25rem;
     margin-bottom: 3.75rem;

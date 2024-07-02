@@ -46,7 +46,7 @@ import { useRouter } from 'vue-router';
         blogData: [],
         colSpan: 8,
         pageNum: 1,
-        pageSize: 1,
+        pageSize: 6,
         gutter: [30, 30],
         spinning: false, 
       })
