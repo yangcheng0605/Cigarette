@@ -1,7 +1,7 @@
 <template>
   <div class="wholesale">
-    <div class="top_banner2">
-      <img src="@/assets/img/about/contact_banner.webp" alt="">
+    <div class="top_banner">
+      <img src="@/assets/img/about/blog_banner.webp" alt="">
       <div class="t_box">
         <p class="title AntonFont">BLOG</p>
       </div>
@@ -11,8 +11,8 @@
         <a-row :gutter="gutter" v-if="blogData && blogData.length>0">
           <a-col class="gutter-row" :span='colSpan' v-for="item in blogData" :key='item.id'>
             <div class="gutter-box wow animate__bounceIn" data-wow-offset="50" @click="toDetail(item)" >
-              <div class="hoverBox proImg">
-                <img class="hoverImg" :src="item.img" alt="">
+              <div class="proImg">
+                <img :src="item.img" alt="">
               </div>
               <div class="blog_content">
                 <p class="blog_name">{{ item.title }}</p>
@@ -44,12 +44,12 @@ import { useRouter } from 'vue-router';
       const { proxy } = getCurrentInstance();
       const state = reactive({
         blogData: [
-          {id: 1, img: require('@/assets/img/home/live_1.png'), title: 'EHONOS at the TPE 2024 Expo and Rave Reviews!', time: '21.06.2024', user:'EHONOS'},
-          {id: 2, img: require('@/assets/img/home/live_4.png'), title: 'ODB & NEX JUICE launch the joint version of Magic Maze Pro Magic sdsdsd', time: '20.06.2024', user:'EHONOS'},
-          {id: 3, img: require('@/assets/img/home/live_1.png'), title: 'World Vape Show Paraguay 2024!', time: '19.06.2024', user:'EHONOS'},
-          {id: 4, img: require('@/assets/img/home/live_4.png'), title: 'World Vape Show Paraguay 2024!', time: '18.06.2024', user:'EHONOS'},
-          {id: 5, img: require('@/assets/img/home/live_1.png'), title: 'EHONOS at the TPE 2024 Expo and Rave Reviews!', time: '17.06.2024', user:'EHONOS'},
-          {id: 6, img: require('@/assets/img/home/live_4.png'), title: 'ODB & NEX JUICE launch the joint version of Magic Maze Pro Magic sdsdsd', time: '16.06.2024', user:'EHONOS'},
+          {id: 1, img: require('@/assets/img/blog/image-BLOG-1.webp'), title: 'EHONOS at the TPE 2024 Expo and Rave Reviews!', time: '21.06.2024', user:'EHONOS'},
+          {id: 2, img: require('@/assets/img/blog/image-BLOG-2.webp'), title: 'ODB & NEX JUICE launch the joint version of Magic Maze Pro Magic sdsdsd', time: '20.06.2024', user:'EHONOS'},
+          {id: 3, img: require('@/assets/img/blog/image-BLOG-3.webp'), title: 'World Vape Show Paraguay 2024!', time: '19.06.2024', user:'EHONOS'},
+          {id: 4, img: require('@/assets/img/blog/image-BLOG-4.webp'), title: 'World Vape Show Paraguay 2024!', time: '18.06.2024', user:'EHONOS'},
+          {id: 5, img: require('@/assets/img/blog/image-BLOG-5.webp'), title: 'EHONOS at the TPE 2024 Expo and Rave Reviews!', time: '17.06.2024', user:'EHONOS'},
+          {id: 6, img: require('@/assets/img/blog/image-BLOG-6.webp'), title: 'ODB & NEX JUICE launch the joint version of Magic Maze Pro Magic sdsdsd', time: '16.06.2024', user:'EHONOS'},
         ],
         colSpan: 8,
         gutter: [30, 30],
@@ -101,10 +101,16 @@ import { useRouter } from 'vue-router';
     cursor: pointer;
     .proImg{
       border-radius: 1rem;
+      overflow: hidden;
       img{
+        border-radius: 1rem;
         width: 28.75rem;
         height: 21.25rem;
         object-fit: cover;
+        transition: .3s;
+        &:hover{
+          transform: scale(1.1);
+        }
       }
     }
     .blog_content{
@@ -114,10 +120,15 @@ import { useRouter } from 'vue-router';
       color: #FFF;
       .blog_name{
         font-weight: 500;
-        font-size: 1.125rem;
-        line-height: 1.375rem;
-        margin-bottom: 2.625rem;
-        height: 2.75rem;
+        font-size: 1.5rem;
+        line-height: 1.875rem;
+        margin-bottom: 1.5rem;
+        height: 3.75rem;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
       img{
         width: 1rem;

@@ -1,6 +1,6 @@
 <template>
   <div class="about">
-    <div class="top_banner2">
+    <div class="top_banner">
       <img src="@/assets/img/about/about_banner.webp" alt="">
       <div class="t_box">
         <p class="title AntonFont about_title">WHY EHONOS</p>

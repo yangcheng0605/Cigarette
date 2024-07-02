@@ -9,6 +9,7 @@
         </div>
       </div>
       <div class="blog_content" v-html="content.content"></div>
+      
     </div>
   </div>
 </template>
@@ -73,6 +74,12 @@ import { getCurrentInstance, nextTick, onMounted, reactive, toRefs } from 'vue';
     color: #111;
     font-size: 1.25rem;
     line-height: 1.875rem;
+    img{
+      width: 100%;
+      height: 35.125rem;
+      object-fit: cover;
+      margin: 2.5rem 0;
+    }
   }
 }
 </style>

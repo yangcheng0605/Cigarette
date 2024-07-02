@@ -1,8 +1,7 @@
 <template>
   <div class="contact">
     <div class="top_banner">
-      <img src="@/assets/img/about/wholesale_banner.webp" alt="">
-      <!-- <img src="@/assets/img/about/contact_banner.webp" alt=""> -->
+      <img src="@/assets/img/about/contact_banner.webp" alt="">
       <div class="t_box">
         <p class="title AntonFont">SUPPORT</p>
       </div>
