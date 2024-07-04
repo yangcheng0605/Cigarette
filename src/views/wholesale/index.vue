@@ -6,7 +6,7 @@
         <p class="title AntonFont">BLOG</p>
       </div>
     </div> 
-    <div class="a_content">
+    <div class="a_content w_content">
       <a-spin :spinning="spinning">
         <a-row :gutter="gutter" v-if="blogData && blogData.length>0">
           <a-col class="gutter-row" :span='colSpan' v-for="item in blogData" :key='item.nId'>
@@ -18,7 +18,7 @@
                 <p class="blog_name">{{ item.nDesc }}</p>
                 <div class="publish_box">
                   <div class="publish_user"><img src="@/assets/img/publish_user_w.png" alt=""><span>{{item.aAddress}}</span></div>
-                  <div><img src="@/assets/img/publish_time_w.png" alt=""><span>{{item.createTime}}</span></div>
+                  <div><img src="@/assets/img/publish_time_w.png" alt=""><span>{{handleTime(item.aTime)}}</span></div>
                 </div>
               </div>
             </div>
@@ -75,7 +75,7 @@ import { useRouter } from 'vue-router';
         const windowWidth = window.innerWidth;
        if (windowWidth < 750) {
           state.colSpan = 24;
-          state.gutter = 20
+          state.gutter = [0, 20]
         } else {
           state.colSpan = 8;
           state.gutter = [30, 30]
@@ -87,17 +87,26 @@ import { useRouter } from 'vue-router';
       const handleMore = (res) => {
         getBlogList()
       };
-    
+      const handleTime = (time) => {
+        const date = new Date(time);
+        const year = date.getFullYear(); // 年份
+        const month = String(date.getMonth() + 1).padStart(2, '0'); // 月份（转为字符串，并补0）
+        const day = String(date.getDate()).padStart(2, '0'); // 日期（转为字符串，并补0）
+        const formattedDate = `${year}-${month}-${day}`;
+        return formattedDate
+      };
+      
       return {
         ...toRefs(state),
         toDetail,
-        handleMore
+        handleMore,
+        handleTime
       };
     },
   };
 </script>
 <style lang="less">
-.a_content{
+.w_content{
   .gutter-box{
     border-radius: 1rem;
     background: #333;

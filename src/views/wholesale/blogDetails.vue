@@ -5,7 +5,7 @@
         <p class="title">{{ content.nDesc }}</p>
         <div class="publish_box">
           <div class="publish_user"><img src="@/assets/img/publish_user_b.png" alt=""><span>{{content.aAddress}}</span></div>
-          <div><img src="@/assets/img/publish_time_b.png" alt=""><span>{{content.createTime}}</span></div>
+          <div><img src="@/assets/img/publish_time_b.png" alt=""><span>{{handleTime(content.aTime)}}</span></div>
         </div>
       </div>
       <div class="blog_content" v-if="content" v-html="content.nDetail"></div>
@@ -35,6 +35,14 @@ import { useRoute } from 'vue-router';
           state.content = res
         })
       };
+      const handleTime = (time) => {
+        const date = new Date(time);
+        const year = date.getFullYear(); // 年份
+        const month = String(date.getMonth() + 1).padStart(2, '0'); // 月份（转为字符串，并补0）
+        const day = String(date.getDate()).padStart(2, '0'); // 日期（转为字符串，并补0）
+        const formattedDate = `${year}-${month}-${day}`;
+        return formattedDate
+      };
       watch(route, (e) => {
         const query = e.query
         if (query.nId) {
@@ -46,6 +54,7 @@ import { useRoute } from 'vue-router';
       }, { immediate: true })
       return {
         ...toRefs(state),
+        handleTime
       };
     },
   };
